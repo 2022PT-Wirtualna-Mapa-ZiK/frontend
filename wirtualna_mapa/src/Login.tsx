@@ -123,6 +123,7 @@ const Login = () => {
         payload: 'Incorrect username or password'
       });
     }
+    console.log(`User name: ${state.username}, User password: ${state.password}`);
   };
 
   const handleKeyPress = (event: React.KeyboardEvent) => {
