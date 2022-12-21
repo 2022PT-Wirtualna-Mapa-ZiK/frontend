@@ -9,6 +9,7 @@ function App() {
   return (
     <React.Fragment>
     <div className="App">
+      <header><Nav/></header>
       <SignUp/>
       {/* <Login/> */}
     </div>
