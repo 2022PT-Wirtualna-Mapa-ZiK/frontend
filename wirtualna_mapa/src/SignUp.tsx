@@ -9,7 +9,6 @@ export class SignUp extends React.Component{
             <div className='form-wrapper'>
                <h2>Sign Up</h2>
                <form onSubmit={this.handleSubmit} noValidate >
-                  
                   <div className='email'>
                      <label htmlFor="email">Email</label>
                      <input type='email' name='email' onChange={this.handleChange}/>
@@ -21,7 +20,9 @@ export class SignUp extends React.Component{
                   <div className='password'>
                      <label htmlFor="password">Re-type Password</label>
                      <input type='password' name='password' onChange={this.handleChange}/>
-                  </div>              
+                  </div>
+                  <label>already got an account?</label>
+                  <a href='/login'>Log in</a>
                   <div className='submit'>
                      <button type="submit">Register Me</button>
                   </div>

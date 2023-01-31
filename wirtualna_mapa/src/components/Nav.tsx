@@ -9,6 +9,8 @@ type Link = {
     href: string;
 };
 
+// pobranie linkow z pliku links.json i zaladowanie ich do tablicy
+
 const Links: React.FC<{ links: Link[] }> = ({ links }) => {
     return (
         <div className={styles['links-container']}>
@@ -25,11 +27,13 @@ const Links: React.FC<{ links: Link[] }> = ({ links }) => {
     )
 };
 
+
+//utworzenie naglowka strony z logo i linkami
 const Nav: React.FC<{}> = () => {
     return (
         <nav className={styles.navbar}>
             <div className={styles['logo-container']}>
-                <span>Logo</span>
+                <span>WMZiK</span>
             </div>
             <Links links={links} />
         </nav>
