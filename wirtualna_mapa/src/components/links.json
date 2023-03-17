@@ -11,6 +11,10 @@
         {
             "label": "Contact",
             "href": "/contact"
+        },
+        {
+            "label": "Welcome",
+            "href": "/welcome"
         }
     ]
 }
