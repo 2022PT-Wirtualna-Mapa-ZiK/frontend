@@ -1,33 +1,42 @@
-import React, { useReducer, useEffect } from 'react';
+import { link } from "fs";
+import path from "path";
+import React from "react";
+import './style.css';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
-import TextField from '@material-ui/core/TextField';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import CardHeader from '@material-ui/core/CardHeader';
-import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    container: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      width: 400,
-      margin: `${theme.spacing(0)} auto`
-    },
-    loginBtn: {
-      marginTop: theme.spacing(2),
-      flexGrow: 1
-    },
-    header: {
-      textAlign: 'center',
-      background: '#212121',
-      color: '#fff'
-    },
-    card: {
-      marginTop: theme.spacing(10)
+//utworzenie formularza logowania
+
+export class Login extends React.Component{
+
+    handleChange = (event : any) => {}
+  handleSubmit = (event : any) => {}
+    render() {
+        return (
+          <div className='wrapper'>
+            <div className='form-wrapper'>
+               <h2>Log In</h2>
+               <form onSubmit={this.handleSubmit} noValidate >
+                  <div className='email'>
+                     <label htmlFor="email">Email</label>
+                     <input type='email' name='email' onChange={this.handleChange}/>
+                  </div>
+                  <div className='password'>
+                     <label htmlFor="password">Password</label>
+                     <input type='password' name='password' onChange={this.handleChange}/>
+                  </div>
+                  <a href='/retrieve'>Forgot password?</a>
+                  <div className='submit'>
+                     <button type="submit">Log In</button>
+                  </div>
+             </form>
+         </div>
+      </div>
+     );
     }
+<<<<<<< HEAD:wirtualna_mapa/src/Login.tsx
+}
+=======
   })
 );
 
@@ -182,3 +191,4 @@ const Login = () => {
 }
 
 export default Login;
+>>>>>>> dev:wirtualna_mapa/src/Pages/Login/Login.tsx

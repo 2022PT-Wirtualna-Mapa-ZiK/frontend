@@ -9,7 +9,7 @@ p, div {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(6, 150, 30);
+    background-color: rgb(219, 219, 219);
   }
   
   .form-wrapper {
@@ -59,7 +59,9 @@ p, div {
     font-weight: lighter;
     color: #bbb;
   }
-  
+  a{
+    color:gray;
+  }
   button {
     min-width: 100%;
     cursor: pointer;
