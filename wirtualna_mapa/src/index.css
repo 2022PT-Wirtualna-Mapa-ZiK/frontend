@@ -7,43 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  margin:0;
 }
-.home
-{
-  text-align: center;
-  background-image: url(assets/back2.jpg);
-  background-repeat: no-repeat;
-}
-
-.div-home{
-  position:absolute;
-  right: 5em;
-  top: 7em;
-}
-
-button{
-  background-color: #F65776;
-  font-weight: bolder;
-  font-size: 18px;
-  border-color: #E90C38;
-  margin: 5px;
-  margin-left: 2em;
-  padding-bottom: 1em;
-  padding-top: 1em;
-  padding-left: 1.2em;
-  padding-right: 1.2em;
-  border-radius: 1em;
-  box-shadow: 0.15em 0.15em #2e282a75;
-  transition: 0.5s background-color box-shadow;
-}
-
-button:hover{
-  background-color: #E90C38;
-  box-shadow: inset 0.15em 0.15em #2e282ab9;
-  transition-duration: 1s;
-
-
-}
+* { margin: 0; }
