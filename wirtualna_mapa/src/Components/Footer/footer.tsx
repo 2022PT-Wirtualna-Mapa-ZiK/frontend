@@ -7,12 +7,12 @@ export class Footer extends React.Component {
     return (
 <div className="footer">
   <p className="footer-text-left">
-    <a href="#" className="menu">Home</a>
-    <a href="#" className="menu">About</a> 
-    <a href="#" className="menu">Contact</a>
+    <a href="/gg" className="menu">Home</a>
+    <a href="/hh" className="menu">About</a> 
+    <a href="/hh" className="menu">Contact</a>
   </p>
   <p className="footer-content-right">
-  <a>Politechnika Białostocka WI {new Date().getFullYear()}</a>
+  <p>Politechnika Białostocka WI {new Date().getFullYear()}</p>
   </p>
 </div>
     )

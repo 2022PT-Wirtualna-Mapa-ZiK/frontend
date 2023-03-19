@@ -1,32 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-<<<<<<< HEAD
-import {Login} from './Login';
-import { SignUp } from './SignUp';
-import Nav from './components/Nav';
 
-=======
-import Login from './Pages/Login/Login';
 import { SignUp } from './Pages/SignUp/SignUp';
-import { Footer } from './Components/Footer/footer';
->>>>>>> dev
+import { Footer } from './components/Footer/footer';
+import Nav from './components/Nav/Nav';
+import Home from './Pages/Home/Home';
+import WelcomePage from './Pages/WelcomePage/WelcomePage';
 
 function App() {
   return (
-    <React.Fragment>
     <div className="App">
-<<<<<<< HEAD
-      <Nav/>
-      <Login/>
-=======
-      <header><Nav/></header>
-      <SignUp/>
-      {/* <Login/> */}
->>>>>>> dev
+
+      {/* <WelcomePage /> */}
+      <Home />
+      <Footer/>
+
     </div>
-    <footer><Footer/></footer>
-    </React.Fragment>
   );
 }
 

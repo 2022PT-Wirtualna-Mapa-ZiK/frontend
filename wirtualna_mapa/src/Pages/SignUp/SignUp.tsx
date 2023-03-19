@@ -1,8 +1,7 @@
 import React, { FormEventHandler } from "react";
 import './style.css';
-import InputField from "../../Components/InputField/InputField";
-import SubmitButton from "../../Components/SubmitButton/SubmitButton";
-
+import InputField from "../../components/InputField/InputField";
+import SubmitButton from "../../components/SubmitButton/SubmitButton";
 
 export class SignUp extends React.Component{
    
