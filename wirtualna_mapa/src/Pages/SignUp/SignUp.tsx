@@ -11,15 +11,18 @@ export class SignUp extends React.Component{
         return (
           <div className='wrapper'>
             <div className='form-wrapper'>
-               <h2>Sign Up</h2>
+               <h2>Create new account</h2>
                <form onSubmit={this.handleSubmit} noValidate >
                   
-                  <InputField type="email" label="email" />
+                  <InputField type="email" label="name" />
+                  <InputField type="email" label="surname" />
+                  <InputField type="email" label="Email" />
                   <InputField type="password" label="password" />
-                  <InputField type="password" label="Password confirmation" /> 
+                  <InputField type="password" label="Confirm password" /> 
 
                   <SubmitButton class="submit" label="Register Me" />                  
-
+                  <h3>Already have account?</h3>
+                  <SubmitButton class="submit" label="Sign In!" />   
              </form>
          </div>
       </div>
