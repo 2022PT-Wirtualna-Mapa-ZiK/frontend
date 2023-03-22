@@ -1,5 +1,10 @@
 import React from 'react'
+import path from 'path'
 import './home.css';
+import {useNavigate} from "react-router-dom";
+
+
+
 
 const Home = () => {
   return (
@@ -7,9 +12,8 @@ const Home = () => {
       <div className="div-home">
         <button className="btn-acc">Account</button>
         <button className="btn-log">Log in</button>
+
       </div>
-
-
     </div>
   )
 }
