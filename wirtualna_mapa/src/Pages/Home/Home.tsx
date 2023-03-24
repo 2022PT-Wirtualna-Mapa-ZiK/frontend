@@ -1,5 +1,10 @@
 import React from 'react'
+import path from 'path'
 import './home.css';
+import {useNavigate} from "react-router-dom";
+
+
+
 
 const Home = () => {
 
@@ -21,6 +26,7 @@ const Home = () => {
       <div className="div-home">        
         <button className="btn-acc">Register</button>
         <button className="btn-log">Log in</button>
+
       </div>
       <div className="div-welcome">        
         <p>Welcome!</p>

@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { BrowserRouter as Router, Routes, Route }
+    from "react-router-dom";
+import SignIn from './Pages/SignIn/SignIn';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -9,6 +12,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App />
+    <Router>
+      <Routes>
+        <Route path="/login" element={<SignIn/>}/>
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 
