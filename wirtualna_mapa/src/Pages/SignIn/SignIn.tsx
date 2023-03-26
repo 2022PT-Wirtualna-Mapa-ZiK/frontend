@@ -2,14 +2,34 @@ import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import './signin.css';
-
+import { Navigate } from 'react-router-dom';
 
 const SignIn = () => (
-  <Formik initialValues={{email:"", password:""}}
+  <Formik initialValues={{email:"", password:"",databaseError:""}}
    onSubmit={(values, {setSubmitting})=>{
     setTimeout(() => {
     console.log("Logging in", values);
     setSubmitting(false);
+
+
+    fetch("http://localhost:8000/api/v1/user/login", {
+      method: "POST",
+      headers: {"email": values.email, "password": values.password}
+    }).then((response) =>{
+      if(response.status === 200){
+        window.open("/welcomepage");
+      }
+      else
+      {
+        console.log("There is no such user in the database");
+        values.databaseError="There is no such user in the database";
+      }
+      setSubmitting(true);
+    }).then(data => localStorage.setItem('loginKey', JSON.stringify(data)))
+    .catch(err => {console.log(err);
+    values.databaseError="No database connection"});
+
+
   }, 500);}}
    validationSchema = {Yup.object().shape({
     email:Yup.string()
@@ -62,7 +82,10 @@ const SignIn = () => (
             <div className="input-feedback">{errors.password}</div>
           )}
           <a href='/retrieve'>Forgot password?</a>
-          <button type="submit" disabled={isSubmitting}>Login</button>
+          <button type="submit" onSubmit={function(e) {
+              
+            }}>Login</button>
+          <div className="database-feedback">{values.databaseError}</div>
         </form>
         </div>
       );

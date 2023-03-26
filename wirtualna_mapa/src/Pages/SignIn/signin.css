@@ -96,3 +96,7 @@ p, div {
     display: flex;
     flex-wrap: wrap;
   }
+
+  .database-feedback{
+    color:red;
+  }
