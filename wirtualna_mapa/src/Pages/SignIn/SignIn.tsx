@@ -54,6 +54,8 @@ const SignIn = () => (
       return (
         <div className="wrapper">
         <form className="form-wrapper" onSubmit={handleSubmit}>
+        <h2>Login</h2>
+
           <label htmlFor="email">Email</label>
           <input
             name="email"

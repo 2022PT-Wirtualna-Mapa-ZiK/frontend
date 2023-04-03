@@ -7,17 +7,20 @@ import { BrowserRouter as Router, Routes, Route }
 import SignIn from './Pages/SignIn/SignIn';
 import Home from './Home';
 import WelcomePage from './Pages/WelcomePage/WelcomePage';
+import { SignUp } from './Pages/SignUp/SignUp';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
     <Router>
+    <App />
       <Routes>
         <Route path="/login" element={<SignIn/>}/>
-        <Route path="/welcomepage" element={<WelcomePage/>}/>
+        <Route path="/register" element={<SignUp/>}/>
+        <Route path="/" element={<WelcomePage/>}/>
+        <Route path="/home" element={<Home/>}/>
       </Routes>
     </Router>
   </React.StrictMode>
