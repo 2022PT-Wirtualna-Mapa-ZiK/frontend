@@ -1,7 +1,7 @@
 import React from 'react'
 import path from 'path'
 import './home.css';
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 
 
@@ -24,9 +24,9 @@ const Home = () => {
   return (
     <div className='home'>
       <div className="div-home">        
-        <button className="btn-acc">Register</button>
-        <button className="btn-log">Log in</button>
-
+      <Link to='/register'> <button className="btn-acc">Register</button></Link>
+      <Link to='/login'><button className="btn-acc">Log In!</button></Link>
+        
       </div>
       <div className="div-welcome">        
         <p>Welcome!</p>

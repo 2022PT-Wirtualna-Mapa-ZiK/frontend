@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './style.css';
 import SignUpState from '../../models/signUpState';
 import useAuth from '../../hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i);
 
@@ -98,12 +99,12 @@ export const SignUp = () => {
                {errors.confPassword.length > 0 &&  <span style={{color: "red"}}>{errors.confPassword}</span>}
                </div>              
          <div className='submit'>
-            <button>Register Me</button>
+            <Link to='/login'><button>Register Me</button></Link>
          </div>
           </form>
          <h3>Already have account?</h3>
          <div className='submit'>
-            <button>Sign In!</button>
+         <Link to='/login'><button>Sign In!</button></Link>
          </div>
       </div>
    </div>

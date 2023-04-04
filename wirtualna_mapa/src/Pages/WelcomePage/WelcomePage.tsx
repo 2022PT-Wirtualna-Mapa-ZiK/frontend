@@ -4,6 +4,7 @@ import Background from '../../assets/back1.png';
 import picture1 from '../../assets/welcomePage1.png';
 import picture2 from '../../assets/welcomePage2.png';
 import picture3 from '../../assets/welcomePage3.png';
+import { Link } from 'react-router-dom';
 
 interface WelcomePageProps {}
 
@@ -58,7 +59,7 @@ const WelcomePage: FC<WelcomePageProps> = () => (
         <div style={{textAlign: "right", gridColumn: "1", gridRow: "1", paddingTop: "130px", paddingRight: "5px", }}><img style={{height: "50px"}} src={picture3} alt="not found"/></div>
       </div>
     </div>
-    <button style={{width: "225px"}}>Join us!</button>
+    <Link to='/home'><button style={{width: "225px"}}>Join us!</button></Link>
   </div>
   
 );
