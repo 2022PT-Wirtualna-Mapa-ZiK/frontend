@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './style.css';
 import SignUpState from '../../models/signUpState';
 import useAuth from '../../hooks/useAuth';
-import Button from "../../Components/Button/button"
 
 const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i);
 
@@ -98,10 +97,14 @@ export const SignUp = () => {
                <input type='password' name='confPassword' onChange={handleChange}/>
                {errors.confPassword.length > 0 &&  <span style={{color: "red"}}>{errors.confPassword}</span>}
                </div>              
-         <Button link="/logged-in" text="Register Me"/>
+         <div className='submit'>
+            <button>Register Me</button>
+         </div>
           </form>
          <h3>Already have account?</h3>
-         <Button link="/logged-in" text="Sign In!"/>
+         <div className='submit'>
+            <button>Sign In!</button>
+         </div>
       </div>
    </div>
   );

@@ -4,7 +4,6 @@ import Background from '../../assets/back1.png';
 import picture1 from '../../assets/welcomePage1.png';
 import picture2 from '../../assets/welcomePage2.png';
 import picture3 from '../../assets/welcomePage3.png';
-import Button from "../../Components/Button/button"
 
 interface WelcomePageProps {}
 
@@ -59,8 +58,7 @@ const WelcomePage: FC<WelcomePageProps> = () => (
         <div style={{textAlign: "right", gridColumn: "1", gridRow: "1", paddingTop: "130px", paddingRight: "5px", }}><img style={{height: "50px"}} src={picture3} alt="not found"/></div>
       </div>
     </div>
-    <Button link="/logged-in" text="Join us!"/>
-    {/* <button style={{width: "225px"}}>Join us!</button> */}
+    <button style={{width: "225px"}}>Join us!</button>
   </div>
   
 );
