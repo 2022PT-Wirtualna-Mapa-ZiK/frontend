@@ -92,7 +92,11 @@ const SignIn = () => (
             <div className="input-feedback">{errors.password}</div>
           )}
           <a href='/retrieve'>Forgot password?</a>
-          <Button link="/logged-in" text="Login"/>
+          {/* <button type="submit" onSubmit={function(e) {
+              
+            }}>Login</button> */}
+          <Button link="/logged-in" text="Login" onSubmit={function(e) {
+            }}/>
           <div className="database-feedback">{values.databaseError}</div>
         </form>
         </div>

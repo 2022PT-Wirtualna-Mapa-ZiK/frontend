@@ -1,20 +1,33 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 type ButtonProps = {
-    link: string;
-    text: string;
+  link: string;
+  text: string;
+  className?: string;
+  onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
+};
+
+const Button: React.FC<ButtonProps> = ({ link, text, className, onSubmit }) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (onSubmit) {
+      onSubmit(event);
+    } else {
+      navigate(link);
+    }
   };
 
-class Button extends React.Component<ButtonProps> {
-  render() {
-    const { link, text } = this.props;
-    return (
-      <a href={link}>
-        <button>{text}</button>
-      </a>
-    );
-  }
-}
+  return (
+    <form onSubmit={handleSubmit}>
+      <button type="submit" className={className}>
+        {text}
+      </button>
+    </form>
+  );
+};
 
 export default Button;
