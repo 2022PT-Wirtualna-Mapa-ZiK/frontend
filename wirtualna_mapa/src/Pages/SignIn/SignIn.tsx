@@ -15,12 +15,9 @@ const SignIn = () => (
     const basicAuth= "Basic" + btoa(values.email + " " + values.password);
     //to decode from base64 use atob
     fetch("http://localhost:8000/api/v1/user/login", {
-      method: "POST",
-      mode: 'no-cors',       
+      method: "GET",      
       headers: {
         'authorization': basicAuth,
-        'Access-Control-Allow-Credentials': 'true',
-        'Access-Control-Allow-Origin': 'http://localhost:8000',
       }
     }).then((response) =>{
       if(response.status === 200){
