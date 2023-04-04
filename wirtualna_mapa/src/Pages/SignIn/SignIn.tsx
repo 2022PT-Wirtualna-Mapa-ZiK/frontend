@@ -1,9 +1,8 @@
 import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
-//import './signin.css';
+import './signin.css';
 import { Navigate } from 'react-router-dom';
-import Button from "../../Components/Button/button"
 
 const SignIn = () => (
   <Formik initialValues={{email:"", password:"",databaseError:""}}
@@ -92,7 +91,9 @@ const SignIn = () => (
             <div className="input-feedback">{errors.password}</div>
           )}
           <a href='/retrieve'>Forgot password?</a>
-          <Button link="/logged-in" text="Login"/>
+          <button type="submit" onSubmit={function(e) {
+              
+            }}>Login</button>
           <div className="database-feedback">{values.databaseError}</div>
         </form>
         </div>

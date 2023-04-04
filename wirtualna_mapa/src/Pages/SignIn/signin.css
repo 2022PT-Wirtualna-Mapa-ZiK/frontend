@@ -63,6 +63,25 @@ p, div {
     font-weight: lighter;
     color: #bbb;
   }
+  
+  button{
+    background-color: #F65776;
+    font-weight: bolder;
+    font-size: 18px;
+    border-color: #E90C38;
+    margin: 5px;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+    border-radius: 1em;
+    box-shadow: 0.15em 0.15em #2e282a75;
+    transition: 0.5s background-color box-shadow;
+  }
+  .button:hover {
+    background-color: rgb(22, 165, 58);
+    color: #fefefe;
+  }
   .fullName,
   .email,
   .password {
