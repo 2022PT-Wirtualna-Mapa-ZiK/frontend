@@ -11,10 +11,17 @@ const SignIn = () => (
     console.log("Logging in", values);
     setSubmitting(false);
 
-
+    //encode to base64
+    const basicAuth= "Basic" + btoa(values.email + " " + values.password);
+    //to decode from base64 use atob
     fetch("http://localhost:8000/api/v1/user/login", {
       method: "POST",
-      headers: {"email": values.email, "password": values.password}
+      mode: 'no-cors',       
+      headers: {
+        'authorization': basicAuth,
+        'Access-Control-Allow-Credentials': 'true',
+        'Access-Control-Allow-Origin': 'http://localhost:8000',
+      }
     }).then((response) =>{
       if(response.status === 200){
         window.open("/welcomepage");
@@ -25,7 +32,10 @@ const SignIn = () => (
         values.databaseError="There is no such user in the database";
       }
       setSubmitting(true);
-    }).then(data => localStorage.setItem('loginKey', JSON.stringify(data)))
+    }).then(data => {
+      console.log(data)
+      localStorage.setItem('loginKey', JSON.stringify(data))
+    })
     .catch(err => {console.log(err);
     values.databaseError="No database connection"});
 
