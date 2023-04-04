@@ -60,7 +60,6 @@ const WelcomePage: FC<WelcomePageProps> = () => (
       </div>
     </div>
     <Button link="/register" text="Join us!"/>
-    {/* <button style={{width: "225px"}}>Join us!</button> */}
   </div>
   
 );

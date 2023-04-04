@@ -24,9 +24,7 @@ const Home = () => {
   return (
     <div className='home'>
       <div className="div-home">        
-        {/* <button className="btn-acc">Register</button> */}
         <Button link="/register" text="Register"/>
-        {/* <button className="btn-log">Log in</button> */}
         <Button link="/login" text="Log in"/>
 
       </div>

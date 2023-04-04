@@ -6,27 +6,15 @@ type ButtonProps = {
   link: string;
   text: string;
   className?: string;
-  onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
 };
 
-const Button: React.FC<ButtonProps> = ({ link, text, className, onSubmit }) => {
+const Button: React.FC<ButtonProps> = ({ link, text, className }) => {
   const navigate = useNavigate();
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (onSubmit) {
-      onSubmit(event);
-    } else {
-      navigate(link);
-    }
-  };
-
+  navigate(link);
   return (
-    <form onSubmit={handleSubmit}>
-      <button type="submit" className={className}>
-        {text}
-      </button>
-    </form>
+    <button type="submit" className={className}>
+      {text}
+    </button>
   );
 };
 

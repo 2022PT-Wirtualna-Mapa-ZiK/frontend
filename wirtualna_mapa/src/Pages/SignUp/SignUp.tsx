@@ -102,14 +102,6 @@ export const SignUp = () => {
           </form>
          <h3>Already have account?</h3>
          <Button link="/login" text="Sign In!"/>
-         {/* <div className='submit'>
-            <button>Register Me</button>
-         </div>
-          </form>
-         <h3>Already have account?</h3>
-         <div className='submit'>
-            <button>Sign In!</button>
-         </div> */}
       </div>
    </div>
   );
