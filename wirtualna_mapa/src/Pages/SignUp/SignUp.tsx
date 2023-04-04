@@ -98,10 +98,10 @@ export const SignUp = () => {
                <input type='password' name='confPassword' onChange={handleChange}/>
                {errors.confPassword.length > 0 &&  <span style={{color: "red"}}>{errors.confPassword}</span>}
                </div>              
-         <Button link="/logged-in" text="Register Me"/>
+         <Button link="/registered" text="Register Me"/>
           </form>
          <h3>Already have account?</h3>
-         <Button link="/logged-in" text="Sign In!"/>
+         <Button link="/login" text="Sign In!"/>
       </div>
    </div>
   );
