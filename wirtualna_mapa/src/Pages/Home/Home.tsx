@@ -2,7 +2,7 @@ import React from 'react'
 import path from 'path'
 import './home.css';
 import {useNavigate} from "react-router-dom";
-import Button from "../../Components/Button/button"
+
 
 
 
@@ -24,8 +24,8 @@ const Home = () => {
   return (
     <div className='home'>
       <div className="div-home">        
-        <Button link="/register" text="Register"/>
-        <Button link="/login" text="Log in"/>
+        <button className="btn-acc">Register</button>
+        <button className="btn-log">Log in</button>
 
       </div>
       <div className="div-welcome">        
