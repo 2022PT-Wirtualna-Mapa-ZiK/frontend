@@ -1,21 +1,20 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
 
 type ButtonProps = {
-  link: string;
-  text: string;
-  className?: string;
-};
+    link: string;
+    text: string;
+  };
 
-const Button: React.FC<ButtonProps> = ({ link, text, className }) => {
-  const navigate = useNavigate();
-  navigate(link);
-  return (
-    <button type="submit" className={className}>
-      {text}
-    </button>
-  );
-};
+class Button extends React.Component<ButtonProps> {
+  render() {
+    const { link, text } = this.props;
+    return (
+      <a href={link}>
+        <button>{text}</button>
+      </a>
+    );
+  }
+}
 
 export default Button;
