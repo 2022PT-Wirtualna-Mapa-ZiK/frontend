@@ -2,10 +2,11 @@ import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { Buffer } from "buffer";
-//import './signin.css';
+import './signin.css';
 import { useNavigate } from "react-router-dom";
 import Button from "../../Components/Button/button";
 import { PATHS } from "../../utils/consts";
+import { Navigate } from 'react-router-dom';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -107,6 +108,8 @@ const SignIn = () => {
               <a href="/retrieve">Forgot password?</a>
               <Button text="Login" form="loginForm" />
               <div className="database-feedback">{values.databaseError}</div>
+              <h3>Don't have an account yet?</h3>
+              <Button link="/register" text="Register"/>
             </form>
           </div>
         );

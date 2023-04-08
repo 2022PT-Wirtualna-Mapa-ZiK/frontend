@@ -2,7 +2,7 @@ import React from 'react'
 import path from 'path'
 import './home.css';
 import {useNavigate} from "react-router-dom";
-import Button from "../../Components/Button/button"
+import Button from "../../Components/Button/button";
 
 
 
