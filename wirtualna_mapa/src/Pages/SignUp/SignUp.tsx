@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './style.css';
 import SignUpState from '../../models/signUpState';
 import useAuth from '../../hooks/useAuth';
-import Button from "../../Components/Button/button"
+import Button from "../../Components/Button/button";
 
 const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i);
 
