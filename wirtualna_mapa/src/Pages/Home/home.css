@@ -40,6 +40,13 @@
   top: 3vh;
 }
 
+.div-stats{
+  font-size: 30px;
+  position:absolute;
+  left: 15vw;
+  top: 13vh;
+}
+
 button{
   background-color: #F65776;
   font-weight: bolder;
