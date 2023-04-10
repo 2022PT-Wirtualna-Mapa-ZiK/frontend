@@ -17,9 +17,11 @@ const Home = () => {
     { description: "Graphic designer", key: 8 },
     { description: "Researcher", key: 9 },
   ];
-  const [sizeToday, setSizeToday] = useState();
+  const [sizeToday, setSizeToday] = useState(0);
+  const [sizeYesterday, setSizeYesterday] = useState(0);
+  const [sizeBeforeYesterday, setSizeBeforeYesterday] = useState(0);
   //const basicAuth = "Basic" + btoa("admin@gmail.com Admin123#");
-  fetch("http://localhost:8000/api/v1/data/scrappedData", {
+  fetch("http://localhost:8000/api/v1/data/scrappedData?size=1000000", {
     method: "GET",
     headers: {
       authorization: "Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==",
@@ -31,13 +33,13 @@ const Home = () => {
       }
       else
       {
-        console.log("There is no such user in the database");
+        console.log("There is nso such user in the database");
       }
     })
     .then((data) => {
       console.log(data);
       //console.log(data.size);
-      setSizeToday(data.size);
+      setSizeToday(data.content.length);
       localStorage.setItem("loginKey", JSON.stringify(data));
     })
     .catch((err) => {
@@ -53,15 +55,16 @@ const Home = () => {
         <p>Welcome!</p>
       </div>
       <div className="div-stats">
-        <div>Oferty pracy na dzień dzisiejszy: {sizeToday}</div>
+        <div>Oferty pracy na dzień dzisiejszy:&nbsp;{sizeToday}</div>
         <div>
           Oferty pracy
-          wczoraj:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          977
+          wczoraj: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {sizeYesterday}
         </div>
         <div>
           Oferty pracy
-          przedwczoraj:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;979
+          przedwczoraj:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {sizeBeforeYesterday}
         </div>
       </div>
       <div className="div-title">
