@@ -41,11 +41,11 @@ const SignIn = () => (
    validationSchema = {Yup.object().shape({
     email:Yup.string()
     .email()
-    .required("Required"),
+    .required("Wymagane"),
     password:Yup.string()
-    .required("Required")
-    .min(8, "Password should be at least 8 characters long")
-    .matches(/(?=.*[0-9])/, "Password must contain a number")
+    .required("Wymagane")
+    .min(8, "Hasło musi mieć minimum 8 znaków")
+    .matches(/(?=.*[0-9])/, "Hasło musi zawierać liczbę")
   })}
    >
     {props =>{
@@ -63,11 +63,11 @@ const SignIn = () => (
         <form className="form-wrapper" onSubmit={handleSubmit}>
         <h2>Login</h2>
 
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">E-mail</label>
           <input
             name="email"
             type="text"
-            placeholder="Enter your email"
+            placeholder="podaj swój adres e-mail"
             value={values.email}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -77,11 +77,11 @@ const SignIn = () => (
           {errors.email && touched.email && (
             <div className="input-feedback">{errors.email}</div>
           )}
-          <label htmlFor="email">Password</label>
+          <label htmlFor="email">Hasło</label>
           <input
             name="password"
             type="password"
-            placeholder="Enter your password"
+            placeholder="Podaj swoje hasło"
             value={values.password}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -90,10 +90,10 @@ const SignIn = () => (
           {errors.password && touched.password && (
             <div className="input-feedback">{errors.password}</div>
           )}
-          <a href='/retrieve'>Forgot password?</a>
+          <a href='/retrieve'>Zapomniałeś hasła?</a>
           <button type="submit" onSubmit={function(e) {
               
-            }}>Login</button>
+            }}>Zaloguj się</button>
           <div className="database-feedback">{values.databaseError}</div>
         </form>
         </div>
