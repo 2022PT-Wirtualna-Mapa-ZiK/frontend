@@ -47,6 +47,27 @@
   top: 13vh;
 }
 
+.div-chart{
+  /* position:absolute;
+  display: inline-block; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px; /* Możesz dostosować odstępy między wykresami według potrzeb */
+  position: absolute;
+  top: 25vh;
+  left: 0vw;
+}
+
+#chart1 {
+  float:left;
+  width: 50%;
+}
+
+#chart2 {
+  float:right;
+  width: 50%;
+}
+
 button{
   background-color: #F65776;
   font-weight: bolder;
