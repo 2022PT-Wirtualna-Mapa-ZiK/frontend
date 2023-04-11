@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import './style.css';
 import SignUpState from '../../models/signUpState';
 import useAuth from '../../hooks/useAuth';
-import { Link, useNavigate } from 'react-router-dom';
-import { PATHS } from '../../utils/consts';
+import Button from "../../Components/Button/button";
 
 const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i);
 
 export const SignUp = () => {
+  const form = 'registerForm';
   const initialState : SignUpState = {
      name: '',
      surname: '',
@@ -67,13 +67,6 @@ export const SignUp = () => {
       }
     }
   };
-  
-
-
-    const navigate = useNavigate();
-    const login = () => {
-      navigate(PATHS.login);}
-
       
   const { errors } = state;
   return (
@@ -81,7 +74,7 @@ export const SignUp = () => {
     <div className='wrapper'>
       <div className='form-wrapper'>
         <h2>Sign Up</h2>
-        <form onSubmit={handleSubmit} noValidate>
+        <form onSubmit={handleSubmit} id={form}>
           <div className='name'>
             <label htmlFor="name">Name</label>
             <input type='text' name='name' onChange={handleChange} />
@@ -107,15 +100,13 @@ export const SignUp = () => {
                <input type='password' name='confPassword' onChange={handleChange}/>
                {errors.confPassword.length > 0 &&  <span style={{color: "red"}}>{errors.confPassword}</span>}
                </div>              
-         <div className='submit'>
-            <button onClick={login}>Register Me</button>
-         </div>
+         <Button text="Register Me" form={form}/>
           </form>
          <h3>Already have account?</h3>
-         <div className='submit'>
-         <button onClick={login}>Sign In!</button>
-         </div>
+         <Button link="/login" text="Sign In!"/>
       </div>
    </div>
   );
  }
+
+

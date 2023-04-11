@@ -9,7 +9,7 @@ p, div {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: left;
     background-image: url(../../assets/back1.png);
     background-position: 0%;
     background-size: cover;
@@ -19,6 +19,7 @@ p, div {
   .form-wrapper {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 280px;
     max-width: 80%;
     min-width: 100px;
@@ -36,6 +37,7 @@ p, div {
     font-size: 2em;
     font-weight: lighter;
     margin-top: 0.25em;
+    margin-bottom: 0.25em;
     color: #222;
   }
   
@@ -64,24 +66,6 @@ p, div {
     color: #bbb;
   }
   
-  button{
-    background-color: #F65776;
-    font-weight: bolder;
-    font-size: 18px;
-    border-color: #E90C38;
-    margin: 5px;
-    padding-bottom: 1em;
-    padding-top: 1em;
-    padding-left: 1.2em;
-    padding-right: 1.2em;
-    border-radius: 1em;
-    box-shadow: 0.15em 0.15em #2e282a75;
-    transition: 0.5s background-color box-shadow;
-  }
-  .button:hover {
-    background-color: rgb(22, 165, 58);
-    color: #fefefe;
-  }
   .fullName,
   .email,
   .password {

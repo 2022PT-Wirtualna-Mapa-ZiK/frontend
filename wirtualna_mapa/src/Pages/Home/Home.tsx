@@ -1,8 +1,7 @@
 import React from 'react'
-import path from 'path'
 import './home.css';
-import {Link, useNavigate} from "react-router-dom";
-import { PATHS } from '../../utils/consts';
+import {useNavigate} from "react-router-dom";
+import Button from "../../Components/Button/button";
 
 
 
@@ -22,18 +21,13 @@ const Home = () => {
   ];
 
 const navigate = useNavigate();
-const login = () => {
-  navigate(PATHS.login);}
-  const register = () => {
-    navigate(PATHS.register);}
-
   
   return (
     <div className='home'>
       <div className="div-home">        
-       <button className="btn-acc" onClick={register}>Register</button>
-      <button className="btn-acc" onClick={login}>Log In!</button>
-        
+        <Button link="/register" text="Register"/>
+        <Button link="/login" text="Log in"/>
+
       </div>
       <div className="div-welcome">        
         <p>Welcome!</p>

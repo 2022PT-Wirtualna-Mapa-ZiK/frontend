@@ -13,22 +13,12 @@ import {
 } from "react-router-dom";
 
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home/>,
-  },
-  {
-    path: "/login",
-    element: <SignIn />,
-  },
-]);
 
 function App() {
   return (
     <div className="App">
 
-      {/* <SignUp/> */}
+      {/* <SignIn/> */}
 
     </div>
   );
