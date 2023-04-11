@@ -1,8 +1,9 @@
 import React from "react";
 import path from "path";
 import "./home.css";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Chart } from "react-google-charts";
 
 const Home = () => {
   const professions = [
@@ -26,13 +27,11 @@ const Home = () => {
     headers: {
       authorization: "Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==",
     },
-    })
-    .then((response) =>{
-      if(response.status === 200){
+  })
+    .then((response) => {
+      if (response.status === 200) {
         return response.json();
-      }
-      else
-      {
+      } else {
         console.log("There is nso such user in the database");
       }
     })
@@ -45,6 +44,36 @@ const Home = () => {
     .catch((err) => {
       console.log(err);
     });
+
+  const dataContract = [
+    ["Type", "The number of the contract type"],
+    ["Umowa o prace", 51],
+    ["Umowa zlecenie", 10],
+    ["B2B", 34],
+    ["Inne", 0],
+  ];
+  const dataWorkMode = [
+    ["Mode", "The number of operating modes"],
+    ["Praca stacjonarna", 60],
+    ["Praca zdalna", 12],
+    ["Praca hybrydowa", 67],
+    ["Inne", 0],
+  ];
+
+  const options1 = {
+    title: "Typy umów",
+    is3D: true,
+    backgroundColor: "transparent",
+    width: 1000,
+    height: 400,
+  };
+  const options2 = {
+    title: "Tryby pracy",
+    is3D: true,
+    backgroundColor: "transparent",
+    width: 1000,
+    height: 400,
+  };
   return (
     <div className="home">
       <div className="div-home">
@@ -57,8 +86,8 @@ const Home = () => {
       <div className="div-stats">
         <div>Oferty pracy na dzień dzisiejszy:&nbsp;{sizeToday}</div>
         <div>
-          Oferty pracy
-          wczoraj: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Oferty pracy wczoraj:
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           {sizeYesterday}
         </div>
         <div>
@@ -70,6 +99,27 @@ const Home = () => {
       <div className="div-title">
         <h1>Current rating of the most sought-after professions:</h1>
       </div>
+      <div className="div-chart">
+        <div id="chart1">
+          <Chart
+            chartType="PieChart"
+            data={dataContract}
+            options={options1}
+            width={"400px"}
+            height={"100px"}
+          />
+        </div>
+        <div id="chart2">
+          <Chart
+            chartType="PieChart"
+            data={dataWorkMode}
+            options={options2}
+            width={"500px"}
+            height={"100px"}
+          />
+        </div>
+      </div>
+
       <div className="div-list">
         <ol>
           {/* display each value(profession) from list */}
