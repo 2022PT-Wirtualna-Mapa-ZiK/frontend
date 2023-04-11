@@ -6,7 +6,6 @@ import './signin.css';
 import { useNavigate } from "react-router-dom";
 import Button from "../../Components/Button/button";
 import { PATHS } from "../../utils/consts";
-import { Navigate } from 'react-router-dom';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -35,7 +34,7 @@ const SignIn = () => {
                 navigate(PATHS.home);
               } else {
                 console.log("There is no such user in the database");
-                values.databaseError = "There is no such user in the database";
+                values.databaseError = "Podany użytkownik nie istnieje";
               }
               setSubmitting(true);
             })
@@ -45,16 +44,16 @@ const SignIn = () => {
             })
             .catch((err) => {
               console.log(err);
-              values.databaseError = "No database connection";
+              values.databaseError = "Brak połączenia z bazą danych";
             });
         }, 500);
       }}
       validationSchema={Yup.object().shape({
         email: Yup.string().email().required("Required"),
         password: Yup.string()
-          .required("Required")
-          .min(8, "Password should be at least 8 characters long")
-          .matches(/(?=.*[0-9])/, "Password must contain a number"),
+          .required("Wymagane")
+          .min(8, "Hasło musi mieć minimum 8 znaków")
+          .matches(/(?=.*[0-9])/, "Hasło musi zawierać liczbę"),
       })}
     >
       {(props) => {
@@ -80,7 +79,7 @@ const SignIn = () => {
               <input
                 name="email"
                 type="text"
-                placeholder="Enter your email"
+                placeholder="Podaj swój adres email"
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -90,7 +89,7 @@ const SignIn = () => {
               {errors.email && touched.email && (
                 <div className="input-feedback">{errors.email}</div>
               )}
-              <label htmlFor="email">Password</label>
+              <label htmlFor="email">Hasło</label>
               <input
                 name="password"
                 type="password"
@@ -105,11 +104,11 @@ const SignIn = () => {
               {errors.password && touched.password && (
                 <div className="input-feedback">{errors.password}</div>
               )}
-              <a href="/retrieve">Forgot password?</a>
+              <a href="/retrieve">Zapomniałeś hasła?</a>
               <Button text="Login" form="loginForm" />
               <div className="database-feedback">{values.databaseError}</div>
-              <h3>Don't have an account yet?</h3>
-              <Button link="/register" text="Register"/>
+              <h3>Nie masz konta?</h3>
+              <Button link={PATHS.register} text="Zarejestruj się"/>
             </form>
           </div>
         );

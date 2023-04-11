@@ -2,38 +2,37 @@ import React from 'react'
 import './home.css';
 import {useNavigate} from "react-router-dom";
 import Button from "../../Components/Button/button";
+import { PATHS } from '../../utils/consts';
 
 
 
 const Home = () => {
 
   const professions = [
-    {description: 'IT Specialist', key: 0},
-    {description: 'Biotechnologist', key: 1},
-    {description: 'Logistician', key: 2},
-    {description: 'Electrical engineer', key: 3},
-    {description: 'Doctor', key: 4},
-    {description: 'Trainer', key: 5},
-    {description: 'Financial specialist', key: 6},
+    {description: 'Informatyk', key: 0},
+    {description: 'Biotechnolog', key: 1},
+    {description: 'Logistyk', key: 2},
+    {description: 'Elektryk', key: 3},
+    {description: 'Lekarz', key: 4},
+    {description: 'Trener', key: 5},
+    {description: 'Finance manager', key: 6},
     {description: 'Data scientist', key: 7},
     {description: 'Graphic designer', key: 8},
     {description: 'Researcher', key: 9},
   ];
-
-const navigate = useNavigate();
   
   return (
     <div className='home'>
       <div className="div-home">        
-        <Button link="/register" text="Register"/>
-        <Button link="/login" text="Log in"/>
+        <Button link={PATHS.register} text="Zarejestruj się"/>
+        <Button link={PATHS.login} text="Zaloguj się"/>
 
       </div>
       <div className="div-welcome">        
-        <p>Welcome!</p>
+        <p>Witaj!</p>
       </div>
       <div className="div-title">        
-        <h1>Current rating of the most sought-after professions:</h1>
+        <h1>Aktualnie najczęściej wyszukiwane zawody:</h1>
       </div>
       <div className="div-list">        
         <ol>      
