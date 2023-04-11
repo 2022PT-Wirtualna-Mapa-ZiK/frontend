@@ -4,20 +4,10 @@ import Background from '../../assets/back1.png';
 import picture1 from '../../assets/welcomePage1.png';
 import picture2 from '../../assets/welcomePage2.png';
 import picture3 from '../../assets/welcomePage3.png';
-import { Link, useNavigate } from 'react-router-dom';
+import Button from "../../Components/Button/button";
 import { PATHS } from '../../utils/consts';
 
-
-
-// interface WelcomePageProps {}
-
-
-  
-
 const WelcomePage = () => {
-  const navigate = useNavigate();
-  const home = () => {
-    navigate(PATHS.home);}
 
     return(
   <div className={styles.WelcomePage} style={{
@@ -70,7 +60,7 @@ const WelcomePage = () => {
         <div style={{textAlign: "right", gridColumn: "1", gridRow: "1", paddingTop: "130px", paddingRight: "5px", }}><img style={{height: "50px"}} src={picture3} alt="not found"/></div>
       </div>
     </div>
-    <button style={{width: "225px"}} onClick={home}>Dołącz do naszej strony!</button>
+    <Button link={PATHS.home} text="Dołącz do nas!"/>
   </div>
   
 );

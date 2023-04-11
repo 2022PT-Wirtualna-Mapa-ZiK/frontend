@@ -5,9 +5,10 @@ import App from './App';
 import { BrowserRouter as Router, Routes, Route }
     from "react-router-dom";
 import SignIn from './Pages/SignIn/SignIn';
-import Home from './Pages/Home/Home';
 import WelcomePage from './Pages/WelcomePage/WelcomePage';
 import { SignUp } from './Pages/SignUp/SignUp';
+import Home from './Pages/Home/Home';
+import { PATHS } from './utils/consts';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -17,10 +18,10 @@ root.render(
     <Router>
     <App />
       <Routes>
-        <Route path="/login" element={<SignIn/>}/>
-        <Route path="/register" element={<SignUp/>}/>
-        <Route path="/" element={<WelcomePage/>}/>
-        <Route path="/home" element={<Home/>}/>
+        <Route path={PATHS.login} element={<SignIn/>}/>
+        <Route path={PATHS.register} element={<SignUp/>}/>
+        <Route path={PATHS.welcome} element={<WelcomePage/>}/>
+        <Route path={PATHS.home} element={<Home/>}/>
       </Routes>
     </Router>
   </React.StrictMode>

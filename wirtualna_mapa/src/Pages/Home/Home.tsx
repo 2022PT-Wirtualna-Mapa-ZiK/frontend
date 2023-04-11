@@ -1,7 +1,7 @@
 import React from 'react'
-import path from 'path'
 import './home.css';
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import Button from "../../Components/Button/button";
 import { PATHS } from '../../utils/consts';
 
 
@@ -20,20 +20,13 @@ const Home = () => {
     {description: 'Graphic designer', key: 8},
     {description: 'Researcher', key: 9},
   ];
-
-const navigate = useNavigate();
-const login = () => {
-  navigate(PATHS.login);}
-  const register = () => {
-    navigate(PATHS.register);}
-
   
   return (
     <div className='home'>
       <div className="div-home">        
-       <button className="btn-acc" onClick={register}>Zarejestruj się</button>
-      <button className="btn-acc" onClick={login}>Zaloguj się</button>
-        
+        <Button link={PATHS.register} text="Zarejestruj się"/>
+        <Button link={PATHS.login} text="Zaloguj się"/>
+
       </div>
       <div className="div-welcome">        
         <p>Witaj!</p>
