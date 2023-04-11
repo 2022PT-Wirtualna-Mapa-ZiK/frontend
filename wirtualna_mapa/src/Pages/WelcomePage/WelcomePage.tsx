@@ -16,7 +16,7 @@ const WelcomePage = () => {
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat"}}>
     <div style={{marginLeft:"80px", marginRight:"80px"}}>
-      <h1 style={{}}>Witajcie!</h1>
+      <h1 style={{}}>Witaj!</h1>
       <div style={{display: "grid"}}>
         <div style={{
         width: "500px",
