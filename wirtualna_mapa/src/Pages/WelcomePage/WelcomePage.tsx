@@ -4,11 +4,22 @@ import Background from '../../assets/back1.png';
 import picture1 from '../../assets/welcomePage1.png';
 import picture2 from '../../assets/welcomePage2.png';
 import picture3 from '../../assets/welcomePage3.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { PATHS } from '../../utils/consts';
 
-interface WelcomePageProps {}
 
-const WelcomePage: FC<WelcomePageProps> = () => (
+
+// interface WelcomePageProps {}
+
+
+  
+
+const WelcomePage = () => {
+  const navigate = useNavigate();
+  const home = () => {
+    navigate(PATHS.home);}
+
+    return(
   <div className={styles.WelcomePage} style={{
     backgroundImage: `url(${ Background })`, 
     height: "100%", width: "100%",
@@ -59,9 +70,9 @@ const WelcomePage: FC<WelcomePageProps> = () => (
         <div style={{textAlign: "right", gridColumn: "1", gridRow: "1", paddingTop: "130px", paddingRight: "5px", }}><img style={{height: "50px"}} src={picture3} alt="not found"/></div>
       </div>
     </div>
-    <Link to='/home'><button style={{width: "225px"}}>Join us!</button></Link>
+    <button style={{width: "225px"}} onClick={home}>Join us!</button>
   </div>
   
 );
-
+      }
 export default WelcomePage;

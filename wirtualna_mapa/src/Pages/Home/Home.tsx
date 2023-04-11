@@ -2,7 +2,7 @@ import React from 'react'
 import path from 'path'
 import './home.css';
 import {Link, useNavigate} from "react-router-dom";
-
+import { PATHS } from '../../utils/consts';
 
 
 
@@ -21,11 +21,18 @@ const Home = () => {
     {description: 'Researcher', key: 9},
   ];
 
+const navigate = useNavigate();
+const login = () => {
+  navigate(PATHS.login);}
+  const register = () => {
+    navigate(PATHS.register);}
+
+  
   return (
     <div className='home'>
       <div className="div-home">        
-      <Link to='/register'> <button className="btn-acc">Register</button></Link>
-      <Link to='/login'><button className="btn-acc">Log In!</button></Link>
+       <button className="btn-acc" onClick={register}>Register</button>
+      <button className="btn-acc" onClick={login}>Log In!</button>
         
       </div>
       <div className="div-welcome">        
