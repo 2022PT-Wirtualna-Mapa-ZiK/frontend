@@ -67,9 +67,10 @@ export const SignUp = () => {
       }
     }
   };
-
+      
   const { errors } = state;
   return (
+    
     <div className='wrapper'>
       <div className='form-wrapper'>
         <h2>Sign Up</h2>

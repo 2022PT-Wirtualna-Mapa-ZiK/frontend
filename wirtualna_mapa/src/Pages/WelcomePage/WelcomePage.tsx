@@ -5,10 +5,11 @@ import picture1 from '../../assets/welcomePage1.png';
 import picture2 from '../../assets/welcomePage2.png';
 import picture3 from '../../assets/welcomePage3.png';
 import Button from "../../Components/Button/button";
+import { PATHS } from '../../utils/consts';
 
-interface WelcomePageProps {}
+const WelcomePage = () => {
 
-const WelcomePage: FC<WelcomePageProps> = () => (
+    return(
   <div className={styles.WelcomePage} style={{
     backgroundImage: `url(${ Background })`, 
     height: "100%", width: "100%",
@@ -59,9 +60,9 @@ const WelcomePage: FC<WelcomePageProps> = () => (
         <div style={{textAlign: "right", gridColumn: "1", gridRow: "1", paddingTop: "130px", paddingRight: "5px", }}><img style={{height: "50px"}} src={picture3} alt="not found"/></div>
       </div>
     </div>
-    <Button link="/register"text="Join us!"/>
+    <Button link={PATHS.home} text="Join us!"/>
   </div>
   
 );
-
+      }
 export default WelcomePage;

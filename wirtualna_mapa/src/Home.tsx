@@ -4,6 +4,7 @@ import background from "./assets/back2.jpg"
 import Button from "./Components/Button/button";
 
 const Home = () => {
+
   return (
     <div className='home'>
       <div className="div-home">
