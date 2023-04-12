@@ -44,14 +44,14 @@
   font-size: 30px;
   position:absolute;
   left: 15vw;
-  top: 13vh;
+  top: 15%;
 }
 
-.div-chart{
+.div-charts{
   /* position:absolute;
   display: inline-block; */
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 400px 100px;
   gap: 100px; /* Możesz dostosować odstępy między wykresami według potrzeb */
   position: absolute;
   top: 25vh;

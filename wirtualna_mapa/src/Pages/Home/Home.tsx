@@ -2,8 +2,10 @@ import React from "react";
 import path from "path";
 import "./home.css";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
+import { number } from "yup";
+import { Col } from "reactstrap";
 
 const Home = () => {
   const professions = [
@@ -21,57 +23,144 @@ const Home = () => {
   const [sizeToday, setSizeToday] = useState(0);
   const [sizeYesterday, setSizeYesterday] = useState(0);
   const [sizeBeforeYesterday, setSizeBeforeYesterday] = useState(0);
+
   //const basicAuth = "Basic" + btoa("admin@gmail.com Admin123#");
-  fetch("http://localhost:8000/api/v1/data/scrappedData?size=1000000", {
-    method: "GET",
-    headers: {
-      authorization: "Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==",
-    },
-  })
-    .then((response) => {
+  const AmountfromDate = async (date: string): Promise<number> => {
+    try {
+      const response = await fetch(
+        "http://localhost:8000/api/v1/data/offersFromCertainDay?date=" + date,
+        {
+          method: "GET",
+          headers: {
+            authorization: "Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==",
+          },
+        }
+      );
+
       if (response.status === 200) {
-        return response.json();
+        const data = await response.json();
+        //console.log(data);
+        //console.log(data[0].amountOfOffers);
+        return data[0].amountOfOffers;
       } else {
-        console.log("There is nso such user in the database");
+        //console.log(response.status);
+        return 0; // Wartość domyślna w przypadku błędu
       }
-    })
-    .then((data) => {
-      console.log(data);
-      //console.log(data.size);
-      setSizeToday(data.content.length);
-      localStorage.setItem("loginKey", JSON.stringify(data));
+    } catch (err) {
+      console.log(err);
+      return 0; // Wartość domyślna w przypadku błędu
+    }
+  };
+ const [dataWorkMode, setDataWorkMode] = useState([["Mode", "The number of operating modes"],]);
+
+  const CollectData = async (url: string): Promise<any> => {
+    try {
+      const response = await fetch("http://localhost:8000/api/v1/data" + url, {
+        method: "GET",
+        headers: {
+          authorization: "Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==",
+        },
+      });
+
+      if (response.status === 200) {
+        const data = await response.json();
+        return data;
+      } else {
+        console.log(response.status);
+        return 0; // Wartość domyślna w przypadku błędu
+      }
+    } catch (err) {
+      console.log(err);
+      return 0; // Wartość domyślna w przypadku błędu
+    }
+  };
+  useEffect(() => {
+    CollectData("/workModes")
+      .then((data) => {
+        //setDataWorkMode([["Mode", "The number of operating modes"]]);
+        console.log(data);
+        //dataWorkMode.push();
+        // data.forEach((item: any) => {
+          //   dataWorkMode.push([item.workMode, item.amountOfOffers]);
+          //   //console.log(dataWorkMode);
+          // });
+        
+        const newData = data.map((item: any) => item);
+        console.log(newData)
+        setDataWorkMode(newData); 
+        console.log(dataWorkMode);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+      console.log(dataWorkMode);
+      // CollectData("/agreementTypes")
+      // .then((data) => {
+      //   //console.log(data);
+      //   //dataWorkMode.push();
+      //   data.forEach((item: any) => {
+      //     dataWorkMode.push([item.workMode, item.amountOfOffers]);
+      //   });
+      //   //console.log(dataWorkMode);
+      // })
+      // .catch((err) => {
+      //   console.error(err);
+      // });
+  },[[]]);
+
+  AmountfromDate("05/04/2023")
+    .then((amount) => {
+      //console.log(amount);
+      setSizeToday(amount);
     })
     .catch((err) => {
-      console.log(err);
+      console.error(err);
     });
-
-  const dataContract = [
-    ["Type", "The number of the contract type"],
-    ["Umowa o prace", 51],
-    ["Umowa zlecenie", 10],
-    ["B2B", 34],
-    ["Inne", 0],
-  ];
-  const dataWorkMode = [
-    ["Mode", "The number of operating modes"],
-    ["Praca stacjonarna", 60],
-    ["Praca zdalna", 12],
-    ["Praca hybrydowa", 67],
-    ["Inne", 0],
-  ];
+  AmountfromDate("04/04/2023")
+    .then((amount) => {
+      //console.log(amount);
+      setSizeYesterday(amount);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  AmountfromDate("03/04/2023")
+    .then((amount) => {
+      //console.log(amount);
+      setSizeBeforeYesterday(amount);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  const dataContract = useState([["Type", "The number of the contract type"]]);
+  // [
+  //   ["Type", "The number of the contract type"],
+  //   //["Umowa o prace", 51],
+  //   // ["Umowa zlecenie", 10],
+  //   // ["B2B", 34],
+  //   // ["Inne", 0],
+  // ];
+ 
+  //[
+  //   ["Mode", "The number of operating modes"],
+  //   // ["Praca stacjonarna", 60],
+  //   // ["Praca zdalna", 12],
+  //   // ["Praca hybrydowa", 67],
+  //   // ["Inne", 0],
+  // ];
 
   const options1 = {
     title: "Typy umów",
     is3D: true,
     backgroundColor: "transparent",
-    width: 1000,
+    width: 700,
     height: 400,
   };
   const options2 = {
     title: "Tryby pracy",
     is3D: true,
     backgroundColor: "transparent",
-    width: 1000,
+    width: 700,
     height: 400,
   };
   return (
@@ -99,24 +188,12 @@ const Home = () => {
       <div className="div-title">
         <h1>Current rating of the most sought-after professions:</h1>
       </div>
-      <div className="div-chart">
+      <div className="div-charts">
         <div id="chart1">
-          <Chart
-            chartType="PieChart"
-            data={dataContract}
-            options={options1}
-            width={"400px"}
-            height={"100px"}
-          />
+          <Chart chartType="PieChart" data={dataContract} options={options1} />
         </div>
         <div id="chart2">
-          <Chart
-            chartType="PieChart"
-            data={dataWorkMode}
-            options={options2}
-            width={"500px"}
-            height={"100px"}
-          />
+          <Chart chartType="PieChart" options={options2} data={dataWorkMode} />
         </div>
       </div>
 
