@@ -5,9 +5,9 @@ import App from './App';
 import { BrowserRouter as Router, Routes, Route }
     from "react-router-dom";
 import SignIn from './Pages/SignIn/SignIn';
+import Home from './Pages/Home/Home';
 import WelcomePage from './Pages/WelcomePage/WelcomePage';
 import { SignUp } from './Pages/SignUp/SignUp';
-import Home from './Pages/Home/Home';
 import { PATHS } from './utils/consts';
 
 const root = ReactDOM.createRoot(
