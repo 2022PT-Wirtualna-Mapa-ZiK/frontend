@@ -6,7 +6,9 @@ export const ENDPOINTS = {
   register: 'user/register',
   login: 'user/login/',
   //getScrappedData: 'data/scrappedData/',  
-  workModeData: '/data/workModes'
+  workModeData: '/data/workModes',
+  contractTypeData: '/data/agreementTypes',
+  offersFromCertainDay: '/data/offersFromCertainDay'
 }
 
 export const PATHS = {

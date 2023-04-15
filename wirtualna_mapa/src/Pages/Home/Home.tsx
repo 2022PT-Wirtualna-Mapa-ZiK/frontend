@@ -7,8 +7,9 @@ import { Chart } from "react-google-charts";
 import { number } from "yup";
 import { Col } from "reactstrap";
 import useData from "../../hooks/useData";
-import { workModeChart } from "./charts";
-import { workModeData } from "../../models/workMode";
+import { workModeChart, contractTypeChart } from "./charts";
+import { workModeData} from "../../models/workMode";
+import { contractTypeData} from "../../models/contractType";
 
 
 const Home = () => {
@@ -28,102 +29,52 @@ const Home = () => {
   const [sizeYesterday, setSizeYesterday] = useState(0);
   const [sizeBeforeYesterday, setSizeBeforeYesterday] = useState(0);
   const {getWorkModeData} = useData();
+  const {getContractTypeData} = useData();
+  const {AmountFromDate} = useData();
 
 
   const [dataWorkMode, setDataWorkMode] = useState<workModeData[]>();
+  const [dataContractType, setDataContractType] = useState<contractTypeData[]>();
 
   useEffect(() => {
-    const getUsers = async () => {
+    const getWorkModes = async () => {
       const users = await getWorkModeData();
       const dataPre  = JSON.stringify(users.data)
       const dataReady : workModeData[] = JSON.parse(dataPre)
       setDataWorkMode(dataReady)
-    };  
-    getUsers();    
+    }; 
+    const getContractTypes = async () => {
+      const users = await getContractTypeData();
+      const dataPre  = JSON.stringify(users.data)
+      const dataReady : contractTypeData[] = JSON.parse(dataPre)
+      setDataContractType(dataReady)
+    }; 
+    const getDaysAmount = async () =>{
+      const today=await AmountFromDate("05/04/2023");
+      const yesterday=await AmountFromDate("04/04/2023");
+      const beforeYesterday=await AmountFromDate("03/04/2023");
+
+      setSizeToday(today.data as number);
+      setSizeYesterday(yesterday.data as number);
+      setSizeBeforeYesterday(beforeYesterday.data as number);
+    }  
+    getWorkModes();    
+    getContractTypes();
+    getDaysAmount();
   },[])  
   
-  let array1 = [];
-  array1.push(["Element", "Density"]);    //give the headers for the chart data
+  let workModes = [];
+  workModes.push(["Element", "Density"]);    //give the headers for the chart data
   dataWorkMode?.forEach(v => {
-    array1.push([v.workMode, v.amountOfOffers]);
+    workModes.push([v.workMode, v.amountOfOffers]);
   });
 
-  // useEffect(() => {
-  //   CollectData("/workModes")
-  //     .then((data) => {
-  //       //setDataWorkMode([["Mode", "The number of operating modes"]]);
-  //       console.log(data);
-  //       //dataWorkMode.push();
-  //       // data.forEach((item: any) => {
-  //         //   dataWorkMode.push([item.workMode, item.amountOfOffers]);
-  //         //   //console.log(dataWorkMode);
-  //         // });
-        
-  //       const newData = data.map((item: any) => item);
-  //       console.log(newData)
-  //       setDataWorkMode(newData); 
-  //       console.log(dataWorkMode);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  //     console.log(dataWorkMode);
-  //     // CollectData("/agreementTypes")
-  //     // .then((data) => {
-  //     //   //console.log(data);
-  //     //   //dataWorkMode.push();
-  //     //   data.forEach((item: any) => {
-  //     //     dataWorkMode.push([item.workMode, item.amountOfOffers]);
-  //     //   });
-  //     //   //console.log(dataWorkMode);
-  //     // })
-  //     // .catch((err) => {
-  //     //   console.error(err);
-  //     // });
-  // },[[]]);
+  let contractTypes = [];
+  contractTypes.push(["Element", "Density"]);    //give the headers for the chart data
+  dataContractType?.forEach(v => {
+    contractTypes.push([v.agreement, v.amountOfOffers]);
+  });
 
-  // AmountfromDate("05/04/2023")
-  //   .then((amount) => {
-  //     //console.log(amount);
-  //     setSizeToday(amount);
-  //   })
-  //   .catch((err) => {
-  //     console.error(err);
-  //   });
-  // AmountfromDate("04/04/2023")
-  //   .then((amount) => {
-  //     //console.log(amount);
-  //     setSizeYesterday(amount);
-  //   })
-  //   .catch((err) => {
-  //     console.error(err);
-  //   });
-  // AmountfromDate("03/04/2023")
-  //   .then((amount) => {
-  //     //console.log(amount);
-  //     setSizeBeforeYesterday(amount);
-  //   })
-  //   .catch((err) => {
-  //     console.error(err);
-  //   });
-  // const dataContract = useState([["Type", "The number of the contract type"]]);
-  // [
-  //   ["Type", "The number of the contract type"],
-  //   //["Umowa o prace", 51],
-  //   // ["Umowa zlecenie", 10],
-  //   // ["B2B", 34],
-  //   // ["Inne", 0],
-  // ];
- 
-  //[
-  //   ["Mode", "The number of operating modes"],
-  //   // ["Praca stacjonarna", 60],
-  //   // ["Praca zdalna", 12],
-  //   // ["Praca hybrydowa", 67],
-  //   // ["Inne", 0],
-  // ];
-
-  
   return (
     <div className="home">
       <div className="div-home">
@@ -150,12 +101,12 @@ const Home = () => {
         <h1>Current rating of the most sought-after professions:</h1>
       </div>
       <div className="div-charts">
-        {/* <div id="chart1">
-          <Chart chartType="PieChart" data={dataContract} options={options1} />
-        </div> */}
+        <div id="chart1">
+          <Chart chartType="PieChart" data={contractTypes} options={contractTypeChart} />
+        </div>
 
         <div id="chart2">
-          <Chart chartType="PieChart" options={workModeChart} data={array1} />
+          <Chart chartType="PieChart" data={workModes} options={workModeChart} />
         </div>
       </div>
 
