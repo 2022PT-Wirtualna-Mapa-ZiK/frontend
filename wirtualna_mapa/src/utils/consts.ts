@@ -5,7 +5,8 @@ export const API_URL =
 export const ENDPOINTS = {
   register: 'user/register',
   login: 'user/login/',
-  getScrappedData: 'data/scrappedData/',  
+  //getScrappedData: 'data/scrappedData/',  
+  workModeData: '/data/workModes'
 }
 
 export const PATHS = {

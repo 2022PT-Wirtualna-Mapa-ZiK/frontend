@@ -6,6 +6,10 @@ import { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
 import { number } from "yup";
 import { Col } from "reactstrap";
+import useData from "../../hooks/useData";
+import { workModeChart } from "./charts";
+import { workModeData } from "../../models/workMode";
+
 
 const Home = () => {
   const professions = [
@@ -23,116 +27,86 @@ const Home = () => {
   const [sizeToday, setSizeToday] = useState(0);
   const [sizeYesterday, setSizeYesterday] = useState(0);
   const [sizeBeforeYesterday, setSizeBeforeYesterday] = useState(0);
+  const {getWorkModeData} = useData();
 
-  //const basicAuth = "Basic" + btoa("admin@gmail.com Admin123#");
-  const AmountfromDate = async (date: string): Promise<number> => {
-    try {
-      const response = await fetch(
-        "http://localhost:8000/api/v1/data/offersFromCertainDay?date=" + date,
-        {
-          method: "GET",
-          headers: {
-            authorization: "Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==",
-          },
-        }
-      );
 
-      if (response.status === 200) {
-        const data = await response.json();
-        //console.log(data);
-        //console.log(data[0].amountOfOffers);
-        return data[0].amountOfOffers;
-      } else {
-        //console.log(response.status);
-        return 0; // Wartość domyślna w przypadku błędu
-      }
-    } catch (err) {
-      console.log(err);
-      return 0; // Wartość domyślna w przypadku błędu
-    }
-  };
- const [dataWorkMode, setDataWorkMode] = useState([["Mode", "The number of operating modes"],]);
+  const [dataWorkMode, setDataWorkMode] = useState<workModeData[]>();
 
-  const CollectData = async (url: string): Promise<any> => {
-    try {
-      const response = await fetch("http://localhost:8000/api/v1/data" + url, {
-        method: "GET",
-        headers: {
-          authorization: "Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==",
-        },
-      });
-
-      if (response.status === 200) {
-        const data = await response.json();
-        return data;
-      } else {
-        console.log(response.status);
-        return 0; // Wartość domyślna w przypadku błędu
-      }
-    } catch (err) {
-      console.log(err);
-      return 0; // Wartość domyślna w przypadku błędu
-    }
-  };
   useEffect(() => {
-    CollectData("/workModes")
-      .then((data) => {
-        //setDataWorkMode([["Mode", "The number of operating modes"]]);
-        console.log(data);
-        //dataWorkMode.push();
-        // data.forEach((item: any) => {
-          //   dataWorkMode.push([item.workMode, item.amountOfOffers]);
-          //   //console.log(dataWorkMode);
-          // });
-        
-        const newData = data.map((item: any) => item);
-        console.log(newData)
-        setDataWorkMode(newData); 
-        console.log(dataWorkMode);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-      console.log(dataWorkMode);
-      // CollectData("/agreementTypes")
-      // .then((data) => {
-      //   //console.log(data);
-      //   //dataWorkMode.push();
-      //   data.forEach((item: any) => {
-      //     dataWorkMode.push([item.workMode, item.amountOfOffers]);
-      //   });
-      //   //console.log(dataWorkMode);
-      // })
-      // .catch((err) => {
-      //   console.error(err);
-      // });
-  },[[]]);
+    const getUsers = async () => {
+      const users = await getWorkModeData();
+      const dataPre  = JSON.stringify(users.data)
+      const dataReady : workModeData[] = JSON.parse(dataPre)
+      setDataWorkMode(dataReady)
+    };  
+    getUsers();    
+  },[])  
+  
+  let array1 = [];
+  array1.push(["Element", "Density"]);    //give the headers for the chart data
+  dataWorkMode?.forEach(v => {
+    array1.push([v.workMode, v.amountOfOffers]);
+  });
 
-  AmountfromDate("05/04/2023")
-    .then((amount) => {
-      //console.log(amount);
-      setSizeToday(amount);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  AmountfromDate("04/04/2023")
-    .then((amount) => {
-      //console.log(amount);
-      setSizeYesterday(amount);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  AmountfromDate("03/04/2023")
-    .then((amount) => {
-      //console.log(amount);
-      setSizeBeforeYesterday(amount);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  const dataContract = useState([["Type", "The number of the contract type"]]);
+  // useEffect(() => {
+  //   CollectData("/workModes")
+  //     .then((data) => {
+  //       //setDataWorkMode([["Mode", "The number of operating modes"]]);
+  //       console.log(data);
+  //       //dataWorkMode.push();
+  //       // data.forEach((item: any) => {
+  //         //   dataWorkMode.push([item.workMode, item.amountOfOffers]);
+  //         //   //console.log(dataWorkMode);
+  //         // });
+        
+  //       const newData = data.map((item: any) => item);
+  //       console.log(newData)
+  //       setDataWorkMode(newData); 
+  //       console.log(dataWorkMode);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  //     console.log(dataWorkMode);
+  //     // CollectData("/agreementTypes")
+  //     // .then((data) => {
+  //     //   //console.log(data);
+  //     //   //dataWorkMode.push();
+  //     //   data.forEach((item: any) => {
+  //     //     dataWorkMode.push([item.workMode, item.amountOfOffers]);
+  //     //   });
+  //     //   //console.log(dataWorkMode);
+  //     // })
+  //     // .catch((err) => {
+  //     //   console.error(err);
+  //     // });
+  // },[[]]);
+
+  // AmountfromDate("05/04/2023")
+  //   .then((amount) => {
+  //     //console.log(amount);
+  //     setSizeToday(amount);
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //   });
+  // AmountfromDate("04/04/2023")
+  //   .then((amount) => {
+  //     //console.log(amount);
+  //     setSizeYesterday(amount);
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //   });
+  // AmountfromDate("03/04/2023")
+  //   .then((amount) => {
+  //     //console.log(amount);
+  //     setSizeBeforeYesterday(amount);
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //   });
+  // const dataContract = useState([["Type", "The number of the contract type"]]);
   // [
   //   ["Type", "The number of the contract type"],
   //   //["Umowa o prace", 51],
@@ -149,20 +123,7 @@ const Home = () => {
   //   // ["Inne", 0],
   // ];
 
-  const options1 = {
-    title: "Typy umów",
-    is3D: true,
-    backgroundColor: "transparent",
-    width: 700,
-    height: 400,
-  };
-  const options2 = {
-    title: "Tryby pracy",
-    is3D: true,
-    backgroundColor: "transparent",
-    width: 700,
-    height: 400,
-  };
+  
   return (
     <div className="home">
       <div className="div-home">
@@ -189,11 +150,12 @@ const Home = () => {
         <h1>Current rating of the most sought-after professions:</h1>
       </div>
       <div className="div-charts">
-        <div id="chart1">
+        {/* <div id="chart1">
           <Chart chartType="PieChart" data={dataContract} options={options1} />
-        </div>
+        </div> */}
+
         <div id="chart2">
-          <Chart chartType="PieChart" options={options2} data={dataWorkMode} />
+          <Chart chartType="PieChart" options={workModeChart} data={array1} />
         </div>
       </div>
 
