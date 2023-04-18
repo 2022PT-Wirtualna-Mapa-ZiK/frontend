@@ -6,6 +6,8 @@ export const ENDPOINTS = {
   register: 'user/register',
   login: 'user/login/',
   //getScrappedData: 'data/scrappedData/',  
+  gradeData: '/data/grades',
+  recruitmentTypeData: '/data/recruitmentTypes',
   workModeData: '/data/workModes',
   contractTypeData: '/data/agreementTypes',
   offersFromCertainDay: '/data/offersFromCertainDay',
