@@ -8,14 +8,16 @@ export const ENDPOINTS = {
   //getScrappedData: 'data/scrappedData/',  
   workModeData: '/data/workModes',
   contractTypeData: '/data/agreementTypes',
-  offersFromCertainDay: '/data/offersFromCertainDay'
+  offersFromCertainDay: '/data/offersFromCertainDay',
+  salaryRangeData: '/data/salaryRange',
 }
 
 export const PATHS = {
     welcome: '/',
     login: '/login',
     register: '/register',
-    home: '/home'
+    home: '/home',
+    general: '/general'
   }
 
 export const LOCAL_STORAGE = {

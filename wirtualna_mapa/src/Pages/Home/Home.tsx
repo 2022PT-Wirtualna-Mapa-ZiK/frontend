@@ -13,6 +13,8 @@ import { contractTypeData} from "../../models/contractType";
 import './home.css';
 import Button from "../../Components/Button/button";
 import { PATHS } from '../../utils/consts';
+import { IServerResponse } from "../../models/responses/serverResponse";
+import { getPromisedData } from "../../utils/functions";
 
 
 
@@ -46,23 +48,10 @@ const Home = () => {
   const {getContractTypeData} = useData();
   const {AmountFromDate} = useData();
 
-
   const [dataWorkMode, setDataWorkMode] = useState<workModeData[]>();
   const [dataContractType, setDataContractType] = useState<contractTypeData[]>();
 
   useEffect(() => {
-    const getWorkModes = async () => {
-      const users = await getWorkModeData();
-      const dataPre  = JSON.stringify(users.data)
-      const dataReady : workModeData[] = JSON.parse(dataPre)
-      setDataWorkMode(dataReady)
-    }; 
-    const getContractTypes = async () => {
-      const users = await getContractTypeData();
-      const dataPre  = JSON.stringify(users.data)
-      const dataReady : contractTypeData[] = JSON.parse(dataPre)
-      setDataContractType(dataReady)
-    }; 
     const getDaysAmount = async () =>{
       const today=await AmountFromDate("05/04/2023");
       const yesterday=await AmountFromDate("04/04/2023");
@@ -72,8 +61,12 @@ const Home = () => {
       setSizeYesterday(yesterday.data as number);
       setSizeBeforeYesterday(beforeYesterday.data as number);
     }  
-    getWorkModes();    
-    getContractTypes();
+    getPromisedData(getWorkModeData()).then(x => {
+        setDataWorkMode(x)
+    })
+    getPromisedData(getContractTypeData()).then(x => {
+      setDataContractType(x);
+    })
     getDaysAmount();
   },[])  
   
