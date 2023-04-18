@@ -8,7 +8,7 @@ export const ENDPOINTS = {
   
   //getScrappedData: 'data/scrappedData/', 
   gradeData: '/data/grades',
-  recruitmentTypeData: '/data/recruitmentTypes',
+  recruitmentTypeData: '/data/recruitmentTypeCount',
   workModeData: '/data/workModes',
   contractTypeData: '/data/agreementTypes',
   offersFromCertainDay: '/data/offersFromCertainDay'

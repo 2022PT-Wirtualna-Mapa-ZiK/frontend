@@ -57,6 +57,7 @@ const Home = () => {
     const getRecruitmentTypes = async () => {
       const users = await getRecruitmentTypeData();
       const dataPre  = JSON.stringify(users.data)
+      console.log(users.data);
       const dataReady : recruitmentTypeData[] = JSON.parse(dataPre)
       setDataRecruitmentType(dataReady)
     };
@@ -98,7 +99,7 @@ const Home = () => {
   let recruitmentTypes = [];
   recruitmentTypes.push(["Element", "Density"]);    //give the headers for the chart data
   dataRecruitmentType?.forEach(v => {
-    recruitmentTypes.push([v.recruitmentType, v.amountOfOffers]);
+    recruitmentTypes.push([v.recruitmentType, v.count]);
   });
 
   let workModes = [];
