@@ -20,16 +20,6 @@ import { PATHS } from '../../utils/consts';
 
 const Home = () => {
   const professions = [
-    { description: "IT Specialist", key: 0 },
-    { description: "Biotechnologist", key: 1 },
-    { description: "Logistician", key: 2 },
-    { description: "Electrical engineer", key: 3 },
-    { description: "Doctor", key: 4 },
-    { description: "Trainer", key: 5 },
-    { description: "Financial specialist", key: 6 },
-    { description: "Data scientist", key: 7 },
-    { description: "Graphic designer", key: 8 },
-    { description: "Researcher", key: 9 },
     {description: 'Informatyk', key: 0},
     {description: 'Biotechnolog', key: 1},
     {description: 'Logistyk', key: 2},
