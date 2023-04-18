@@ -1,22 +1,28 @@
+:root {
+  background-color: rgb(210, 215, 235);
+  width: 100%;
+}
 p, div {
   font-family: Lato;
 }
   
 .wrapper {
-  height: 97vh;
-  width: 100%;
+
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image:url(../../assets/back2.jpg);;
+  
 }
 
 .form-wrapper {
   display: flex;
+  position: absolute;
   flex-direction: column;
   align-items: center;
   width: 280px;
+  height: 70%;
   max-width: 80%;
   min-width: 100px;
   min-height: 400px;
@@ -54,7 +60,7 @@ input {
   padding: 10px 10px;
   border-radius: 5px;
   outline: none;
-  border: 1px solid #d6d1d5;
+  border: 1px solid black;
 }
 
 input::placeholder {
@@ -78,4 +84,53 @@ input::placeholder {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+}
+.back {
+height: 100%;
+width: 100%;
+position: absolute;
+top: 0;
+left: 0;
+          align-items: center;
+          justify-content: center;
+          display: flex;
+        }
+.have-acc {
+  text-align: left;
+  position: absolute;
+  left: 12%;
+  bottom: 7%;
+}
+
+.backpack {
+  width: 20%;
+  height: 30%;
+  background-image: url("backpack.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 0.5%;
+  right: 1%;
+}
+
+.target {
+  width: 15%;
+  height: 30%;
+  background-image: url("target.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 1%;
+  left: 1%;
+}
+
+.megaphone {
+  width: 15%;
+  height: 30%;
+  background-image: url("megaphone.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 38%;
+  left: 3%;
 }
