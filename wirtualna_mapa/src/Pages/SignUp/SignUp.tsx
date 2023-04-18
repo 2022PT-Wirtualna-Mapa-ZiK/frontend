@@ -73,39 +73,58 @@ export const SignUp = () => {
   return (
     
     <div className='wrapper'>
-      <div className='form-wrapper'>
-        <h2>Zarejestruj się</h2>
-        <form onSubmit={handleSubmit} id={form}>
-          <div className='name'>
-            <label htmlFor="name">Imię:</label>
-            <input type='text' name='name' onChange={handleChange} />
-            {errors.name.length > 0 && <span style={{ color: 'red' }}>{errors.name}</span>}
-          </div>
-          <div className='surname'>
-            <label htmlFor="surname">Nazwisko:</label>
-            <input type='text' name='surname' onChange={handleChange} />
-            {errors.surname.length > 0 && <span style={{ color: 'red' }}>{errors.surname}</span>}
-          </div>
-          <div className='email'>
-            <label htmlFor="email">Adres Email:</label>
-            <input type='email' name='email' onChange={handleChange} />
-            {errors.email.length > 0 && <span style={{ color: 'red' }}>{errors.email}</span>}
-          </div>
-          <div className='password'>
-            <label htmlFor="password">Hasło:</label>
-            <input type='password' name='password' onChange={handleChange} />
-            {errors.password.length > 0 && <span style={{ color: 'red' }}>{errors.password}</span>}
-          </div>
-          <div className='confpassword'>
-               <label htmlFor="confpassword">Podaj jeszcze raz hasło:</label>
-               <input type='password' name='confPassword' onChange={handleChange}/>
-               {errors.confPassword.length > 0 &&  <span style={{color: "red"}}>{errors.confPassword}</span>}
-               </div>              
-         <Button text="Zarejestruj się" form={form}/>
+      <div className='back'>
+        <div className="circle-pink"></div>
+        <div className="circle-small"></div>
+        <div className="triangle">
+          <div className="inside"></div>
+        </div>
+        <div className="circle-blue"></div>
+        <div className="center">
+          <div className="backpack"></div>
+          <div className="megaphone"></div>
+          <div className="target"></div>
+        </div>
+        <div className='form-wrapper'>
+          <br />
+          <h2>Zarejestruj się</h2>
+          <br />
+          <form onSubmit={handleSubmit} id={form}>
+            <div className='name'>
+              <label htmlFor="name">Imię:</label>
+              <input type='text' name='name' onChange={handleChange} />
+              {errors.name.length > 0 && <span style={{ color: 'red' }}>{errors.name}</span>}
+            </div>
+            <div className='surname'>
+              <label htmlFor="surname">Nazwisko:</label>
+              <input type='text' name='surname' onChange={handleChange} />
+              {errors.surname.length > 0 && <span style={{ color: 'red' }}>{errors.surname}</span>}
+            </div>
+            <div className='email'>
+              <label htmlFor="email">Adres Email:</label>
+              <input type='email' name='email' onChange={handleChange} />
+              {errors.email.length > 0 && <span style={{ color: 'red' }}>{errors.email}</span>}
+            </div>
+            <div className='password'>
+              <label htmlFor="password">Hasło:</label>
+              <input type='password' name='password' onChange={handleChange} />
+              {errors.password.length > 0 && <span style={{ color: 'red' }}>{errors.password}</span>}
+            </div>
+            <div className='confpassword'>
+              <label htmlFor="confpassword">Podaj jeszcze raz hasło:</label>
+              <input type='password' name='confPassword' onChange={handleChange} />
+              {errors.confPassword.length > 0 && <span style={{ color: "red" }}>{errors.confPassword}</span>}
+            </div>
+            
+            <Button text="Zarejestruj się" form={form} className='signUp'/>
           </form>
-         <h3>Masz już konto?</h3>
-         <Button link={PATHS.login} text="Zaloguj się"/>
+
+            <p className="have-acc">Masz już konto?</p>
+          <Button link={PATHS.login} text="Zaloguj się" className='signIn'/>
+          
+        </div>
       </div>
+      
    </div>
   );
  }

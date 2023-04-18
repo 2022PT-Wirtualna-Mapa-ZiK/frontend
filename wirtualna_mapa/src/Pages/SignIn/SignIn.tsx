@@ -67,49 +67,70 @@ const SignIn = () => {
           handleSubmit,
         } = props;
         return (
-          <div className="wrapper">
-            <form
-              className="form-wrapper"
-              onSubmit={handleSubmit}
-              id="loginForm"
-            >
-              <h2>Login</h2>
+          <div className="wrapper-login">
+            <div className="back-login">
+              <div className="circle-pink"></div>
+              <div className="circle-small"></div>
+              <div className="triangle">
+                <div className="inside"></div>
+              </div>
+              <div className="circle-blue"></div>
+              <div className="center">
+                <div className="backpack"></div>
+                <div className="megaphone"></div>
+                <div className="target"></div>
+                <form
+                  className="form-wrapper-login"
+                  onSubmit={handleSubmit}
+                  id="loginForm"
+                >
+                  <div className="input-wrapper">
+                    <br />
+                    <h2>Login</h2>
+                    <br />
 
-              <label htmlFor="email">Email</label>
-              <input
-                name="email"
-                type="text"
-                placeholder="Podaj swój adres email"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className={[errors.email && touched.email && "error"].join("")}
-              />
+                    <label htmlFor="email">Email</label>
+                    <input
+                      name="email"
+                      type="text"
 
-              {errors.email && touched.email && (
-                <div className="input-feedback">{errors.email}</div>
-              )}
-              <label htmlFor="email">Hasło</label>
-              <input
-                name="password"
-                type="password"
-                placeholder="Enter your password"
-                value={values.password}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className={[
-                  errors.password && touched.password && "error",
-                ].join("")}
-              />
-              {errors.password && touched.password && (
-                <div className="input-feedback">{errors.password}</div>
-              )}
-              <a href="/retrieve">Zapomniałeś hasła?</a>
-              <Button text="Login" form="loginForm" />
-              <div className="database-feedback">{values.databaseError}</div>
-              <h3>Nie masz konta?</h3>
-              <Button link={PATHS.register} text="Zarejestruj się"/>
-            </form>
+                      value={values.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={[errors.email && touched.email && "error"].join("")}
+                    />
+
+                    {errors.email && touched.email && (
+                      <div className="input-feedback">{errors.email}</div>
+                    )}
+                    <label htmlFor="email">Hasło <span><a href="/retrieve">Zapomniałeś hasła?</a></span></label>
+
+                    <input
+                      name="password"
+                      type="password"
+
+                      value={values.password}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={[
+                        errors.password && touched.password && "error",
+                      ].join("")}
+                    />
+                    {errors.password && touched.password && (
+                      <div className="input-feedback">{errors.password}</div>
+                    )}
+                  </div>
+
+
+                  <Button text="Login" form="loginForm" />
+                  <div className="database-feedback">{values.databaseError}</div>
+                  <p className="new-acc">Nie masz konta?</p>
+                  <Button link={PATHS.register} text="Zarejestruj się" className="register" />
+                </form>
+              </div>
+            </div>
+                
+            
           </div>
         );
       }}
