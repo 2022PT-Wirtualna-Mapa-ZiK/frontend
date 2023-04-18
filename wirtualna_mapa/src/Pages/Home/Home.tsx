@@ -7,9 +7,11 @@ import { Chart } from "react-google-charts";
 import { number } from "yup";
 import { Col } from "reactstrap";
 import useData from "../../hooks/useData";
-import { workModeChart, contractTypeChart } from "./charts";
+import { gradeData} from "../../models/grade";
+import { recruitmentTypeData} from "../../models/recruitmentType";
 import { workModeData} from "../../models/workMode";
 import { contractTypeData} from "../../models/contractType";
+import { gradesChart, recruitmentTypeChart, workModeChart, contractTypeChart } from "./charts";
 import './home.css';
 import Button from "../../Components/Button/button";
 import { PATHS } from '../../utils/consts';
@@ -42,15 +44,31 @@ const Home = () => {
   const [sizeToday, setSizeToday] = useState(0);
   const [sizeYesterday, setSizeYesterday] = useState(0);
   const [sizeBeforeYesterday, setSizeBeforeYesterday] = useState(0);
+  const {getGradeData} = useData();
+  const {getRecruitmentTypeData} = useData();
   const {getWorkModeData} = useData();
   const {getContractTypeData} = useData();
   const {AmountFromDate} = useData();
+  
 
-
+  const [dataGrade, setDataGrade] = useState<gradeData[]>();
+  const [dataRecruitmentType, setDataRecruitmentType] = useState<recruitmentTypeData[]>();
   const [dataWorkMode, setDataWorkMode] = useState<workModeData[]>();
   const [dataContractType, setDataContractType] = useState<contractTypeData[]>();
 
   useEffect(() => {
+    const getGrades = async () => {
+      const users = await getGradeData();
+      const dataPre  = JSON.stringify(users.data)
+      const dataReady : gradeData[] = JSON.parse(dataPre)
+      setDataGrade(dataReady)
+    };
+    const getRecruitmentTypes = async () => {
+      const users = await getRecruitmentTypeData();
+      const dataPre  = JSON.stringify(users.data)
+      const dataReady : recruitmentTypeData[] = JSON.parse(dataPre)
+      setDataRecruitmentType(dataReady)
+    };
     const getWorkModes = async () => {
       const users = await getWorkModeData();
       const dataPre  = JSON.stringify(users.data)
@@ -71,12 +89,27 @@ const Home = () => {
       setSizeToday(today.data as number);
       setSizeYesterday(yesterday.data as number);
       setSizeBeforeYesterday(beforeYesterday.data as number);
-    }  
-    getWorkModes();    
+    }
+
+    getGrades();
+    getRecruitmentTypes();
+    getWorkModes();
     getContractTypes();
     getDaysAmount();
   },[])  
   
+  let grades = [];
+  grades.push(["Element", "Density"]);    //give the headers for the chart data
+  dataGrade?.forEach(v => {
+    grades.push([v.grade, v.amountOfOffers]);
+  });
+
+  let recruitmentTypes = [];
+  recruitmentTypes.push(["Element", "Density"]);    //give the headers for the chart data
+  dataRecruitmentType?.forEach(v => {
+    recruitmentTypes.push([v.recruitmentType, v.amountOfOffers]);
+  });
+
   let workModes = [];
   workModes.push(["Element", "Density"]);    //give the headers for the chart data
   dataWorkMode?.forEach(v => {
@@ -119,11 +152,19 @@ const Home = () => {
         <h1>Aktualnie najczęściej wyszukiwane zawody:</h1>
       </div>
       <div className="div-charts">
-        <div id="chart1">
+        <div id="grades">
+          <Chart chartType="PieChart" data={grades} options={gradesChart} />
+        </div>
+
+        <div id="recruitmentTypes">
+          <Chart chartType="PieChart" data={recruitmentTypes} options={recruitmentTypeChart} />
+        </div>
+
+        <div id="contractTypes">
           <Chart chartType="PieChart" data={contractTypes} options={contractTypeChart} />
         </div>
 
-        <div id="chart2">
+        <div id="workModes">
           <Chart chartType="PieChart" data={workModes} options={workModeChart} />
         </div>
       </div>
