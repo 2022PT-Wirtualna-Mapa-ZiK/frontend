@@ -70,17 +70,17 @@
 
 button{
   background-color: #F65776;
-  font-weight: bolder;
-  font-size: 18px;
-  border-color: #E90C38;
-  margin: 5px;
-  margin-left: 3em;
-  padding-bottom: 1em;
-  padding-top: 1em;
-  padding-left: 2em;
-  padding-right: 2em;
-  border-radius: 1em;
-  box-shadow: 0.15em 0.15em #2e282a75;
+  font-weight: bold;
+    font-size: 16px;
+    border-color: #E90C38;
+    margin: 5px;
+    margin-left: 1em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    border-radius: 0.8em;
+    box-shadow: 0.15em 0.15em #2e282a75;
   transition: 0.5s background-color box-shadow;
 }
 
@@ -89,4 +89,22 @@ button:hover{
   box-shadow: inset 0.15em 0.15em #2e282ab9;
   transition-duration: 1s;
   cursor: pointer;
+}
+
+.register{
+  position: absolute;
+  right: 5%;
+  bottom: 12%;
+}
+
+.signUp{
+position: absolute;
+bottom: 13%;
+left:23%;
+}
+
+.signIn{
+  position: absolute;
+  bottom: 5%;
+  right: 12%;
 }
