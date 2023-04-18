@@ -50,6 +50,7 @@ const Home = () => {
     const getGrades = async () => {
       const users = await getGradeData();
       const dataPre  = JSON.stringify(users.data)
+      console.log(users.data);
       const dataReady : gradeData[] = JSON.parse(dataPre)
       setDataGrade(dataReady)
     };
@@ -142,6 +143,14 @@ const Home = () => {
         <h1>Aktualnie najczęściej wyszukiwane zawody:</h1>
       </div>
       <div className="div-charts">
+        <div id="contractTypes">
+          <Chart chartType="PieChart" data={contractTypes} options={contractTypeChart} />
+        </div>
+
+        <div id="workModes">
+          <Chart chartType="PieChart" data={workModes} options={workModeChart} />
+        </div>
+
         <div id="grades">
           <Chart chartType="PieChart" data={grades} options={gradesChart} />
         </div>
@@ -150,13 +159,6 @@ const Home = () => {
           <Chart chartType="PieChart" data={recruitmentTypes} options={recruitmentTypeChart} />
         </div>
 
-        <div id="contractTypes">
-          <Chart chartType="PieChart" data={contractTypes} options={contractTypeChart} />
-        </div>
-
-        <div id="workModes">
-          <Chart chartType="PieChart" data={workModes} options={workModeChart} />
-        </div>
       </div>
 
       <div className="div-list">
