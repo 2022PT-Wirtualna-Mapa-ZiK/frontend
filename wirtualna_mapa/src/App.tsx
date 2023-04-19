@@ -7,6 +7,7 @@ import Nav from './Components/Nav/Nav';
 import Home from './Pages/Home/Home';
 import WelcomePage from './Pages/WelcomePage/WelcomePage';
 import SignIn from './Pages/SignIn/SignIn';
+import CategoriesEmployers from './Pages/CategoriesEmployers/CategoriesEmployers';
 import {
   createBrowserRouter,
   RouterProvider,
