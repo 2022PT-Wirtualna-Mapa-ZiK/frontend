@@ -74,9 +74,9 @@ const Home = () => {
       setDataContractType(dataReady)
     }; 
     const getDaysAmount = async () =>{
-      const today=await AmountFromDate("05/04/2023");
-      const yesterday=await AmountFromDate("04/04/2023");
-      const beforeYesterday=await AmountFromDate("03/04/2023");
+      const today=await AmountFromDate("17/04/2023");
+      const yesterday=await AmountFromDate("16/04/2023");
+      const beforeYesterday=await AmountFromDate("15/04/2023");
 
       setSizeToday(today.data as number);
       setSizeYesterday(yesterday.data as number);
@@ -151,14 +151,14 @@ const Home = () => {
         <div id="workModes">
           <Chart chartType="PieChart" data={workModes} options={workModeChart} />
         </div>
-
+{/* 
         <div id="grades">
           <Chart chartType="PieChart" data={grades} options={gradesChart} />
         </div>
 
         <div id="recruitmentTypes">
           <Chart chartType="PieChart" data={recruitmentTypes} options={recruitmentTypeChart} />
-        </div>
+        </div> */}
 
       </div>
 

@@ -27,6 +27,7 @@ const CategoriesEmployers: FC<CategoriesEmployersProps> = () => {
     const getGrades = async () => {
         const users = await getGradeData();
         const dataPre  = JSON.stringify(users.data)
+        console.log(users.data);
         const dataReady : gradeData[] = JSON.parse(dataPre)
         setDataGrade(dataReady)
       };
@@ -63,7 +64,7 @@ const CategoriesEmployers: FC<CategoriesEmployersProps> = () => {
   let recruitmentTypes = [];
   recruitmentTypes.push(["Element", "Density"]);    //give the headers for the chart data
   dataRecruitmentType?.forEach(v => {
-    recruitmentTypes.push([v.recruitmentType, v.amountOfOffers]);
+    recruitmentTypes.push([v.recruitmentType, v.count]);
   });
 
   let categories = [];
