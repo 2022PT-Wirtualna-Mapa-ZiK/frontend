@@ -11,20 +11,20 @@ const General = () => {
   
   const {getSalaryRangeData} = useData();
   const [dataSalaryRange, setDataSalaryRange] = useState<salaryRangeData[]>();
+  
+  let salaryRanges = [];
+  salaryRanges.push(["Płaca", "Ilość"]);    //give the headers for the chart data
+  dataSalaryRange?.forEach(v => {
+    salaryRanges.push([v.range, v.ammountOfOffers]);
+  });
 
   useEffect(() => {  
     getPromisedData(getSalaryRangeData()).then(x => {
-      setDataSalaryRange(x)
-  })
+      setDataSalaryRange(x);       
+    })
   },[]
   )
-
-  let salaryRanges = [];
-  salaryRanges.push(["Element", "Density"]);    //give the headers for the chart data
-  dataSalaryRange?.forEach(v => {
-    salaryRanges.push([v.salaryRange, v.amountOfOffers]);
-  });
-
+  
   return (
     <div className='general'>
       <div id="">

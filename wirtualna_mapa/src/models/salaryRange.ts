@@ -1,4 +1,4 @@
 export interface salaryRangeData {
-    salaryRange : string,
-    amountOfOffers : number
+    range : string,
+    ammountOfOffers : number
   }
