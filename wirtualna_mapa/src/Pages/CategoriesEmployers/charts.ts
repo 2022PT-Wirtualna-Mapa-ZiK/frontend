@@ -14,16 +14,16 @@ export const recruitmentTypeChart = {
   height: 400,
   fontSize: 15 
 };
-export const contractTypeChart = {
-    title: "Typy umów",
+export const mostPopularEmployersChart = {
+    title: "Najpopularniejsi pracodawcy",
     is3D: true,
     backgroundColor: "transparent",
     width: 700,
     height: 400,
     fontSize: 15 
   };
-export const workModeChart = {
-    title: "Tryby pracy",
+export const mostPopularJobsOfferChart = {
+    title: "Najpopularniejsze kategorie ofert pracy",
     is3D: true,
     backgroundColor: "transparent",
     width: 700,

@@ -31,7 +31,7 @@ const SignIn = () => {
           })
             .then((response) => {
               if (response.status === 200) {
-                navigate(PATHS.general);
+                navigate(PATHS.categoriesEmployers);
               } else {
                 console.log("There is no such user in the database");
                 values.databaseError = "Podany użytkownik nie istnieje";

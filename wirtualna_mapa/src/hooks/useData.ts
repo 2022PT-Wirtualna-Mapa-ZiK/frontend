@@ -3,7 +3,30 @@ import axiosDefault from "../setup/axios/defaultInstance";
 import { ENDPOINTS } from "../utils/consts";
 
 const useData = () => {
-  
+  const getGradeData = async(): Promise<IServerResponse> => {
+    try {
+      const response = await axiosDefault.get(ENDPOINTS.gradeData, {
+        headers: {
+        'authorization': 'Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==',
+      }})
+      const rawData = response.data;
+      return { succeed: true, data: rawData}
+    } catch (error) {
+      return { succeed: false, errorMessage: 'Coś poszło nie tak.' }
+    } 
+  }
+  const getRecruitmentTypeData = async(): Promise<IServerResponse> => {
+    try {
+      const response = await axiosDefault.get(ENDPOINTS.recruitmentTypeData, {
+        headers: {
+        'authorization': 'Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==',
+      }})
+      const rawData = response.data;
+      return { succeed: true, data: rawData}
+    } catch (error) {
+      return { succeed: false, errorMessage: 'Coś poszło nie tak.' }
+    } 
+  }
   const getWorkModeData = async(): Promise<IServerResponse> => {
     try {
       const response = await axiosDefault.get(ENDPOINTS.workModeData, {
@@ -40,6 +63,21 @@ const useData = () => {
       return { succeed: false, errorMessage: 'Coś poszło nie tak.' }
     } 
   }
+const getCategoriesData = async(): Promise<IServerResponse> => {
+    try {
+      const response = await axiosDefault.get(ENDPOINTS.categories, {
+        headers: {
+        'authorization': 'Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==',
+      }})
+      const rawData = response.data;
+      return { succeed: true, data: rawData}
+    } catch (error) {
+      return { succeed: false, errorMessage: 'Coś poszło nie tak.' }
+    } 
+  }
+  const getEmployersData = async(): Promise<IServerResponse> => {
+    try {
+      const response = await axiosDefault.get(ENDPOINTS.employers, {
   const getSalaryRangeData = async(): Promise<IServerResponse> => {
     try {
       const response = await axiosDefault.get(ENDPOINTS.salaryRangeData, {
@@ -53,7 +91,7 @@ const useData = () => {
     } 
   }
   return {
-    getWorkModeData,getContractTypeData,AmountFromDate, getSalaryRangeData
+    getGradeData,getRecruitmentTypeData,getWorkModeData,getContractTypeData,AmountFromDate,getCategoriesData, getEmployersData, getSalaryRangeData
   }
 }
 

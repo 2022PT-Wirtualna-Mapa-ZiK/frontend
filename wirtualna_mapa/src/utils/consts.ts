@@ -5,11 +5,16 @@ export const API_URL =
 export const ENDPOINTS = {
   register: 'user/register',
   login: 'user/login/',
-  //getScrappedData: 'data/scrappedData/',  
+
+  gradeData: '/data/grades',
+  recruitmentTypeData: '/data/recruitmentTypeCount',
   workModeData: '/data/workModes',
   contractTypeData: '/data/agreementTypes',
   offersFromCertainDay: '/data/offersFromCertainDay',
   salaryRangeData: '/data/salaryRange',
+  categories: '/data/mostCommonCategories',
+  employers: '/data/mostEmployersWithOffers'
+
 }
 
 export const PATHS = {
@@ -18,6 +23,7 @@ export const PATHS = {
     register: '/register',
     home: '/home',
     general: '/general'
+    categoriesEmployers: '/categoriesEmployers'
   }
 
 export const LOCAL_STORAGE = {
