@@ -78,6 +78,15 @@ const getCategoriesData = async(): Promise<IServerResponse> => {
   const getEmployersData = async(): Promise<IServerResponse> => {
     try {
       const response = await axiosDefault.get(ENDPOINTS.employers, {
+        headers: {
+          'authorization': 'Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==',
+        }})
+        const rawData = response.data;
+        return { succeed: true, data: rawData}
+      } catch (error) {
+        return { succeed: false, errorMessage: 'Coś poszło nie tak.' }
+      } 
+    }
   const getSalaryRangeData = async(): Promise<IServerResponse> => {
     try {
       const response = await axiosDefault.get(ENDPOINTS.salaryRangeData, {

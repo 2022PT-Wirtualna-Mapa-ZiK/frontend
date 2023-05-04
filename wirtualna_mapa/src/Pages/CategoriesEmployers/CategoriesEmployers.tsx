@@ -3,26 +3,38 @@ import styles from './CategoriesEmployers.module.css';
 import useData from '../../hooks/useData';
 import { gradeData} from "../../models/grade";
 import { recruitmentTypeData} from "../../models/recruitmentType";
-import { contractTypeData } from '../../models/contractType';
-import { workModeData } from '../../models/workMode';
+import { salaryRangeData } from '../../models/salaryRange';
 import { categories } from '../../models/categories';
 import { employers } from '../../models/employers';
+import { salaryRangeChart } from './charts';
+import { getPromisedData } from '../../utils/functions';
 import { gradesChart, recruitmentTypeChart, mostPopularEmployersChart, mostPopularJobsOfferChart } from './charts';
 import Chart from 'react-google-charts';
 
 interface CategoriesEmployersProps {}
 
 const CategoriesEmployers: FC<CategoriesEmployersProps> = () => {
-    const {getGradeData} = useData();
-    const {getRecruitmentTypeData} = useData();
-    const {getCategoriesData} = useData();
-    const {getEmployersData} = useData();
+  const {getGradeData} = useData();
+  const {getRecruitmentTypeData} = useData();
+  const {getCategoriesData} = useData();
+  const {getEmployersData} = useData();
+  const {getSalaryRangeData} = useData();
 
   const [dataGrade, setDataGrade] = useState<gradeData[]>();
   const [dataRecruitmentType, setDataRecruitmentType] = useState<recruitmentTypeData[]>();
   const [dataCategories, setDataCategories] = useState<categories[]>();
   const [dataEmployers, setDataEmployers] = useState<employers[]>();
+  const [dataSalaryRange, setDataSalaryRange] = useState<salaryRangeData[]>();
+  
+  let salaryRanges = [];
+  salaryRanges.push(["Płaca", "Ilość"]);    //give the headers for the chart data
+  dataSalaryRange?.forEach(v => {
+    salaryRanges.push([v.range, v.ammountOfOffers]);
+  });
 
+  useEffect(() => {  
+    
+  },[])
   useEffect(() => {
     const getGrades = async () => {
         const users = await getGradeData();
@@ -30,13 +42,13 @@ const CategoriesEmployers: FC<CategoriesEmployersProps> = () => {
         console.log(users.data);
         const dataReady : gradeData[] = JSON.parse(dataPre)
         setDataGrade(dataReady)
-      };
-      const getRecruitmentTypes = async () => {
-        const users = await getRecruitmentTypeData();
-        const dataPre  = JSON.stringify(users.data)
-        const dataReady : recruitmentTypeData[] = JSON.parse(dataPre)
-        setDataRecruitmentType(dataReady)
-      };
+    };
+    const getRecruitmentTypes = async () => {
+      const users = await getRecruitmentTypeData();
+      const dataPre  = JSON.stringify(users.data)
+      const dataReady : recruitmentTypeData[] = JSON.parse(dataPre)
+      setDataRecruitmentType(dataReady)
+    };
     const getCategories = async () => {
       const users = await getCategoriesData();
       const dataPre  = JSON.stringify(users.data)
@@ -49,6 +61,9 @@ const CategoriesEmployers: FC<CategoriesEmployersProps> = () => {
       const dataReady : employers[] = JSON.parse(dataPre)
       setDataEmployers(dataReady)
     }
+    getPromisedData(getSalaryRangeData()).then(x => {
+      setDataSalaryRange(x);       
+    })
     getGrades();
     getRecruitmentTypes();
     getCategories();    
@@ -88,22 +103,25 @@ const CategoriesEmployers: FC<CategoriesEmployersProps> = () => {
       <h1>Aktualnie najczęściej wyszukiwane zawody:</h1>
     </div>
     <div className="div-charts">
-        <div id="grades">
-          <Chart chartType="PieChart" data={grades} options={gradesChart} />
-        </div>
+      <div id="grades">
+        <Chart chartType="PieChart" data={grades} options={gradesChart} />
+      </div>
 
-        <div id="recruitmentTypes">
-          <Chart chartType="PieChart" data={recruitmentTypes} options={recruitmentTypeChart} />
-        </div>
-      <div id="chart1">
+      <div id="recruitmentTypes">
+        <Chart chartType="PieChart" data={recruitmentTypes} options={recruitmentTypeChart} />
+      </div>
+      <div id="categories">
         <Chart chartType="PieChart" data={categories} options={mostPopularJobsOfferChart} />
       </div>
-
-      <div id="chart2">
+      <div id="employers">
         <Chart chartType="PieChart" data={employers} options={mostPopularEmployersChart} />
       </div>
+      <div id="SalaryRange">
+          <Chart chartType="ColumnChart" data={salaryRanges} options={salaryRangeChart} />
+      </div>
     </div>
-  </div>
+    </div>
+  
   );
 };
 

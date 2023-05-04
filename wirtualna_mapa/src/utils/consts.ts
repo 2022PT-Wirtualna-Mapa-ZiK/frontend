@@ -22,7 +22,6 @@ export const PATHS = {
     login: '/login',
     register: '/register',
     home: '/home',
-    general: '/general'
     categoriesEmployers: '/categoriesEmployers'
   }
 

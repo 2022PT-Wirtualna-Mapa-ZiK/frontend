@@ -54,17 +54,21 @@
     grid-template-columns: 400px 100px;
     gap: 100px; /* Możesz dostosować odstępy między wykresami według potrzeb */
     position: absolute;
-    top: 50vh;
+    top: 50vh; 
     left: 10vw;
   }
   
-  #chart1 {
+  #categories {
     float:left;
     width: 50%;
   }
   
-  #chart2 {
+  #employers {
     float:right;
+    width: 50%;
+  }
+  #SalaryRange{
+    float:center;
     width: 50%;
   }
   
