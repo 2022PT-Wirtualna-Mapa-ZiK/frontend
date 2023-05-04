@@ -9,6 +9,7 @@ import Home from './Pages/Home/Home';
 import WelcomePage from './Pages/WelcomePage/WelcomePage';
 import { SignUp } from './Pages/SignUp/SignUp';
 import { PATHS } from './utils/consts';
+import General from './Pages/General/general';
 import CategoriesEmployers from './Pages/CategoriesEmployers/CategoriesEmployers';
 
 const root = ReactDOM.createRoot(
@@ -23,6 +24,7 @@ root.render(
         <Route path={PATHS.register} element={<SignUp/>}/>
         <Route path={PATHS.welcome} element={<WelcomePage/>}/>
         <Route path={PATHS.home} element={<Home/>}/>
+        <Route path={PATHS.general} element={<General/>}/>
         <Route path={PATHS.categoriesEmployers} element={<CategoriesEmployers/>}/>
       </Routes>
     </Router>

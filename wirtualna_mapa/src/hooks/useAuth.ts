@@ -17,8 +17,7 @@ const useAuth = () => {
       }, {headers: {
         'Content-Type': 'application/json',
       }})
-
-      navigate(PATHS.home)
+      navigate(PATHS.general)
       localStorage.setItem(LOCAL_STORAGE.loggedIn, 'loggedIn');
 
       return { succeed: true }

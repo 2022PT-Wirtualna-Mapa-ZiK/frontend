@@ -63,7 +63,7 @@ const useData = () => {
       return { succeed: false, errorMessage: 'Coś poszło nie tak.' }
     } 
   }
-  const getCategoriesData = async(): Promise<IServerResponse> => {
+const getCategoriesData = async(): Promise<IServerResponse> => {
     try {
       const response = await axiosDefault.get(ENDPOINTS.categories, {
         headers: {
@@ -78,6 +78,9 @@ const useData = () => {
   const getEmployersData = async(): Promise<IServerResponse> => {
     try {
       const response = await axiosDefault.get(ENDPOINTS.employers, {
+  const getSalaryRangeData = async(): Promise<IServerResponse> => {
+    try {
+      const response = await axiosDefault.get(ENDPOINTS.salaryRangeData, {
         headers: {
         'authorization': 'Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==',
       }})
@@ -88,7 +91,7 @@ const useData = () => {
     } 
   }
   return {
-    getGradeData,getRecruitmentTypeData,getWorkModeData,getContractTypeData,AmountFromDate,getCategoriesData, getEmployersData
+    getGradeData,getRecruitmentTypeData,getWorkModeData,getContractTypeData,AmountFromDate,getCategoriesData, getEmployersData, getSalaryRangeData
   }
 }
 

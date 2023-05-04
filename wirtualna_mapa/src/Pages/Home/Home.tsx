@@ -15,6 +15,8 @@ import { gradesChart, recruitmentTypeChart, workModeChart, contractTypeChart } f
 import './home.css';
 import Button from "../../Components/Button/button";
 import { PATHS } from '../../utils/consts';
+import { IServerResponse } from "../../models/responses/serverResponse";
+import { getPromisedData } from "../../utils/functions";
 
 
 
@@ -40,7 +42,6 @@ const Home = () => {
   const {getContractTypeData} = useData();
   const {AmountFromDate} = useData();
   
-
   const [dataGrade, setDataGrade] = useState<gradeData[]>();
   const [dataRecruitmentType, setDataRecruitmentType] = useState<recruitmentTypeData[]>();
   const [dataWorkMode, setDataWorkMode] = useState<workModeData[]>();
@@ -72,7 +73,7 @@ const Home = () => {
       const dataPre  = JSON.stringify(users.data)
       const dataReady : contractTypeData[] = JSON.parse(dataPre)
       setDataContractType(dataReady)
-    }; 
+    };
     const getDaysAmount = async () =>{
       const today=await AmountFromDate("17/04/2023");
       const yesterday=await AmountFromDate("16/04/2023");
@@ -81,7 +82,13 @@ const Home = () => {
       setSizeToday(today.data as number);
       setSizeYesterday(yesterday.data as number);
       setSizeBeforeYesterday(beforeYesterday.data as number);
-    }
+    }  
+    getPromisedData(getWorkModeData()).then(x => {
+        setDataWorkMode(x)
+    })
+    getPromisedData(getContractTypeData()).then(x => {
+      setDataContractType(x);
+    })
 
     getGrades();
     getRecruitmentTypes();
