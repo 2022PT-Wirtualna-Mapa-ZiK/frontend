@@ -1,5 +1,5 @@
-.home{
-    background-image: url("../../assets/back2.jpg");
+.categoriesEmployers{
+    background-image: url("../../assets/back1.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,8 +24,9 @@
   
   .div-title{
     position:absolute;
-    right: 6vw;
-    top: 20vh;  
+    background-color: transparent;
+    left: 20vw;
+    top: 25vh;  
   }
   
   .div-title > h1 {
@@ -47,30 +48,31 @@
     top: 15%;
   }
   
-  .div-charts{
+  /* .div-charts{
     /* position:absolute;
     display: inline-block; */
-    display: grid;
+    /* display: grid;
     grid-template-columns: 400px 100px;
     gap: 100px; /* Możesz dostosować odstępy między wykresami według potrzeb */
-    position: absolute;
+    /*position: absolute;
     top: 50vh; 
+    left: 10vw; 
+  } */
+  
+  #chart {
+    position:absolute;
+    top: 8vw; 
     left: 10vw;
   }
   
-  #categories {
-    float:left;
-    width: 50%;
-  }
-  
-  #employers {
+  /* #employers {
     float:right;
     width: 50%;
   }
   #SalaryRange{
     float:center;
     width: 50%;
-  }
+  } */
   
   button{
     background-color: #F65776;

@@ -10,6 +10,7 @@ import WelcomePage from './Pages/WelcomePage/WelcomePage';
 import { SignUp } from './Pages/SignUp/SignUp';
 import { PATHS } from './utils/consts';
 import CategoriesEmployers from './Pages/CategoriesEmployers/CategoriesEmployers';
+import { Footer } from './Components/Footer/footer';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -26,6 +27,7 @@ root.render(
         <Route path={PATHS.categoriesEmployers} element={<CategoriesEmployers/>}/>
       </Routes>
     </Router>
+    <Footer/>
   </React.StrictMode>
 );
 

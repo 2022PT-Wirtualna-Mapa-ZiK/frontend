@@ -20,6 +20,7 @@ export const ENDPOINTS = {
 export const PATHS = {
     welcome: '/',
     login: '/login',
+    logout: '/home',
     register: '/register',
     home: '/home',
     categoriesEmployers: '/categoriesEmployers'

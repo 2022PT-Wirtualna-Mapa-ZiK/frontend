@@ -13,22 +13,22 @@
   top: 4vh;
 }
 
-.div-list{
+.div-lists{
   position:absolute;
   right: 12vw;
-  top: 30vh;
+  top: 22vh;
   font-size: 3vh;
   text-align: left;
   font-weight: 400;
 }
 
-.div-title{
+.div-title1{
   position:absolute;
   right: 6vw;
-  top: 20vh;  
+  top: 15vh;  
 }
 
-.div-title > h1 {
+.div-title1 > h1 {
   font-weight: 600;
 }
 

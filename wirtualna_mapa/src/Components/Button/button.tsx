@@ -7,16 +7,21 @@ type ButtonProps = {
   text: string;
   className?: string;
   form?: string;
+  onClick?: any;
 };
 
-const Button: React.FC<ButtonProps> = ({ link, text, className, form }) => {
-  const navigate = useNavigate();
 
-  return (
-    <button type="submit" className={className} form={form} onClick={() => {
+
+const Button: React.FC<ButtonProps> = ({ link, text, className, form, onClick}) => {
+  const navigate = useNavigate();
+  if(!onClick){
+    onClick=() => {
       if(link) 
         navigate(link);
-    }}>
+    }
+  }
+  return (
+    <button type="submit" className={className} form={form} onClick={onClick}>
       {text}
     </button>
   );

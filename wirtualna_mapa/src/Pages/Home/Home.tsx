@@ -1,6 +1,5 @@
 import React from "react";
 import path from "path";
-import "./home.css";
 import { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
 import useData from "../../hooks/useData";
@@ -98,7 +97,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="div-title">        
+      <div className="div-title1">        
         <h1>Aktualnie najczęściej wyszukiwane zawody:</h1>
       </div>
       <div className="div-charts">
@@ -113,7 +112,7 @@ const Home = () => {
 
       </div>
 
-      <div className="div-list">
+      <div className="div-lists">
         <ol>
           {/* display each value(profession) from list */}
           {professions.map((profess) => {
