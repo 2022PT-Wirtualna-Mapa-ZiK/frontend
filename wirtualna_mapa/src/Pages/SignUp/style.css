@@ -13,7 +13,7 @@ p, div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+  overflow: hidden;
 }
 
 .form-wrapper {
@@ -89,6 +89,7 @@ input::placeholder {
 height: 100%;
 width: 100%;
 position: absolute;
+overflow: hidden;
 top: 0;
 left: 0;
           align-items: center;
