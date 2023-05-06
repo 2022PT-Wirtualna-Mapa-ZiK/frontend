@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import styles from './WelcomePage.module.css';
 import Background from '../../assets/back1.png';
 import picture1 from '../../assets/welcomePage1.png';

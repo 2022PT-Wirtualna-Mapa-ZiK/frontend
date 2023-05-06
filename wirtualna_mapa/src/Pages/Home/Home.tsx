@@ -1,5 +1,3 @@
-import React from "react";
-import path from "path";
 import "./home.css";
 import { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
@@ -7,7 +5,6 @@ import useData from "../../hooks/useData";
 import { workModeData} from "../../models/workMode";
 import { contractTypeData} from "../../models/contractType";
 import { workModeChart, contractTypeChart } from "./charts";
-import './home.css';
 import Button from "../../Components/Button/button";
 import { PATHS } from '../../utils/consts';
 import { getPromisedData } from "../../utils/functions";
@@ -22,10 +19,10 @@ const Home = () => {
     {description: 'Elektryk', key: 3},
     {description: 'Lekarz', key: 4},
     {description: 'Trener', key: 5},
-    {description: 'Finance manager', key: 6},
-    {description: 'Data scientist', key: 7},
-    {description: 'Graphic designer', key: 8},
-    {description: 'Researcher', key: 9},
+    {description: 'Menadżer finansów', key: 6},
+    {description: 'Analityk', key: 7},
+    {description: 'Projekant grafiki', key: 8},
+    {description: 'Badacz', key: 9},
   ];
   const [sizeToday, setSizeToday] = useState(0);
   const [sizeYesterday, setSizeYesterday] = useState(0);
@@ -67,7 +64,7 @@ const Home = () => {
   });
 
   let contractTypes = [];
-  contractTypes.push(["Element", "Density"]);    //give the headers for the chart data
+  contractTypes.push(["Element", "Density"]);    
   dataContractType?.forEach(v => {
     contractTypes.push([v.agreement, v.amountOfOffers]);
   });

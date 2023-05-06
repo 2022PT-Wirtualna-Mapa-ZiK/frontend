@@ -1,5 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
-import styles from './CategoriesEmployers.module.css';
+import { FC, useEffect, useState } from 'react';
 import useData from '../../hooks/useData';
 import { gradeData} from "../../models/grade";
 import { recruitmentTypeData} from "../../models/recruitmentType";

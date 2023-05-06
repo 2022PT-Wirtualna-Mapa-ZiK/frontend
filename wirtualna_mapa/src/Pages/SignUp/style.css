@@ -106,7 +106,7 @@ left: 0;
 .backpack {
   width: 20%;
   height: 30%;
-  background-image: url("backpack.png");
+  background-image: url("../../assets/SignUp/backpack.png");
   background-size: 100%;
   background-repeat: no-repeat;
   position: absolute;
@@ -117,7 +117,7 @@ left: 0;
 .target {
   width: 15%;
   height: 30%;
-  background-image: url("target.png");
+  background-image: url("../../assets/SignUp/target.png");
   background-size: 100%;
   background-repeat: no-repeat;
   position: absolute;
@@ -128,7 +128,7 @@ left: 0;
 .megaphone {
   width: 15%;
   height: 30%;
-  background-image: url("megaphone.png");
+  background-image: url("../../assets/SignUp/megaphone.png");
   background-size: 100%;
   background-repeat: no-repeat;
   position: absolute;
