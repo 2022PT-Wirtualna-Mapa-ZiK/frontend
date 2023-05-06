@@ -1,114 +1,114 @@
-.home{
-    background-image: url("../../assets/back2.jpg");
+.home {
+    background-image: url('../../assets/back2.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100vw;
     height: 91vh;
-  }
-  
-  .div-home{
-    position:absolute;
+}
+
+.div-home {
+    position: absolute;
     right: 5vw;
     top: 4vh;
-  }
-  
-  .div-list{
-    position:absolute;
+}
+
+.div-list {
+    position: absolute;
     right: 12vw;
     top: 30vh;
     font-size: 3vh;
     text-align: left;
     font-weight: 400;
-  }
-  
-  .div-title{
-    position:absolute;
+}
+
+.div-title {
+    position: absolute;
     right: 6vw;
-    top: 20vh;  
-  }
-  
-  .div-title > h1 {
+    top: 20vh;
+}
+
+.div-title > h1 {
     font-weight: 600;
-  }
-  
-  .div-welcome{
+}
+
+.div-welcome {
     font-weight: bolder;
     font-size: 78px;
-    position:absolute;
+    position: absolute;
     left: 14vw;
     top: 3vh;
-  }
-  
-  .div-stats{
+}
+
+.div-stats {
     font-size: 30px;
-    position:absolute;
+    position: absolute;
     left: 15vw;
     top: 15%;
-  }
-  
-  .div-charts{
+}
+
+.div-charts {
     /* position:absolute;
     display: inline-block; */
     display: grid;
     grid-template-columns: 400px 100px;
     gap: 100px; /* Możesz dostosować odstępy między wykresami według potrzeb */
     position: absolute;
-    top: 50vh; 
+    top: 50vh;
     left: 10vw;
-  }
-  
-  #categories {
-    float:left;
+}
+
+#categories {
+    float: left;
     width: 50%;
-  }
-  
-  #employers {
-    float:right;
+}
+
+#employers {
+    float: right;
     width: 50%;
-  }
-  #SalaryRange{
-    float:center;
+}
+#SalaryRange {
+    float: center;
     width: 50%;
-  }
-  
-  button{
-    background-color: #F65776;
+}
+
+button {
+    background-color: #f65776;
     font-weight: bold;
-      font-size: 16px;
-      border-color: #E90C38;
-      margin: 5px;
-      margin-left: 1em;
-      padding-bottom: 0.5em;
-      padding-top: 0.5em;
-      padding-left: 1.5em;
-      padding-right: 1.5em;
-      border-radius: 0.8em;
-      box-shadow: 0.15em 0.15em #2e282a75;
+    font-size: 16px;
+    border-color: #e90c38;
+    margin: 5px;
+    margin-left: 1em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    border-radius: 0.8em;
+    box-shadow: 0.15em 0.15em #2e282a75;
     transition: 0.5s background-color box-shadow;
-  }
-  
-  button:hover{
-    background-color: #E90C38;
+}
+
+button:hover {
+    background-color: #e90c38;
     box-shadow: inset 0.15em 0.15em #2e282ab9;
     transition-duration: 1s;
     cursor: pointer;
-  }
-  
-  .register{
+}
+
+.register {
     position: absolute;
     right: 5%;
     bottom: 12%;
-  }
-  
-  .signUp{
-  position: absolute;
-  bottom: 13%;
-  left:23%;
-  }
-  
-  .signIn{
+}
+
+.signUp {
+    position: absolute;
+    bottom: 13%;
+    left: 23%;
+}
+
+.signIn {
     position: absolute;
     bottom: 5%;
     right: 12%;
-  }
+}
