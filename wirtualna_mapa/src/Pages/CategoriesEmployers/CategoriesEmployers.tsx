@@ -9,6 +9,7 @@ import { categories } from '../../models/categories';
 import { employers } from '../../models/employers';
 import { gradesChart, recruitmentTypeChart, mostPopularEmployersChart, mostPopularJobsOfferChart } from './charts';
 import Chart from 'react-google-charts';
+import { Footer } from '../../Components/Footer/footer';
 
 interface CategoriesEmployersProps {}
 
@@ -63,7 +64,7 @@ const CategoriesEmployers: FC<CategoriesEmployersProps> = () => {
   let recruitmentTypes = [];
   recruitmentTypes.push(["Element", "Density"]);    //give the headers for the chart data
   dataRecruitmentType?.forEach(v => {
-    recruitmentTypes.push([v.recruitmentType, v.amountOfOffers]);
+    recruitmentTypes.push([v.recruitmentType, v.count]);
   });
 
   let categories = [];
@@ -102,7 +103,9 @@ const CategoriesEmployers: FC<CategoriesEmployersProps> = () => {
         <Chart chartType="PieChart" data={employers} options={mostPopularEmployersChart} />
       </div>
     </div>
+    <Footer></Footer>
   </div>
+  
   );
 };
 
