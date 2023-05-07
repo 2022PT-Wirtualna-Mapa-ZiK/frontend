@@ -1,58 +1,73 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './style.css';
-import SignUpState from '../../models/signUpState';
+import { SignUpState } from '../../models/signUpState';
 import useAuth from '../../hooks/useAuth';
 import Button from "../../Components/Button/button";
 import { Footer } from '../../Components/Footer/footer';
 import { PATHS } from '../../utils/consts';
 
-const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i);
+const Regex = RegExp(
+    /^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i
+);
 
 export const SignUp = () => {
-  const form = 'registerForm';
-  const initialState : SignUpState = {
-     name: '',
-     surname: '',
-     email: '',
-     password: '',
-     confPassword: '',
-     errors: {
+    const form = 'registerForm';
+    const initialState: SignUpState = {
         name: '',
         surname: '',
         email: '',
         password: '',
-        confPassword: ''
-     }
-  };
-  const {register} = useAuth();
-  const [state, setState] = useState(initialState);
+        confPassword: '',
+        errors: {
+            name: '',
+            surname: '',
+            email: '',
+            password: '',
+            confPassword: '',
+        },
+    };
+    const { register } = useAuth();
+    const [state, setState] = useState(initialState);
 
-  const handleChange = (event:any) => {
-    event.preventDefault();
-    const { name, value } = event.target;
-    let errors = { ...state.errors };
-    
-    switch (name) {
-      case 'name':
-        errors.name = value.length < 3 ? 'Imie musi mieć minimum 3 znaki!' : '';
-        break;
-      case 'surname':
-        errors.surname = value.length < 3 ? 'Nazwisko musi mieć minimum 3 znaki!' : '';
-        break;
-      case 'email':
-        errors.email = Regex.test(value) ? '' : 'Email jest nieprawidłowy!';
-        break;
-      case 'password':
-        errors.password = value.length < 8 ? 'Hasło musi mieć długość minimum 8 znaków!' : '';
-        break;
-      case 'confPassword':
-        errors.confPassword = value.length < 8 ? 'Hasło musi mieć długość minimum 8 znaków!' : '';
-        break;
-      default:
-        break;
-    }
-    setState({ ...state, errors, [name]: value });
-  };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handleChange = (event: any) => {
+        event.preventDefault();
+        const { name, value } = event.target;
+        const errors = { ...state.errors };
+
+        switch (name) {
+            case 'name':
+                errors.name =
+                    value.length < 3 ? 'Imie musi mieć minimum 3 znaki!' : '';
+                break;
+            case 'surname':
+                errors.surname =
+                    value.length < 3
+                        ? 'Nazwisko musi mieć minimum 3 znaki!'
+                        : '';
+                break;
+            case 'email':
+                errors.email = Regex.test(value)
+                    ? ''
+                    : 'Email jest nieprawidłowy!';
+                break;
+            case 'password':
+                errors.password =
+                    value.length < 8
+                        ? 'Hasło musi mieć długość minimum 8 znaków!'
+                        : '';
+                break;
+            case 'confPassword':
+                errors.confPassword =
+                    value.length < 8
+                        ? 'Hasło musi mieć długość minimum 8 znaków!'
+                        : '';
+                break;
+            default:
+                break;
+        }
+        setState({ ...state, errors, [name]: value });
+    };
 
   const handleSubmit = async (event:any) => {
     event.preventDefault();
@@ -72,6 +87,7 @@ export const SignUp = () => {
       
   const { errors } = state;
   return (
+    
     <div className='wrapper'>
       <div className='back'>
         <div className="circle-pink"></div>
@@ -101,7 +117,7 @@ export const SignUp = () => {
               {errors.surname.length > 0 && <span style={{ color: 'red' }}>{errors.surname}</span>}
             </div>
             <div className='email'>
-              <label htmlFor="email">Email:</label>
+              <label htmlFor="email">Adres Email:</label>
               <input type='email' name='email' onChange={handleChange} />
               {errors.email.length > 0 && <span style={{ color: 'red' }}>{errors.email}</span>}
             </div>
@@ -115,13 +131,16 @@ export const SignUp = () => {
               <input type='password' name='confPassword' onChange={handleChange} />
               {errors.confPassword.length > 0 && <span style={{ color: "red" }}>{errors.confPassword}</span>}
             </div>
+            
             <Button text="Zarejestruj się" form={form} className='signUp'/>
           </form>
+
             <p className="have-acc">Masz już konto?</p>
           <Button link={PATHS.login} text="Zaloguj się" className='signIn'/>
-          <Footer></Footer>
+          
         </div>
       </div>
+      
    </div>
   );
  }

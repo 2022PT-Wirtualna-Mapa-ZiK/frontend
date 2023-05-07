@@ -15,17 +15,15 @@ const Links: React.FC<{ links: Link[] }> = ({ links }) => {
             {links.map((link: Link) => {
                 return (
                     <div key={link.href} className={styles['link']}>
-                        <a href={link.href}>
-                            {link.label}
-                        </a>
+                        <a href={link.href}>{link.label}</a>
                     </div>
-                )
+                );
             })}
         </div>
-    )
+    );
 };
 
-const Nav: React.FC<{}> = () => {
+const Nav = () => {
     return (
         <nav className={styles.navbar}>
             <div className={styles['logo-container']}>
@@ -33,7 +31,7 @@ const Nav: React.FC<{}> = () => {
             </div>
             <Links links={links} />
         </nav>
-    )
-}
+    );
+};
 
 export default Nav;
