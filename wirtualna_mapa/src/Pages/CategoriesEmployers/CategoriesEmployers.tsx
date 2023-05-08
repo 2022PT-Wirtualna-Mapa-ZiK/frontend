@@ -69,6 +69,39 @@ const CategoriesEmployers = () => {
         getCategories();
         getEmployers();
     }, []);
+    useEffect(() => {
+        const getGrades = async () => {
+            const users = await getGradeData();
+            const dataPre = JSON.stringify(users.data);
+            const dataReady: gradeData[] = JSON.parse(dataPre);
+            setDataGrade(dataReady);
+        };
+        const getRecruitmentTypes = async () => {
+            const users = await getRecruitmentTypeData();
+            const dataPre = JSON.stringify(users.data);
+            const dataReady: recruitmentTypeData[] = JSON.parse(dataPre);
+            setDataRecruitmentType(dataReady);
+        };
+        const getCategories = async () => {
+            const users = await getCategoriesData();
+            const dataPre = JSON.stringify(users.data);
+            const dataReady: categories[] = JSON.parse(dataPre);
+            setDataCategories(dataReady);
+        };
+        const getEmployers = async () => {
+            const users = await getEmployersData();
+            const dataPre = JSON.stringify(users.data);
+            const dataReady: employers[] = JSON.parse(dataPre);
+            setDataEmployers(dataReady);
+        };
+        getPromisedData(getSalaryRangeData()).then((x) => {
+            setDataSalaryRange(x);
+        });
+        getGrades();
+        getRecruitmentTypes();
+        getCategories();
+        getEmployers();
+    }, []);
 
     const grades = [];
     grades.push(['Element', 'Density']); //give the headers for the chart data
@@ -76,19 +109,11 @@ const CategoriesEmployers = () => {
         grades.push([v.grade, v.amountOfOffers]);
     });
 
-<<<<<<< HEAD
-  let recruitmentTypes = [];
-  recruitmentTypes.push(["Element", "Density"]);    //give the headers for the chart data
-  dataRecruitmentType?.forEach(v => {
-    recruitmentTypes.push([v.recruitmentType, v.count]);
-  });
-=======
     const recruitmentTypes = [];
     recruitmentTypes.push(['Element', 'Density']); //give the headers for the chart data
     dataRecruitmentType?.forEach((v) => {
         recruitmentTypes.push([v.recruitmentType, v.count]);
     });
->>>>>>> c6c1046bb15fa736bbac59cfed74ec3035ba1b22
 
     const categories = [];
     categories.push(['Element', 'Density']); //give the headers for the chart data
@@ -146,7 +171,7 @@ const CategoriesEmployers = () => {
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
+
 
         <div id="recruitmentTypes">
           <Chart chartType="PieChart" data={recruitmentTypes} options={recruitmentTypeChart} />
@@ -163,9 +188,8 @@ const CategoriesEmployers = () => {
   </div>
   
   );
-=======
+
     );
->>>>>>> c6c1046bb15fa736bbac59cfed74ec3035ba1b22
 };
 
 export default CategoriesEmployers;
