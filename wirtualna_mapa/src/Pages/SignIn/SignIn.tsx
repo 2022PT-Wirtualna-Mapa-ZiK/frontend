@@ -1,9 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import './signin.css';
 import { Footer } from '../../Components/Footer/footer';
 import Button from '../../Components/Button/button';
-import SignInState from '../../models/signInState';
+import { SignInState } from '../../models/signInState';
+const Regex = RegExp(
+    /^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i
+);
 
 const SignIn = () => {
     const form = 'loginForm';
@@ -21,7 +25,7 @@ const SignIn = () => {
     const handleChange = (event: any) => {
         event.preventDefault();
         const { name, value } = event.target;
-        let errors = { ...state.errors };
+        const errors = { ...state.errors };
 
         switch (name) {
             case 'email':

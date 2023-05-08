@@ -1,13 +1,12 @@
-.home{
-  width: 100vw;
-  height: 91vh;
+.home {
+    width: 100vw;
+    height: 91vh;
 }
 
 .div-home {
     position: absolute;
     right: 5vw;
     top: 4vh;
-
 }
 
 .div-list {
@@ -29,15 +28,13 @@
     font-weight: 600;
 }
 
-
-.div-welcome{
-  font-weight: bolder;
-  font-size: 78px;
-  position:absolute;
-  left: 14vw;
-  top: 3vh;
+.div-welcome {
+    font-weight: bolder;
+    font-size: 78px;
+    position: absolute;
+    left: 14vw;
+    top: 3vh;
 }
-
 
 .div-stats {
     font-size: 30px;
@@ -81,9 +78,9 @@
 button {
     background-color: #f65776;
     font-weight: bold;
-  font-weight: bold;
+    font-weight: bold;
     border-color: #e90c38;
-    border-color: #E90C38;
+    border-color: #e90c38;
     margin: 5px;
     margin-left: 1em;
     padding-bottom: 0.5em;
@@ -92,16 +89,15 @@ button {
     padding-right: 1.5em;
     border-radius: 0.8em;
     transition: 0.5s background-color box-shadow;
-  transition: 0.5s background-color box-shadow;
+    transition: 0.5s background-color box-shadow;
 }
 button:hover {
     background-color: #e90c38;
     box-shadow: inset 0.15em 0.15em #2e282ab9;
     transition-duration: 1s;
     cursor: pointer;
-  cursor: pointer;
+    cursor: pointer;
 }
-
 
 .register {
     position: absolute;
@@ -109,13 +105,11 @@ button:hover {
     bottom: 12%;
 }
 
-
 .signUp {
     position: absolute;
     bottom: 13%;
     left: 23%;
 }
-
 
 .signIn {
     position: absolute;
@@ -124,31 +118,30 @@ button:hover {
 }
 
 .backpack {
-  width: 20%;
-  height: 30%;
-  background-image: url("backpack.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  position: absolute;
-  bottom: 0.5%;
-  right: 1%;
+    width: 20%;
+    height: 30%;
+    background-image: url('backpack.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0.5%;
+    right: 1%;
 }
 
 .target {
-  width: 15%;
-  height: 30%;
-  background-image: url("target.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  position: absolute;
-  bottom: 1%;
-  left: 50%;
+    width: 15%;
+    height: 30%;
+    background-image: url('target.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
 }
 
-
 .center {
-  width: 100%;
-  height: 100%;
-  background-image: url(tempsnip.png);
-  background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-image: url(tempsnip.png);
+    background-size: cover;
 }

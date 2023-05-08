@@ -9,40 +9,40 @@
     width: 100%;
     height: 90px;
     margin-top: 0;
-    background-color: #F65776;
-  }  
-  li a {
-    display:block;
+    background-color: #f65776;
+}
+li a {
+    display: block;
     color: white;
     text-align: center;
     padding: 20px;
     text-decoration: none;
     background-color: rgb(110, 132, 237);
-  }
-ul{
-  margin-left: 69px;
 }
-  li a:hover {
+ul {
+    margin-left: 69px;
+}
+li a:hover {
     background-color: #ffa5a5;
-  }
-  ul > li {
-    margin-top:18px;
+}
+ul > li {
+    margin-top: 18px;
     display: inline-block;
 }
-  a.border-left{
+a.border-left {
     border-radius: 0.5em 0 0 2.5em;
-  }
-  a.border-right{
+}
+a.border-right {
     border-radius: 0 2.5em 0.5em 0em;
-  }
-  a.menu:hover {
+}
+a.menu:hover {
     color: rgb(0, 0, 0);
-  }
+}
 
 .footer-content-right {
-  font-size:20px;
-  color: white;
-  margin-top: 35px;
-  padding-right:80px;
-  float:right;
+    font-size: 20px;
+    color: white;
+    margin-top: 35px;
+    padding-right: 80px;
+    float: right;
 }

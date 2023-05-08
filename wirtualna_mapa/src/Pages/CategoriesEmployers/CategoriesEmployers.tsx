@@ -168,27 +168,32 @@ const CategoriesEmployers = () => {
                         data={salaryRanges}
                         options={salaryRangeChart}
                     />
+                    <div id="recruitmentTypes">
+                        <Chart
+                            chartType="PieChart"
+                            data={recruitmentTypes}
+                            options={recruitmentTypeChart}
+                        />
+                    </div>
+                    <div id="chart1">
+                        <Chart
+                            chartType="PieChart"
+                            data={categories}
+                            options={mostPopularJobsOfferChart}
+                        />
+                    </div>
+
+                    <div id="chart2">
+                        <Chart
+                            chartType="PieChart"
+                            data={employers}
+                            options={mostPopularEmployersChart}
+                        />
+                    </div>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
-
-
-        <div id="recruitmentTypes">
-          <Chart chartType="PieChart" data={recruitmentTypes} options={recruitmentTypeChart} />
-        </div>
-      <div id="chart1">
-        <Chart chartType="PieChart" data={categories} options={mostPopularJobsOfferChart} />
-      </div>
-
-      <div id="chart2">
-        <Chart chartType="PieChart" data={employers} options={mostPopularEmployersChart} />
-      </div>
-    </div>
-    <Footer></Footer>
-  </div>
-  
-  );
-
     );
 };
 
