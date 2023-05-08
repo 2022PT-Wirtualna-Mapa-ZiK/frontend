@@ -141,6 +141,13 @@ const CategoriesEmployers = () => {
                     />
                 </div>
 
+                <div id="SalaryRange">
+                    <Chart
+                        chartType="ColumnChart"
+                        data={salaryRanges}
+                        options={salaryRangeChart}
+                    />
+                </div>
                 <div id="recruitmentTypes">
                     <Chart
                         chartType="PieChart"
@@ -148,48 +155,20 @@ const CategoriesEmployers = () => {
                         options={recruitmentTypeChart}
                     />
                 </div>
-                <div id="categories">
+                <div id="chart1">
                     <Chart
                         chartType="PieChart"
                         data={categories}
                         options={mostPopularJobsOfferChart}
                     />
                 </div>
-                <div id="employers">
+
+                <div id="chart2">
                     <Chart
                         chartType="PieChart"
                         data={employers}
                         options={mostPopularEmployersChart}
                     />
-                </div>
-                <div id="SalaryRange">
-                    <Chart
-                        chartType="ColumnChart"
-                        data={salaryRanges}
-                        options={salaryRangeChart}
-                    />
-                    <div id="recruitmentTypes">
-                        <Chart
-                            chartType="PieChart"
-                            data={recruitmentTypes}
-                            options={recruitmentTypeChart}
-                        />
-                    </div>
-                    <div id="chart1">
-                        <Chart
-                            chartType="PieChart"
-                            data={categories}
-                            options={mostPopularJobsOfferChart}
-                        />
-                    </div>
-
-                    <div id="chart2">
-                        <Chart
-                            chartType="PieChart"
-                            data={employers}
-                            options={mostPopularEmployersChart}
-                        />
-                    </div>
                 </div>
             </div>
             <Footer></Footer>

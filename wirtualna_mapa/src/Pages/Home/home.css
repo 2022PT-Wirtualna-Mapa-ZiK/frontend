@@ -54,17 +54,9 @@
     position: absolute;
     top: 30vh;
     left: 10vw;
-    display: grid;
-    grid-template-columns: 400px 100px;
-    gap: 100px; /* Możesz dostosować odstępy między wykresami według potrzeb */
-    position: absolute;
-    top: 30vh;
-    left: 10vw;
 }
 
 #chart1 {
-    float: left;
-    width: 50%;
     float: left;
     width: 50%;
 }
@@ -72,30 +64,23 @@
 #chart2 {
     float: right;
     width: 50%;
-    float: right;
-    width: 50%;
 }
 button {
     background-color: #f65776;
     font-weight: bold;
-    font-weight: bold;
-    border-color: #e90c38;
     border-color: #e90c38;
     margin: 5px;
     margin-left: 1em;
     padding-bottom: 0.5em;
     padding-top: 0.5em;
-    padding-left: 1.5em;
     padding-right: 1.5em;
     border-radius: 0.8em;
-    transition: 0.5s background-color box-shadow;
     transition: 0.5s background-color box-shadow;
 }
 button:hover {
     background-color: #e90c38;
     box-shadow: inset 0.15em 0.15em #2e282ab9;
     transition-duration: 1s;
-    cursor: pointer;
     cursor: pointer;
 }
 
@@ -120,7 +105,7 @@ button:hover {
 .backpack {
     width: 20%;
     height: 30%;
-    background-image: url('backpack.png');
+    background-image: url('../../assets/SignUp/backpack.png');
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
@@ -131,7 +116,7 @@ button:hover {
 .target {
     width: 15%;
     height: 30%;
-    background-image: url('target.png');
+    background-image: url('../../assets/SignUp/target.png');
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
@@ -142,6 +127,6 @@ button:hover {
 .center {
     width: 100%;
     height: 100%;
-    background-image: url(tempsnip.png);
+    background-image: url('../../assets/SignUp/tempsnip.png');
     background-size: cover;
 }
