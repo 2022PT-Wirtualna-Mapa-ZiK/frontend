@@ -1,4 +1,3 @@
-import React from 'react';
 import './home.css';
 import { useEffect, useState } from 'react';
 import { Chart } from 'react-google-charts';
@@ -8,7 +7,6 @@ import { contractTypeData } from '../../models/contractType';
 import { contractTypeChart, workModeChart } from './charts';
 import Button from '../../Components/Button/button';
 import { PATHS } from '../../utils/consts';
-
 import { getPromisedData } from '../../utils/functions';
 import { Footer } from '../../Components/Footer/footer';
 
