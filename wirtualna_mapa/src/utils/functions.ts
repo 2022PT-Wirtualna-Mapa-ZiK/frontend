@@ -1,11 +1,11 @@
-import { IServerResponse } from "../models/responses/serverResponse";
+import { IServerResponse } from '../models/responses/serverResponse';
 
 export const getPromisedData = async (
-  func: Promise<IServerResponse<unknown>>
+    func: Promise<IServerResponse<unknown>>
 ) => {
-  const data = await func;
-  const dataPre = JSON.stringify(data.data);
-  let dataReady: any[] = [];
-  dataReady = JSON.parse(dataPre);
-  return dataReady;
+    const data = await func;
+    const dataPre = JSON.stringify(data.data);
+    let dataReady: any[] = [];
+    dataReady = JSON.parse(dataPre);
+    return dataReady;
 };

@@ -1,4 +1,4 @@
 export interface salaryRangeData {
-  range: string;
-  ammountOfOffers: number;
+    range: string;
+    ammountOfOffers: number;
 }

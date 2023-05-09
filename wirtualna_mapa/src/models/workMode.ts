@@ -1,4 +1,4 @@
 export interface workModeData {
-  workMode: string;
-  amountOfOffers: string;
+    workMode: string;
+    amountOfOffers: string;
 }
