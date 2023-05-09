@@ -1,4 +1,4 @@
 export interface contractTypeData {
-    agreement : string,
-    amountOfOffers : string
-  }
+  agreement: string;
+  amountOfOffers: string;
+}

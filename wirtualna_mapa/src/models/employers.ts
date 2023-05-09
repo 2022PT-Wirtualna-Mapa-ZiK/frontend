@@ -1,4 +1,4 @@
 export interface employers {
-    employer : string,
-    amountOfOffers : string
-  }
+  employer: string;
+  amountOfOffers: string;
+}

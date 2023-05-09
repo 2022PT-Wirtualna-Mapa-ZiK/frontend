@@ -1,6 +1,6 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import './button.css'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./button.css";
 
 type ButtonProps = {
   link?: string;
@@ -10,15 +10,18 @@ type ButtonProps = {
   onClick?: any;
 };
 
-
-
-const Button: React.FC<ButtonProps> = ({ link, text, className, form, onClick}) => {
+const Button: React.FC<ButtonProps> = ({
+  link,
+  text,
+  className,
+  form,
+  onClick,
+}) => {
   const navigate = useNavigate();
-  if(!onClick){
-    onClick=() => {
-      if(link) 
-        navigate(link);
-    }
+  if (!onClick) {
+    onClick = () => {
+      if (link) navigate(link);
+    };
   }
   return (
     <button type="submit" className={className} form={form} onClick={onClick}>

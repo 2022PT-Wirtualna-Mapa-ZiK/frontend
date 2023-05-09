@@ -2,7 +2,7 @@ import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { Buffer } from "buffer";
-import './signin.css';
+import "./signin.css";
 import { useNavigate } from "react-router-dom";
 import Button from "../../Components/Button/button";
 import { PATHS } from "../../utils/consts";
@@ -61,7 +61,6 @@ const SignIn = () => {
           values,
           touched,
           errors,
-          isSubmitting,
           handleChange,
           handleBlur,
           handleSubmit,
@@ -93,22 +92,27 @@ const SignIn = () => {
                     <input
                       name="email"
                       type="text"
-
                       value={values.email}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      className={[errors.email && touched.email && "error"].join("")}
+                      className={[
+                        errors.email && touched.email && "error",
+                      ].join("")}
                     />
 
                     {errors.email && touched.email && (
                       <div className="input-feedback">{errors.email}</div>
                     )}
-                    <label htmlFor="email">Hasło <span><a href="/retrieve">Zapomniałeś hasła?</a></span></label>
+                    <label htmlFor="email">
+                      Hasło{" "}
+                      <span>
+                        <a href="/retrieve">Zapomniałeś hasła?</a>
+                      </span>
+                    </label>
 
                     <input
                       name="password"
                       type="password"
-
                       value={values.password}
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -121,16 +125,19 @@ const SignIn = () => {
                     )}
                   </div>
 
-
                   <Button text="Login" form="loginForm" />
-                  <div className="database-feedback">{values.databaseError}</div>
+                  <div className="database-feedback">
+                    {values.databaseError}
+                  </div>
                   <p className="new-acc">Nie masz konta?</p>
-                  <Button link={PATHS.register} text="Zarejestruj się" className="register" />
+                  <Button
+                    link={PATHS.register}
+                    text="Zarejestruj się"
+                    className="register"
+                  />
                 </form>
               </div>
             </div>
-                
-            
           </div>
         );
       }}

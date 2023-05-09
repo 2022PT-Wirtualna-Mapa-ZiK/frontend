@@ -2,13 +2,12 @@
   background-color: rgb(210, 215, 235);
   width: 100%;
 }
-p, div {
+p,
+div {
   font-family: Lato;
 }
-  
+
 .wrapper {
-
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,23 +31,25 @@ p, div {
   background-color: #fefefe;
 }
 
-.form-wrapper > h2, h3 {
+.form-wrapper > h2,
+h3 {
   display: flex;
   justify-content: center;
-  font-family: "Segoe UI", "Ubuntu", "Roboto", "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 1,5em;
+  font-family: "Segoe UI", "Ubuntu", "Roboto", "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 1, 5em;
   font-weight: lighter;
   margin-top: 0.25em;
   color: #222;
 }
-h3{
+h3 {
   text-align: center;
 }
 form {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-}  
+}
 
 label {
   margin-bottom: 0.5em;
@@ -68,7 +69,7 @@ input::placeholder {
   font-weight: lighter;
   color: #bbb;
 }
- 
+
 .name,
 .surname,
 .email,
@@ -79,23 +80,23 @@ input::placeholder {
   margin-bottom: 15px;
   width: 100%;
 }
- 
+
 .submit {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
 .back {
-height: 100%;
-width: 100%;
-position: absolute;
-overflow: hidden;
-top: 0;
-left: 0;
-          align-items: center;
-          justify-content: center;
-          display: flex;
-        }
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
 .have-acc {
   text-align: left;
   position: absolute;
