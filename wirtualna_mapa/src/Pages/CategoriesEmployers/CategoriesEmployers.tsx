@@ -69,6 +69,39 @@ const CategoriesEmployers = () => {
         getCategories();
         getEmployers();
     }, []);
+    useEffect(() => {
+        const getGrades = async () => {
+            const users = await getGradeData();
+            const dataPre = JSON.stringify(users.data);
+            const dataReady: gradeData[] = JSON.parse(dataPre);
+            setDataGrade(dataReady);
+        };
+        const getRecruitmentTypes = async () => {
+            const users = await getRecruitmentTypeData();
+            const dataPre = JSON.stringify(users.data);
+            const dataReady: recruitmentTypeData[] = JSON.parse(dataPre);
+            setDataRecruitmentType(dataReady);
+        };
+        const getCategories = async () => {
+            const users = await getCategoriesData();
+            const dataPre = JSON.stringify(users.data);
+            const dataReady: categories[] = JSON.parse(dataPre);
+            setDataCategories(dataReady);
+        };
+        const getEmployers = async () => {
+            const users = await getEmployersData();
+            const dataPre = JSON.stringify(users.data);
+            const dataReady: employers[] = JSON.parse(dataPre);
+            setDataEmployers(dataReady);
+        };
+        getPromisedData(getSalaryRangeData()).then((x) => {
+            setDataSalaryRange(x);
+        });
+        getGrades();
+        getRecruitmentTypes();
+        getCategories();
+        getEmployers();
+    }, []);
 
     const grades = [];
     grades.push(['Element', 'Density']); //give the headers for the chart data
@@ -108,6 +141,13 @@ const CategoriesEmployers = () => {
                     />
                 </div>
 
+                <div id="SalaryRange">
+                    <Chart
+                        chartType="ColumnChart"
+                        data={salaryRanges}
+                        options={salaryRangeChart}
+                    />
+                </div>
                 <div id="recruitmentTypes">
                     <Chart
                         chartType="PieChart"
@@ -115,25 +155,19 @@ const CategoriesEmployers = () => {
                         options={recruitmentTypeChart}
                     />
                 </div>
-                <div id="categories">
+                <div id="chart1">
                     <Chart
                         chartType="PieChart"
                         data={categories}
                         options={mostPopularJobsOfferChart}
                     />
                 </div>
-                <div id="employers">
+
+                <div id="chart2">
                     <Chart
                         chartType="PieChart"
                         data={employers}
                         options={mostPopularEmployersChart}
-                    />
-                </div>
-                <div id="SalaryRange">
-                    <Chart
-                        chartType="ColumnChart"
-                        data={salaryRanges}
-                        options={salaryRangeChart}
                     />
                 </div>
             </div>

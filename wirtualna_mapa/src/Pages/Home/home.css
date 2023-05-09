@@ -1,8 +1,4 @@
 .home {
-    background-image: url('../../assets/back2.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     width: 100vw;
     height: 91vh;
 }
@@ -49,6 +45,8 @@
 
 .div-charts {
     /* position:absolute;
+.div-charts {
+    /* position:absolute;
     display: inline-block; */
     display: grid;
     grid-template-columns: 400px 100px;
@@ -67,23 +65,18 @@
     float: right;
     width: 50%;
 }
-
 button {
     background-color: #f65776;
     font-weight: bold;
-    font-size: 16px;
     border-color: #e90c38;
     margin: 5px;
     margin-left: 1em;
     padding-bottom: 0.5em;
     padding-top: 0.5em;
-    padding-left: 1.5em;
     padding-right: 1.5em;
     border-radius: 0.8em;
-    box-shadow: 0.15em 0.15em #2e282a75;
     transition: 0.5s background-color box-shadow;
 }
-
 button:hover {
     background-color: #e90c38;
     box-shadow: inset 0.15em 0.15em #2e282ab9;
@@ -112,7 +105,7 @@ button:hover {
 .backpack {
     width: 20%;
     height: 30%;
-    background-image: url('../../assets/Home/backpack.png');
+    background-image: url('../../assets/SignUp/backpack.png');
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
@@ -123,7 +116,7 @@ button:hover {
 .target {
     width: 15%;
     height: 30%;
-    background-image: url('../../assets/Home/target.png');
+    background-image: url('../../assets/SignUp/target.png');
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
@@ -134,6 +127,6 @@ button:hover {
 .center {
     width: 100%;
     height: 100%;
-    background-image: url('../../assets/Home/tempsnip.png');
+    background-image: url('../../assets/SignUp/tempsnip.png');
     background-size: cover;
 }
