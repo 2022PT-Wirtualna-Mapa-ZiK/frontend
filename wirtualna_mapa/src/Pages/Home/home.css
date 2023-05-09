@@ -49,7 +49,7 @@
 
 .div-charts {
     /* position:absolute;
-  display: inline-block; */
+    display: inline-block; */
     display: grid;
     grid-template-columns: 400px 100px;
     gap: 100px; /* Możesz dostosować odstępy między wykresami według potrzeb */
@@ -103,8 +103,37 @@ button:hover {
     left: 23%;
 }
 
-.signIn {
+.Home {
     position: absolute;
     bottom: 5%;
     right: 12%;
+}
+
+.backpack {
+    width: 20%;
+    height: 30%;
+    background-image: url('../../assets/Home/backpack.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0.5%;
+    right: 1%;
+}
+
+.target {
+    width: 15%;
+    height: 30%;
+    background-image: url('../../assets/Home/target.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+}
+
+.center {
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/Home/tempsnip.png');
+    background-size: cover;
 }

@@ -14,6 +14,7 @@ import {
     recruitmentTypeChart,
 } from './charts';
 import Chart from 'react-google-charts';
+import { Footer } from '../../Components/Footer/footer';
 
 const CategoriesEmployers = () => {
     const { getGradeData } = useData();
@@ -136,6 +137,7 @@ const CategoriesEmployers = () => {
                     />
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

@@ -8,6 +8,7 @@ import { contractTypeChart, workModeChart } from './charts';
 import Button from '../../Components/Button/button';
 import { PATHS } from '../../utils/consts';
 import { getPromisedData } from '../../utils/functions';
+import { Footer } from '../../Components/Footer/footer';
 
 const Home = () => {
     const professions = [
@@ -68,6 +69,11 @@ const Home = () => {
 
     return (
         <div className="home">
+            <div className="center">
+                <div className="backpack"></div>
+                <div className="target"></div>
+            </div>
+            <div className="div-home"></div>
             <div className="div-home">
                 <Button link={PATHS.register} text="Zarejestruj się" />
                 <Button link={PATHS.login} text="Zaloguj się" />
@@ -119,6 +125,7 @@ const Home = () => {
                     })}
                 </ol>
             </div>
+            <Footer></Footer>
         </div>
     );
 };
