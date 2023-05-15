@@ -6,15 +6,9 @@ import { recruitmentTypeData } from '../../models/recruitmentType';
 import { salaryRangeData } from '../../models/salaryRange';
 import { categories } from '../../models/categories';
 import { employers } from '../../models/employers';
-import { salaryRangeChart } from './charts';
+import { chartTypes, options, titles } from './chartData';
 import { getPromisedData } from '../../utils/functions';
 import Button from '../../Components/Button/button';
-import {
-    gradesChart,
-    mostPopularEmployersChart,
-    mostPopularJobsOfferChart,
-    recruitmentTypeChart,
-} from './charts';
 import { PATHS } from '../../utils/consts';
 import { Chart, GoogleChartWrapperChartType } from 'react-google-charts';
 import { Footer } from '../../Components/Footer/footer';
@@ -105,27 +99,6 @@ const CategoriesEmployers = () => {
         categories,
         employers,
         salaryRanges,
-    ];
-    const options = [
-        gradesChart,
-        recruitmentTypeChart,
-        mostPopularJobsOfferChart,
-        mostPopularEmployersChart,
-        salaryRangeChart,
-    ];
-    const chartTypes = [
-        'PieChart',
-        'PieChart',
-        'PieChart',
-        'PieChart',
-        'ColumnChart',
-    ];
-    const titles = [
-        'Wymagane doświadczenie',
-        'Typy rekrutacji',
-        'Najpopularniejsze kategorie ofert pracy',
-        'Najpopularniejsi pracodawcy',
-        'Ilość ogłoszeń według płac w zł',
     ];
     const chartType = chartTypes[chartNumber] as GoogleChartWrapperChartType;
 
