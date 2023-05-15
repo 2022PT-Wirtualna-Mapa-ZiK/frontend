@@ -1,12 +1,11 @@
-.home {
-    background-image: url('../../assets/back2.jpg');
+.categoriesEmployers {
+    background-image: url('../../assets/back1.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100vw;
     height: 91vh;
 }
-
 .div-home {
     position: absolute;
     right: 5vw;
@@ -24,8 +23,9 @@
 
 .div-title {
     position: absolute;
-    right: 6vw;
-    top: 20vh;
+    background-color: transparent;
+    left: 20vw;
+    top: 25vh;
 }
 
 .div-title > h1 {
@@ -58,18 +58,10 @@
     left: 10vw;
 }
 
-#categories {
-    float: left;
-    width: 50%;
-}
-
-#employers {
-    float: right;
-    width: 50%;
-}
-#SalaryRange {
-    float: center;
-    width: 50%;
+#chart {
+    position: absolute;
+    top: 8vw;
+    left: 10vw;
 }
 
 button {
