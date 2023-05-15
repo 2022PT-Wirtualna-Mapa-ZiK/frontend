@@ -1,19 +1,16 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import './CategoriesEmployers.css';
 import useData from '../../hooks/useData';
 import { gradeData } from '../../models/grade';
 import { recruitmentTypeData } from '../../models/recruitmentType';
 import { salaryRangeData } from '../../models/salaryRange';
 import { categories } from '../../models/categories';
 import { employers } from '../../models/employers';
-import { salaryRangeChart } from './charts';
+import { chartTypes, options, titles } from './chartData';
 import { getPromisedData } from '../../utils/functions';
-import {
-    gradesChart,
-    mostPopularEmployersChart,
-    mostPopularJobsOfferChart,
-    recruitmentTypeChart,
-} from './charts';
-import Chart from 'react-google-charts';
+import Button from '../../Components/Button/button';
+import { PATHS } from '../../utils/consts';
+import { Chart, GoogleChartWrapperChartType } from 'react-google-charts';
 import { Footer } from '../../Components/Footer/footer';
 
 const CategoriesEmployers = () => {
@@ -29,6 +26,8 @@ const CategoriesEmployers = () => {
     const [dataCategories, setDataCategories] = useState<categories[]>();
     const [dataEmployers, setDataEmployers] = useState<employers[]>();
     const [dataSalaryRange, setDataSalaryRange] = useState<salaryRangeData[]>();
+
+    const [chartNumber, setChartNumber] = useState(0);
 
     const salaryRanges = [];
     salaryRanges.push(['Płaca', 'Ilość']); //give the headers for the chart data
@@ -94,48 +93,43 @@ const CategoriesEmployers = () => {
         employers.push([v.employer, v.amountOfOffers]);
     });
 
+    const data = [
+        grades,
+        recruitmentTypes,
+        categories,
+        employers,
+        salaryRanges,
+    ];
+    const chartType = chartTypes[chartNumber] as GoogleChartWrapperChartType;
+
     return (
         <div className="categoriesEmployers">
-            <div className="div-title">
-                <h1>Aktualnie najczęściej wyszukiwane zawody:</h1>
+            <div className="div-home">
+                <Button link={PATHS.register} text="Konto" />
+                <Button link={PATHS.logout} text="Wyloguj się" />
+                <Button
+                    text="Poprzedni wykres"
+                    onClick={() => {
+                        setChartNumber((chartNumber - 1 + 5) % 5);
+                    }}
+                />
+                <Button
+                    text="Następny wykres"
+                    onClick={() => {
+                        setChartNumber((chartNumber + 1) % 5);
+                    }}
+                />
             </div>
-            <div className="div-charts">
-                <div id="grades">
-                    <Chart
-                        chartType="PieChart"
-                        data={grades}
-                        options={gradesChart}
-                    />
-                </div>
+            <div className="div-title">
+                <h1>{titles[chartNumber]}</h1>
+            </div>
 
-                <div id="recruitmentTypes">
-                    <Chart
-                        chartType="PieChart"
-                        data={recruitmentTypes}
-                        options={recruitmentTypeChart}
-                    />
-                </div>
-                <div id="categories">
-                    <Chart
-                        chartType="PieChart"
-                        data={categories}
-                        options={mostPopularJobsOfferChart}
-                    />
-                </div>
-                <div id="employers">
-                    <Chart
-                        chartType="PieChart"
-                        data={employers}
-                        options={mostPopularEmployersChart}
-                    />
-                </div>
-                <div id="SalaryRange">
-                    <Chart
-                        chartType="ColumnChart"
-                        data={salaryRanges}
-                        options={salaryRangeChart}
-                    />
-                </div>
+            <div id="chart">
+                <Chart
+                    chartType={chartType}
+                    data={data[chartNumber]}
+                    options={options[chartNumber]}
+                />
             </div>
             <Footer></Footer>
         </div>
