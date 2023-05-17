@@ -6,7 +6,7 @@ export const API_URL =
 
 export const ENDPOINTS = {
     register: 'user/register',
-    login: 'user/login/',
+    login: 'user/login',
 
     gradeData: '/data/grades',
     recruitmentTypeData: '/data/recruitmentTypeCount',
