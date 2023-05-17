@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 import './signin.css';
 import { SignInState } from '../../models/signInState';
 import Button from '../../Components/Button/button';
 import { Footer } from '../../Components/Footer/footer';
+import { Buffer } from 'buffer';
 
 const Regex = RegExp(
     /^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i
@@ -21,6 +23,7 @@ const SignIn = () => {
     };
     const { login } = useAuth();
     const [state, setState] = useState(initialState);
+    
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleChange = (event: any) => {
@@ -47,8 +50,50 @@ const SignIn = () => {
     };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleSubmit = async (event: any) => {
-        event.preventDefault();
-        let validity = true;
+            event.preventDefault();
+            let validity = true;
+
+                    //encode to base64
+                    const basicAuth =
+                        'Basic ' +
+                        Buffer.from(
+                            values.email + ':' + values.password,
+                            'utf8'
+                        ).toString('base64');
+                    fetch('http://localhost:8000/api/v1/user/login', {
+                        method: 'GET',
+                        headers: {
+                            authorization: basicAuth,
+                        },
+                    })
+                        .then((response) => {
+                            if (response.status === 200) {
+                                navigate(PATHS.categoriesEmployers);
+                            } else {
+                                console.log(
+                                    'There is no such user in the database'
+                                );
+                                values.databaseError =
+                                    'Podany użytkownik nie istnieje';
+                            }
+                            setSubmitting(true);
+                        })
+                        .then((data) => {
+                            console.log(data);
+                            localStorage.setItem(
+                                'loginKey',
+                                JSON.stringify(data)
+                            );
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                            values.databaseError =
+                                'Brak połączenia z bazą danych';
+                        });
+                }, 500);
+
+
+
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         Object.values(state.errors).forEach((val: any) =>
             val.length > 0 ? (validity = false) : null
