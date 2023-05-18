@@ -49,6 +49,7 @@ const SignIn = () => {
     const handleSubmit = async (event: any) => {
         event.preventDefault();
         let validity = true;
+
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         Object.values(state.errors).forEach((val: any) =>
             val.length > 0 ? (validity = false) : null
@@ -56,12 +57,14 @@ const SignIn = () => {
         if (validity) {
             const { email, password } = state;
             const response = await login({ email, password });
+
             if (response.errorMessage) {
                 errors.password = response.errorMessage;
                 setState({ ...state, errors });
             }
         }
     };
+
     const { errors } = state;
     return (
         <div className="wrapper">
@@ -77,7 +80,7 @@ const SignIn = () => {
                     <div className="megaphone"></div>
                     <div className="target"></div>
                 </div>
-                <div className="form-wrapper">
+                <div className="form-wrapper-login">
                     <br />
                     <h2>Zaloguj się</h2>
                     <br />
