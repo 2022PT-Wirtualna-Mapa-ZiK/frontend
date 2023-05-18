@@ -59,7 +59,6 @@ const SignIn = () => {
             const response = await login({ email, password });
 
             if (response.errorMessage) {
-                console.log(response);
                 errors.password = response.errorMessage;
                 setState({ ...state, errors });
             }

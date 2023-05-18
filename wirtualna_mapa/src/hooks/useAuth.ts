@@ -11,13 +11,6 @@ const useAuth = () => {
 
     const login = async (data: ILogin): Promise<IServerResponse> => {
         try {
-            console.log(
-                'Basic ' +
-                    Buffer.from(
-                        data.email + ':' + data.password,
-                        'utf8'
-                    ).toString('base64')
-            );
             const basicAuth =
                 'Basic ' +
                 Buffer.from(data.email + ':' + data.password, 'utf8').toString(
