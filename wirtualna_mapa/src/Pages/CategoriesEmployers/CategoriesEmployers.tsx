@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './CategoriesEmployers.css';
 import useData from '../../hooks/useData';
 import { gradeData } from '../../models/grade';
@@ -19,6 +20,8 @@ const CategoriesEmployers = () => {
     const { getCategoriesData } = useData();
     const { getEmployersData } = useData();
     const { getSalaryRangeData } = useData();
+
+    const navigate = useNavigate();
 
     const [dataGrade, setDataGrade] = useState<gradeData[]>();
     const [dataRecruitmentType, setDataRecruitmentType] =
@@ -107,7 +110,13 @@ const CategoriesEmployers = () => {
         <div className="categoriesEmployers">
             <div className="div-home">
                 <Button link={PATHS.register} text="Konto" />
-                <Button link={PATHS.logout} text="Wyloguj się" />
+                <Button
+                    text="Wyloguj się"
+                    onClick={() => {
+                        localStorage.clear();
+                        navigate(PATHS.logout);
+                    }}
+                />
                 <Button
                     text="Poprzedni wykres"
                     onClick={() => {
