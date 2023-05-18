@@ -24,12 +24,19 @@ const useAuth = () => {
                     'base64'
                 );
 
-            await axiosAuth.post(ENDPOINTS.login, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    authorization: basicAuth,
+            await axiosAuth.post(
+                ENDPOINTS.login,
+                {
+                    email: data.email,
+                    password: data.password,
                 },
-            });
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        authorization: basicAuth,
+                    },
+                }
+            );
 
             navigate(PATHS.categoriesEmployers);
             localStorage.setItem(LOCAL_STORAGE.loggedIn, 'loggedIn');
