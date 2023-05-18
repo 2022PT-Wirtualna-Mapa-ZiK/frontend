@@ -80,7 +80,7 @@ const SignIn = () => {
                     <div className="megaphone"></div>
                     <div className="target"></div>
                 </div>
-                <div className="form-wrapper">
+                <div className="form-wrapper-login">
                     <br />
                     <h2>Zaloguj się</h2>
                     <br />
