@@ -28,6 +28,7 @@ const CategoriesEmployers = () => {
     const [dataSalaryRange, setDataSalaryRange] = useState<salaryRangeData[]>();
 
     const [chartNumber, setChartNumber] = useState(0);
+    const [typeNumber, setTypeNumber] = useState(0);
 
     const salaryRanges = [];
     salaryRanges.push(['Płaca', 'Ilość']); //give the headers for the chart data
@@ -70,25 +71,25 @@ const CategoriesEmployers = () => {
     }, []);
 
     const grades = [];
-    grades.push(['Element', 'Density']); //give the headers for the chart data
+    grades.push(['Element', 'Ilość']); //give the headers for the chart data
     dataGrade?.forEach((v) => {
         grades.push([v.grade, v.amountOfOffers]);
     });
 
     const recruitmentTypes = [];
-    recruitmentTypes.push(['Element', 'Density']); //give the headers for the chart data
+    recruitmentTypes.push(['Element', 'Ilość']); //give the headers for the chart data
     dataRecruitmentType?.forEach((v) => {
         recruitmentTypes.push([v.recruitmentType, v.count]);
     });
 
     const categories = [];
-    categories.push(['Element', 'Density']); //give the headers for the chart data
+    categories.push(['Element', 'Ilość']); //give the headers for the chart data
     dataCategories?.forEach((v) => {
         categories.push([v.category, v.amountOfOffers]);
     });
 
     const employers = [];
-    employers.push(['Element', 'Density']); //give the headers for the chart data
+    employers.push(['Element', 'Ilość']); //give the headers for the chart data
     dataEmployers?.forEach((v) => {
         employers.push([v.employer, v.amountOfOffers]);
     });
@@ -100,7 +101,7 @@ const CategoriesEmployers = () => {
         employers,
         salaryRanges,
     ];
-    const chartType = chartTypes[chartNumber] as GoogleChartWrapperChartType;
+    const chartType = chartTypes[typeNumber] as GoogleChartWrapperChartType;
 
     return (
         <div className="categoriesEmployers">
@@ -129,6 +130,14 @@ const CategoriesEmployers = () => {
                     chartType={chartType}
                     data={data[chartNumber]}
                     options={options[chartNumber]}
+                />
+            </div>
+            <div className="div-change-type">
+                <Button
+                    text="Zmień typ wykresu"
+                    onClick={() => {
+                        setTypeNumber((typeNumber + 1) % 2);
+                    }}
                 />
             </div>
             <Footer></Footer>

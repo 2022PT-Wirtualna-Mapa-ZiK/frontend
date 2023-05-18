@@ -13,13 +13,7 @@ export const options = [
     mostPopularEmployersChart,
     salaryRangeChart,
 ];
-export const chartTypes = [
-    'PieChart',
-    'PieChart',
-    'PieChart',
-    'PieChart',
-    'ColumnChart',
-];
+export const chartTypes = ['PieChart', 'BarChart'];
 export const titles = [
     'Wymagane doświadczenie',
     'Typy rekrutacji',
