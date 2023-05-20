@@ -60,12 +60,12 @@ const SignIn = () => {
         if (validity) {
             const { email, password } = state;
             const response = await login({ email, password });
-            navigate(PATHS.categoriesEmployers);
-            window.location.reload();
+            navigate(PATHS.general);
             if (response.errorMessage) {
                 errors.password = response.errorMessage;
                 setState({ ...state, errors });
             }
+            window.location.reload();
         }
     };
 

@@ -24,7 +24,7 @@ export const PATHS = {
     logout: '/home',
     register: '/register',
     home: '/home',
-    categoriesEmployers: '/categoriesEmployers',
+    general: '/general',
 };
 
 export const LOCAL_STORAGE = {

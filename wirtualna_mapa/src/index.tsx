@@ -8,7 +8,7 @@ import Home from './Pages/Home/Home';
 import WelcomePage from './Pages/WelcomePage/WelcomePage';
 import { SignUp } from './Pages/SignUp/SignUp';
 import { PATHS } from './utils/consts';
-import CategoriesEmployers from './Pages/CategoriesEmployers/CategoriesEmployers';
+import General from './Pages/General/General';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -19,10 +19,10 @@ root.render(
             <App />
             <Routes>
                 <Route
-                    path={PATHS.categoriesEmployers}
+                    path={PATHS.general}
                     element={
                         localStorage.getItem('loggedIn') ? (
-                            <CategoriesEmployers />
+                            <General />
                         ) : (
                             <SignIn />
                         )
@@ -33,8 +33,8 @@ root.render(
                 <Route path={PATHS.welcome} element={<WelcomePage />} />
                 <Route path={PATHS.home} element={<Home />} />
                 {/* <Route
-                    path={PATHS.categoriesEmployers}
-                    element={<CategoriesEmployers />}
+                    path={PATHS.general}
+                    element={<general />}
                 /> */}
             </Routes>
         </Router>

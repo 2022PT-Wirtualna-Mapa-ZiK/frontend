@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './CategoriesEmployers.css';
+import './General.css';
 import useData from '../../hooks/useData';
 import { gradeData } from '../../models/grade';
 import { recruitmentTypeData } from '../../models/recruitmentType';
@@ -14,7 +14,7 @@ import { PATHS } from '../../utils/consts';
 import { Chart, GoogleChartWrapperChartType } from 'react-google-charts';
 import { Footer } from '../../Components/Footer/footer';
 
-const CategoriesEmployers = () => {
+const General = () => {
     const { getGradeData } = useData();
     const { getRecruitmentTypeData } = useData();
     const { getCategoriesData } = useData();
@@ -154,4 +154,4 @@ const CategoriesEmployers = () => {
     );
 };
 
-export default CategoriesEmployers;
+export default General;
