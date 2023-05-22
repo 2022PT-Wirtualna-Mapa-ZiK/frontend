@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import './CategoriesEmployers.css';
+import { useNavigate } from 'react-router-dom';
+import './General.css';
 import useData from '../../hooks/useData';
 import { gradeData } from '../../models/grade';
 import { recruitmentTypeData } from '../../models/recruitmentType';
@@ -13,12 +14,14 @@ import { PATHS } from '../../utils/consts';
 import { Chart, GoogleChartWrapperChartType } from 'react-google-charts';
 import { Footer } from '../../Components/Footer/footer';
 
-const CategoriesEmployers = () => {
+const General = () => {
     const { getGradeData } = useData();
     const { getRecruitmentTypeData } = useData();
     const { getCategoriesData } = useData();
     const { getEmployersData } = useData();
     const { getSalaryRangeData } = useData();
+
+    const navigate = useNavigate();
 
     const [dataGrade, setDataGrade] = useState<gradeData[]>();
     const [dataRecruitmentType, setDataRecruitmentType] =
@@ -28,6 +31,7 @@ const CategoriesEmployers = () => {
     const [dataSalaryRange, setDataSalaryRange] = useState<salaryRangeData[]>();
 
     const [chartNumber, setChartNumber] = useState(0);
+    const [typeNumber, setTypeNumber] = useState(0);
 
     const salaryRanges = [];
     salaryRanges.push(['Płaca', 'Ilość']); //give the headers for the chart data
@@ -70,25 +74,25 @@ const CategoriesEmployers = () => {
     }, []);
 
     const grades = [];
-    grades.push(['Element', 'Density']); //give the headers for the chart data
+    grades.push(['Element', 'Ilość']); //give the headers for the chart data
     dataGrade?.forEach((v) => {
         grades.push([v.grade, v.amountOfOffers]);
     });
 
     const recruitmentTypes = [];
-    recruitmentTypes.push(['Element', 'Density']); //give the headers for the chart data
+    recruitmentTypes.push(['Element', 'Ilość']); //give the headers for the chart data
     dataRecruitmentType?.forEach((v) => {
         recruitmentTypes.push([v.recruitmentType, v.count]);
     });
 
     const categories = [];
-    categories.push(['Element', 'Density']); //give the headers for the chart data
+    categories.push(['Element', 'Ilość']); //give the headers for the chart data
     dataCategories?.forEach((v) => {
         categories.push([v.category, v.amountOfOffers]);
     });
 
     const employers = [];
-    employers.push(['Element', 'Density']); //give the headers for the chart data
+    employers.push(['Element', 'Ilość']); //give the headers for the chart data
     dataEmployers?.forEach((v) => {
         employers.push([v.employer, v.amountOfOffers]);
     });
@@ -100,13 +104,19 @@ const CategoriesEmployers = () => {
         employers,
         salaryRanges,
     ];
-    const chartType = chartTypes[chartNumber] as GoogleChartWrapperChartType;
+    const chartType = chartTypes[typeNumber] as GoogleChartWrapperChartType;
 
     return (
         <div className="categoriesEmployers">
             <div className="div-home">
                 <Button link={PATHS.register} text="Konto" />
-                <Button link={PATHS.logout} text="Wyloguj się" />
+                <Button
+                    text="Wyloguj się"
+                    onClick={() => {
+                        localStorage.clear();
+                        navigate(PATHS.logout);
+                    }}
+                />
                 <Button
                     text="Poprzedni wykres"
                     onClick={() => {
@@ -131,9 +141,17 @@ const CategoriesEmployers = () => {
                     options={options[chartNumber]}
                 />
             </div>
+            <div className="div-change-type">
+                <Button
+                    text="Zmień typ wykresu"
+                    onClick={() => {
+                        setTypeNumber((typeNumber + 1) % 2);
+                    }}
+                />
+            </div>
             <Footer></Footer>
         </div>
     );
 };
 
-export default CategoriesEmployers;
+export default General;

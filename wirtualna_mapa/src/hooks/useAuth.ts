@@ -31,8 +31,8 @@ const useAuth = () => {
                 }
             );
 
-            navigate(PATHS.categoriesEmployers);
-            localStorage.setItem(LOCAL_STORAGE.loggedIn, 'loggedIn');
+            localStorage.setItem(LOCAL_STORAGE.loggedIn, basicAuth);
+            //navigate(PATHS.categoriesEmployers);
 
             return { succeed: true };
         } catch (error) {

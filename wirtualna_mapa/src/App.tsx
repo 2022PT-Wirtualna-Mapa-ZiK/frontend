@@ -1,7 +1,8 @@
 import './App.css';
 
 function App() {
-    return <div className="App"></div>;
+    //const [isAuthenticated, setIsAuthenticated] = useState(false);
+    return <div></div>;
 }
 
 export default App;
