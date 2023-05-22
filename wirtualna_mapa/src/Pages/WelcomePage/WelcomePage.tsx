@@ -20,22 +20,38 @@ const WelcomePage = () => {
           </div>
           <div className="circle-blue"></div>
           <div className="center-welcome">
-            <div >
+            <div className='triangle-holder'>
               <h1 className="welcome">Witaj!</h1>
+              <div>
                 <div className="triangle1">
-                  <h2>Kim jesteśmy?</h2>
+                  <div>
+                    <h2>Kim jesteśmy?</h2>
+                    <br />
                 <p>Jesteśmy studentami Wydziału Informatyki Politechniki Białostockiej.</p>
                 </div>
-                
-              <div className='triangle2' >
-                
-                <h2>Co robimy?</h2>
-                <p>Pracujemy nad projektem który pomoże znaleźć pracę dla ludzi zgodną z ich potrzebami</p>
+                  </div>
               </div>
-              <div className='triangle3'>
                 
-                <h2>W jaki sposób pracujemy?</h2>
+                  <div>
+                    <div className='triangle2' >
+                <div>
+                  <h2>Co robimy?</h2>
+                  <br />
+                <p>Pracujemy nad projektem który pomoże znaleźć pracę dla ludzi zgodną z ich potrzebami</p>
+                </div>
+                  </div>
+              </div>
+
+              <div>
+                <div className='triangle3'>
+                <div>
+                  <h2>W jaki sposób pracujemy?</h2>
+                  <br />
                 <p>Pracujemy w dwóch zespołach - backendowym oraz frontendowym, w każdym z nich jest około 4-6 osób</p>
+                </div>
+              </div>
+              
+                
                 <div></div>
               </div>
             </div>
