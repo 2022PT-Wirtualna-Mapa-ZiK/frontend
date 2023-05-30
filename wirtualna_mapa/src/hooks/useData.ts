@@ -68,7 +68,8 @@ const useData = () => {
                 ENDPOINTS.offersFromCertainDay + '?date=' + date,
                 {
                     headers: {
-                        authorization: localStorage.getItem('loggedIn'),
+                        authorization:
+                            'Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==',
                     },
                 }
             );
