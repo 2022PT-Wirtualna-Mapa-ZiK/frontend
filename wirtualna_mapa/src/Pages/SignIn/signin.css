@@ -1,11 +1,39 @@
 :root {
     background-color: rgb(210, 215, 235);
+:root {
+    background-color: rgb(210, 215, 235);
 }
+p,
+div {
 p,
 div {
     font-family: Lato;
 }
+}
 
+.back-login {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    overflow: hidden;
+}
+
+.circle-pink {
+    height: 33rem;
+    width: 33rem;
+    background: rgb(247, 86, 118);
+    border-radius: 50%;
+    position: absolute;
+    top: -11rem;
+    left: -19rem;
+}
+
+.wrapper-login {
 .back-login {
     height: 100%;
     width: 100%;
@@ -36,6 +64,12 @@ div {
 }
 
 .form-wrapper-login {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.form-wrapper-login {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,8 +85,13 @@ div {
 }
 
 .form-wrapper-login > h2 {
+}
+
+.form-wrapper-login > h2 {
     display: flex;
     justify-content: center;
+    font-family: 'Segoe UI', 'Ubuntu', 'Roboto', 'Open Sans', 'Helvetica Neue',
+        sans-serif;
     font-family: 'Segoe UI', 'Ubuntu', 'Roboto', 'Open Sans', 'Helvetica Neue',
         sans-serif;
     font-size: 2em;
@@ -63,15 +102,24 @@ div {
 }
 
 form {
+}
+
+form {
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
 }
 
 label {
+}
+
+label {
     margin-bottom: 0.5em;
     color: #444;
     font-weight: lighter;
+}
+
+input {
 }
 
 input {
@@ -82,9 +130,17 @@ input {
 }
 
 input::placeholder {
+}
+
+input::placeholder {
     font-size: 1.2em;
     font-weight: lighter;
     color: #bbb;
+}
+
+.fullName,
+.email,
+.password {
 }
 
 .fullName,
@@ -97,24 +153,40 @@ input::placeholder {
 }
 
 .submit {
+}
+
+.submit {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+}
 }
 
 .database-feedback {
     color: red;
 }
+.database-feedback {
+    color: red;
+}
 
+.a {
 .a {
     position: absolute;
     right: 10%;
 }
+}
 
+h2 {
 h2 {
     text-align: center;
 }
+}
 
+.new-acc {
+    text-align: left;
+    position: absolute;
+    left: 10%;
+    bottom: 15%;
 .new-acc {
     text-align: left;
     position: absolute;
@@ -125,14 +197,26 @@ h2 {
 .center {
     position: relative;
     align-items: center;
+    position: relative;
+    align-items: center;
     justify-content: center;
     display: flex;
+    width: 94%;
+    height: 89%;
+    background-image: url(../../assets/SignUp/tempsnip.png);
     width: 94%;
     height: 89%;
     background-image: url(../../assets/SignUp/tempsnip.png);
 }
 
 .circle-small {
+    height: 1.8rem;
+    width: 1.8rem;
+    border-radius: 50%;
+    border: 0.4rem solid rgb(110, 132, 237);
+    position: absolute;
+    top: 0.5%;
+    right: 4%;
     height: 1.8rem;
     width: 1.8rem;
     border-radius: 50%;
@@ -147,13 +231,20 @@ h2 {
     top: 4%;
     right: 1%;
     background-color: rgb(110, 132, 237);
+    position: absolute;
+    top: 4%;
+    right: 1%;
+    background-color: rgb(110, 132, 237);
 }
 
 .triangle:before,
 .triangle:after {
     content: '';
     position: absolute;
+    content: '';
+    position: absolute;
 
+    background-color: inherit;
     background-color: inherit;
 }
 
@@ -163,22 +254,36 @@ h2 {
     width: 1.5em;
     height: 1.5em;
     border-top-right-radius: 25%;
+    width: 1.5em;
+    height: 1.5em;
+    border-top-right-radius: 25%;
 }
 
 .triangle {
+    transform: rotate(-60deg) skewX(-30deg) scale(1, 0.866);
     transform: rotate(-60deg) skewX(-30deg) scale(1, 0.866);
 }
 
 .triangle:before {
     transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707)
         translate(0, -50%);
+    transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707)
+        translate(0, -50%);
 }
 
 .triangle:after {
     transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
+    transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
 }
 
 .circle-blue {
+    height: 13rem;
+    width: 13rem;
+    border-radius: 50%;
+    border: 5rem solid rgb(110, 132, 237);
+    position: absolute;
+    bottom: 0.5%;
+    right: -5%;
     height: 13rem;
     width: 13rem;
     border-radius: 50%;
@@ -197,9 +302,25 @@ h2 {
     position: absolute;
     bottom: 0.5%;
     right: 1%;
+    width: 20%;
+    height: 30%;
+    background-image: url('../../assets/SignUp/backpack.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0.5%;
+    right: 1%;
 }
 
 .target {
+    width: 15%;
+    height: 30%;
+    background-image: url('../../assets/SignUp/target.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 1%;
+    left: 1%;
     width: 15%;
     height: 30%;
     background-image: url('../../assets/SignUp/target.png');
@@ -220,3 +341,4 @@ h2 {
     bottom: 38%;
     left: 3%;
 }
+
