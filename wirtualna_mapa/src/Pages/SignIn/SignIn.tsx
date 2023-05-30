@@ -1,141 +1,131 @@
-import React from "react";
-import { Formik } from "formik";
-import * as Yup from "yup";
-import { Buffer } from "buffer";
+import { useState } from 'react';
+import useAuth from '../../hooks/useAuth';
 import './signin.css';
-import { useNavigate } from "react-router-dom";
-import Button from "../../Components/Button/button";
-import { PATHS } from "../../utils/consts";
+import { SignInState } from '../../models/signInState';
+import Button from '../../Components/Button/button';
+import { Footer } from '../../Components/Footer/footer';
+import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../../utils/consts';
+
+const Regex = RegExp(
+    /^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i
+);
 
 const SignIn = () => {
-  const navigate = useNavigate();
-  return (
-    <Formik
-      initialValues={{ email: "", password: "", databaseError: "" }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          console.log("Logging in", values);
-          setSubmitting(false);
+    const form = 'loginForm';
+    const initialState: SignInState = {
+        email: '',
+        password: '',
+        errors: {
+            email: '',
+            password: '',
+        },
+    };
+    const { login } = useAuth();
+    const [state, setState] = useState(initialState);
+    const navigate = useNavigate();
 
-          //encode to base64
-          const basicAuth =
-            "Basic " +
-            Buffer.from(values.email + ":" + values.password, "utf8").toString(
-              "base64"
-            );
-          fetch("http://localhost:8000/api/v1/user/login", {
-            method: "GET",
-            headers: {
-              authorization: basicAuth,
-            },
-          })
-            .then((response) => {
-              if (response.status === 200) {
-                navigate(PATHS.categoriesEmployers);
-              } else {
-                console.log("There is no such user in the database");
-                values.databaseError = "Podany użytkownik nie istnieje";
-              }
-              setSubmitting(true);
-            })
-            .then((data) => {
-              console.log(data);
-              localStorage.setItem("loginKey", JSON.stringify(data));
-            })
-            .catch((err) => {
-              console.log(err);
-              values.databaseError = "Brak połączenia z bazą danych";
-            });
-        }, 500);
-      }}
-      validationSchema={Yup.object().shape({
-        email: Yup.string().email().required("Required"),
-        password: Yup.string()
-          .required("Wymagane")
-          .min(8, "Hasło musi mieć minimum 8 znaków")
-          .matches(/(?=.*[0-9])/, "Hasło musi zawierać liczbę"),
-      })}
-    >
-      {(props) => {
-        const {
-          values,
-          touched,
-          errors,
-          isSubmitting,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-        } = props;
-        return (
-          <div className="wrapper-login">
-            <div className="back-login">
-              <div className="circle-pink"></div>
-              <div className="circle-small"></div>
-              <div className="triangle">
-                <div className="inside"></div>
-              </div>
-              <div className="circle-blue"></div>
-              <div className="center">
-                <div className="backpack"></div>
-                <div className="megaphone"></div>
-                <div className="target"></div>
-                <form
-                  className="form-wrapper-login"
-                  onSubmit={handleSubmit}
-                  id="loginForm"
-                >
-                  <div className="input-wrapper">
-                    <br />
-                    <h2>Login</h2>
-                    <br />
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handleChange = (event: any) => {
+        event.preventDefault();
+        const { name, value } = event.target;
+        const errors = { ...state.errors };
 
-                    <label htmlFor="email">Email</label>
-                    <input
-                      name="email"
-                      type="text"
+        switch (name) {
+            case 'email':
+                errors.email = Regex.test(value)
+                    ? ''
+                    : 'Email jest nieprawidłowy!';
+                break;
+            case 'password':
+                errors.password =
+                    value.length < 8
+                        ? 'Hasło musi mieć długość minimum 8 znaków!'
+                        : '';
+                break;
+            default:
+                break;
+        }
+        setState({ ...state, errors, [name]: value });
+    };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handleSubmit = async (event: any) => {
+        event.preventDefault();
+        let validity = true;
 
-                      value={values.email}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      className={[errors.email && touched.email && "error"].join("")}
-                    />
-
-                    {errors.email && touched.email && (
-                      <div className="input-feedback">{errors.email}</div>
-                    )}
-                    <label htmlFor="email">Hasło <span><a href="/retrieve">Zapomniałeś hasła?</a></span></label>
-
-                    <input
-                      name="password"
-                      type="password"
-
-                      value={values.password}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      className={[
-                        errors.password && touched.password && "error",
-                      ].join("")}
-                    />
-                    {errors.password && touched.password && (
-                      <div className="input-feedback">{errors.password}</div>
-                    )}
-                  </div>
-
-
-                  <Button text="Login" form="loginForm" />
-                  <div className="database-feedback">{values.databaseError}</div>
-                  <p className="new-acc">Nie masz konta?</p>
-                  <Button link={PATHS.register} text="Zarejestruj się" className="register" />
-                </form>
-              </div>
-            </div>
-                
-            
-          </div>
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        Object.values(state.errors).forEach((val: any) =>
+            val.length > 0 ? (validity = false) : null
         );
-      }}
-    </Formik>
-  );
+        if (validity) {
+            const { email, password } = state;
+            const response = await login({ email, password });
+            navigate(PATHS.general);
+            if (response.errorMessage) {
+                errors.password = response.errorMessage;
+                setState({ ...state, errors });
+            }
+            window.location.reload();
+        }
+    };
+
+    const { errors } = state;
+    return (
+        <div className="wrapper">
+            <div className="back">
+                <div className="circle-pink"></div>
+                <div className="circle-small"></div>
+                <div className="triangle">
+                    <div className="inside"></div>
+                </div>
+                <div className="circle-blue"></div>
+                <div className="center">
+                    <div className="backpack"></div>
+                    <div className="megaphone"></div>
+                    <div className="target"></div>
+                </div>
+                <div className="form-wrapper-login">
+                    <br />
+                    <h2>Zaloguj się</h2>
+                    <br />
+                    <form onSubmit={handleSubmit} id={form}>
+                        <div className="email">
+                            <label htmlFor="email">Email:</label>
+                            <input
+                                type="email"
+                                name="email"
+                                onChange={handleChange}
+                            />
+                            {errors.email.length > 0 && (
+                                <span style={{ color: 'red' }}>
+                                    {errors.email}
+                                </span>
+                            )}
+                        </div>
+                        <div className="password">
+                            <label htmlFor="password">Hasło:</label>
+                            <input
+                                type="password"
+                                name="password"
+                                onChange={handleChange}
+                            />
+                            {errors.password.length > 0 && (
+                                <span style={{ color: 'red' }}>
+                                    {errors.password}
+                                </span>
+                            )}
+                        </div>
+                        <Button
+                            text="Zaloguj się"
+                            form={form}
+                            className="signIn"
+                        />
+                    </form>
+                </div>
+            </div>
+            <Footer></Footer>
+        </div>
+    );
 };
 
 export default SignIn;

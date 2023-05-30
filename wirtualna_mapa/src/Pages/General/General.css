@@ -1,12 +1,11 @@
-.home {
-    background-image: url('../../assets/back2.jpg');
+.categoriesEmployers {
+    background-image: url('../../assets/back1.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100vw;
     height: 91vh;
 }
-
 .div-home {
     position: absolute;
     right: 5vw;
@@ -24,8 +23,9 @@
 
 .div-title {
     position: absolute;
-    right: 6vw;
-    top: 20vh;
+    background-color: transparent;
+    left: 20vw;
+    top: 25vh;
 }
 
 .div-title > h1 {
@@ -54,18 +54,19 @@
     grid-template-columns: 400px 100px;
     gap: 100px; /* Możesz dostosować odstępy między wykresami według potrzeb */
     position: absolute;
-    top: 30vh;
+    top: 50vh;
     left: 10vw;
 }
-
-#chart1 {
-    float: left;
-    width: 50%;
+.div-change-type {
+    position: fixed;
+    bottom: 12vh;
+    right: 5vw;
 }
 
-#chart2 {
-    float: right;
-    width: 50%;
+#chart {
+    position: absolute;
+    top: 8vw;
+    left: 10vw;
 }
 
 button {
@@ -103,37 +104,8 @@ button:hover {
     left: 23%;
 }
 
-.Home {
+.signIn {
     position: absolute;
     bottom: 5%;
     right: 12%;
-}
-
-.backpack {
-    width: 20%;
-    height: 30%;
-    background-image: url('../../assets/Home/backpack.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    position: absolute;
-    bottom: 0.5%;
-    right: 1%;
-}
-
-.target {
-    width: 15%;
-    height: 30%;
-    background-image: url('../../assets/Home/target.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    position: absolute;
-    bottom: 1%;
-    left: 50%;
-}
-
-.center {
-    width: 100%;
-    height: 100%;
-    background-image: url('../../assets/Home/tempsnip.png');
-    background-size: cover;
 }

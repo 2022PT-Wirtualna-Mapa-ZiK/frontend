@@ -3,7 +3,7 @@ import Background from '../../assets/back1.png';
 import picture1 from '../../assets/welcomePage1.png';
 import picture2 from '../../assets/welcomePage2.png';
 import picture3 from '../../assets/welcomePage3.png';
-import Button from "../../Components/Button/button";
+import Button from '../../Components/Button/button';
 import { PATHS } from '../../utils/consts';
 import './WelcomePage.css';
 
