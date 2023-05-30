@@ -1,14 +1,32 @@
 :root {
     background-color: rgb(210, 215, 235);
-:root {
-    background-color: rgb(210, 215, 235);
 }
-p,
-div {
+
 p,
 div {
     font-family: Lato;
 }
+
+.back-login {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    overflow: hidden;
+}
+
+.circle-pink {
+    height: 33rem;
+    width: 33rem;
+    background: rgb(247, 86, 118);
+    border-radius: 50%;
+    position: absolute;
+    top: -11rem;
+    left: -19rem;
 }
 
 .back-login {
@@ -34,36 +52,7 @@ div {
 }
 
 .wrapper-login {
-.back-login {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    align-items: center;
-    justify-content: center;
     display: flex;
-    overflow: hidden;
-}
-
-.circle-pink {
-    height: 33rem;
-    width: 33rem;
-    background: rgb(247, 86, 118);
-    border-radius: 50%;
-    position: absolute;
-    top: -11rem;
-    left: -19rem;
-}
-
-.wrapper-login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.form-wrapper-login {
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -85,9 +74,6 @@ div {
 }
 
 .form-wrapper-login > h2 {
-}
-
-.form-wrapper-login > h2 {
     display: flex;
     justify-content: center;
     font-family: 'Segoe UI', 'Ubuntu', 'Roboto', 'Open Sans', 'Helvetica Neue',
@@ -102,24 +88,15 @@ div {
 }
 
 form {
-}
-
-form {
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
 }
 
 label {
-}
-
-label {
     margin-bottom: 0.5em;
     color: #444;
     font-weight: lighter;
-}
-
-input {
 }
 
 input {
@@ -130,17 +107,9 @@ input {
 }
 
 input::placeholder {
-}
-
-input::placeholder {
     font-size: 1.2em;
     font-weight: lighter;
     color: #bbb;
-}
-
-.fullName,
-.email,
-.password {
 }
 
 .fullName,
@@ -153,14 +122,10 @@ input::placeholder {
 }
 
 .submit {
-}
-
-.submit {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
-}
 
 .database-feedback {
     color: red;
@@ -169,24 +134,15 @@ input::placeholder {
     color: red;
 }
 
-.a {
 .a {
     position: absolute;
     right: 10%;
 }
-}
 
-h2 {
 h2 {
     text-align: center;
 }
-}
 
-.new-acc {
-    text-align: left;
-    position: absolute;
-    left: 10%;
-    bottom: 15%;
 .new-acc {
     text-align: left;
     position: absolute;
@@ -341,4 +297,3 @@ h2 {
     bottom: 38%;
     left: 3%;
 }
-
