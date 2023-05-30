@@ -1,7 +1,5 @@
 import React from 'react';
 import './WelcomePage.css';
-import { PATHS } from '../../utils/consts';
-import Button from '../../Components/Button/button';
 
 const WelcomePage = () => {
     return (
