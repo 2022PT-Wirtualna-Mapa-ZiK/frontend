@@ -211,13 +211,12 @@ h2 {
 }
 
 .megaphone {
-  width: 15%;
-  height: 30%;
-  background-image: url("megaphone.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  position: absolute;
-  bottom: 38%;
-  left: 3%;
+    width: 15%;
+    height: 30%;
+    background-image: url('megaphone.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 38%;
+    left: 3%;
 }
-
