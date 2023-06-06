@@ -4,6 +4,8 @@ import './signin.css';
 import { SignInState } from '../../models/signInState';
 import Button from '../../Components/Button/button';
 import { Footer } from '../../Components/Footer/footer';
+import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../../utils/consts';
 
 const Regex = RegExp(
     /^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i
@@ -21,6 +23,7 @@ const SignIn = () => {
     };
     const { login } = useAuth();
     const [state, setState] = useState(initialState);
+    const navigate = useNavigate();
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleChange = (event: any) => {
@@ -49,6 +52,7 @@ const SignIn = () => {
     const handleSubmit = async (event: any) => {
         event.preventDefault();
         let validity = true;
+
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         Object.values(state.errors).forEach((val: any) =>
             val.length > 0 ? (validity = false) : null
@@ -56,12 +60,15 @@ const SignIn = () => {
         if (validity) {
             const { email, password } = state;
             const response = await login({ email, password });
+            navigate(PATHS.general);
             if (response.errorMessage) {
                 errors.password = response.errorMessage;
                 setState({ ...state, errors });
             }
+            window.location.reload();
         }
     };
+
     const { errors } = state;
     return (
         <div className="wrapper">
@@ -77,7 +84,7 @@ const SignIn = () => {
                     <div className="megaphone"></div>
                     <div className="target"></div>
                 </div>
-                <div className="form-wrapper">
+                <div className="form-wrapper-login">
                     <br />
                     <h2>Zaloguj się</h2>
                     <br />

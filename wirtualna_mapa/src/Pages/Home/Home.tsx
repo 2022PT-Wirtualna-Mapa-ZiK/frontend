@@ -96,28 +96,24 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="div-title">
+            <div className="home-title">
                 <h1>Aktualnie najczęściej wyszukiwane zawody:</h1>
             </div>
-            <div className="div-charts">
-                <div id="contractTypes">
-                    <Chart
-                        chartType="PieChart"
-                        data={contractTypes}
-                        options={contractTypeChart}
-                    />
-                </div>
-
-                <div id="workModes">
-                    <Chart
-                        chartType="PieChart"
-                        data={workModes}
-                        options={workModeChart}
-                    />
-                </div>
+            <div id="chart1">
+                <Chart
+                    chartType="PieChart"
+                    data={contractTypes}
+                    options={contractTypeChart}
+                />
             </div>
-
-            <div className="div-list">
+            <div id="chart2">
+                <Chart
+                    chartType="PieChart"
+                    data={workModes}
+                    options={workModeChart}
+                />
+            </div>
+            <div className="list">
                 <ol>
                     {/* display each value(profession) from list */}
                     {professions.map((profess) => {

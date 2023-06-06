@@ -5,9 +5,10 @@ import { ENDPOINTS } from '../utils/consts';
 const useData = () => {
     const getGradeData = async (): Promise<IServerResponse> => {
         try {
+            localStorage.getItem('loggedIn');
             const response = await axiosDefault.get(ENDPOINTS.gradeData, {
                 headers: {
-                    authorization: 'Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==',
+                    authorization: localStorage.getItem('loggedIn'),
                 },
             });
             const rawData = response.data;
@@ -22,8 +23,7 @@ const useData = () => {
                 ENDPOINTS.recruitmentTypeData,
                 {
                     headers: {
-                        authorization:
-                            'Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==',
+                        authorization: localStorage.getItem('loggedIn'),
                     },
                 }
             );
@@ -37,7 +37,7 @@ const useData = () => {
         try {
             const response = await axiosDefault.get(ENDPOINTS.workModeData, {
                 headers: {
-                    authorization: 'Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==',
+                    authorization: localStorage.getItem('loggedIn'),
                 },
             });
             const rawData = response.data;
@@ -52,8 +52,7 @@ const useData = () => {
                 ENDPOINTS.contractTypeData,
                 {
                     headers: {
-                        authorization:
-                            'Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==',
+                        authorization: localStorage.getItem('loggedIn'),
                     },
                 }
             );
@@ -69,8 +68,7 @@ const useData = () => {
                 ENDPOINTS.offersFromCertainDay + '?date=' + date,
                 {
                     headers: {
-                        authorization:
-                            'Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==',
+                        authorization: localStorage.getItem('loggedIn'),
                     },
                 }
             );
@@ -84,7 +82,7 @@ const useData = () => {
         try {
             const response = await axiosDefault.get(ENDPOINTS.categories, {
                 headers: {
-                    authorization: 'Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==',
+                    authorization: localStorage.getItem('loggedIn'),
                 },
             });
             const rawData = response.data;
@@ -97,7 +95,7 @@ const useData = () => {
         try {
             const response = await axiosDefault.get(ENDPOINTS.employers, {
                 headers: {
-                    authorization: 'Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==',
+                    authorization: localStorage.getItem('loggedIn'),
                 },
             });
             const rawData = response.data;
@@ -110,7 +108,7 @@ const useData = () => {
         try {
             const response = await axiosDefault.get(ENDPOINTS.salaryRangeData, {
                 headers: {
-                    authorization: 'Basic YWRtaW5AZ21haWwuY29tOkFkbWluMTIzIw==',
+                    authorization: localStorage.getItem('loggedIn'),
                 },
             });
             const rawData = response.data;

@@ -13,11 +13,11 @@
     top: 4vh;
 }
 
-.div-list {
+.list {
     position: absolute;
     right: 12vw;
     top: 30vh;
-    font-size: 3vh;
+    font-size: 25px;
     text-align: left;
     font-weight: 400;
 }
@@ -47,25 +47,20 @@
     top: 15%;
 }
 
-.div-charts {
-    /* position:absolute;
-    display: inline-block; */
-    display: grid;
-    grid-template-columns: 400px 100px;
-    gap: 100px; /* Możesz dostosować odstępy między wykresami według potrzeb */
-    position: absolute;
-    top: 30vh;
-    left: 10vw;
-}
 
 #chart1 {
+    position: absolute;
     float: left;
-    width: 50%;
+    width: 25%;
+    top: 40vh;
 }
 
 #chart2 {
-    float: right;
-    width: 50%;
+    position: absolute;
+    float: left;
+    width: 25%;
+    top: 40vh;
+    left: 65vh;
 }
 
 button {

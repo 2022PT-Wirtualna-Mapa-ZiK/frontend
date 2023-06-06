@@ -6,7 +6,7 @@ export const API_URL =
 
 export const ENDPOINTS = {
     register: 'user/register',
-    login: 'user/login/',
+    login: 'user/login',
 
     gradeData: '/data/grades',
     recruitmentTypeData: '/data/recruitmentTypeCount',
@@ -24,7 +24,7 @@ export const PATHS = {
     logout: '/home',
     register: '/register',
     home: '/home',
-    categoriesEmployers: '/categoriesEmployers',
+    general: '/general',
 };
 
 export const LOCAL_STORAGE = {

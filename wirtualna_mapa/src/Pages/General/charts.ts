@@ -29,6 +29,7 @@ export const mostPopularJobsOfferChart = {
     fontSize: 15,
 };
 export const salaryRangeChart = {
+    is3D: true,
     backgroundColor: 'transparent',
     width: 1000,
     height: 700,
