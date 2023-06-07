@@ -13,6 +13,11 @@ import Button from '../../Components/Button/button';
 import { PATHS } from '../../utils/consts';
 import { Chart, GoogleChartWrapperChartType } from 'react-google-charts';
 import { Footer } from '../../Components/Footer/footer';
+import recruitmentTypesFile from './text/recrutimentTypes.txt';
+import gradesFile from './text/grades.txt';
+import employersFile from './text/employers.txt';
+import categoriesFile from './text/categories.txt';
+import salaryRangesFile from './text/salaryRanges.txt';
 
 const General = () => {
     const { getGradeData } = useData();
@@ -104,12 +109,58 @@ const General = () => {
         employers,
         salaryRanges,
     ];
+    const [gradesDescription, setgradesDescription] = useState('');
+    const [recruitmentTypesDescription, setrecruitmentTypesDescription] =
+        useState('');
+    const [categoriesDescriptions, setcategoriesDescriptions] = useState('');
+    const [employersDescription, setemployersDescription] = useState('');
+    const [salaryRangesDescription, setsalaryRangesDescription] = useState('');
+    // Multiply for more descriptions
+    fetch(gradesFile)
+        .then((r) => r.text())
+        .then((text) => {
+            setgradesDescription(text);
+            console.log('text decoded:', text);
+        });
+    //
+    fetch(recruitmentTypesFile)
+        .then((r) => r.text())
+        .then((text) => {
+            setrecruitmentTypesDescription(text);
+            console.log('text decoded:', text);
+        });
+    fetch(categoriesFile)
+        .then((r) => r.text())
+        .then((text) => {
+            setcategoriesDescriptions(text);
+            console.log('text decoded:', text);
+        });
+    fetch(employersFile)
+        .then((r) => r.text())
+        .then((text) => {
+            setemployersDescription(text);
+            console.log('text decoded:', text);
+        });
+    fetch(salaryRangesFile)
+        .then((r) => r.text())
+        .then((text) => {
+            setsalaryRangesDescription(text);
+            console.log('text decoded:', text);
+        });
+    const dataDescriptions = [
+        gradesDescription,
+        recruitmentTypesDescription,
+        categoriesDescriptions,
+        employersDescription,
+        salaryRangesDescription,
+    ];
+    console.log(dataDescriptions);
+    console.log(recruitmentTypesDescription);
     const chartType = chartTypes[typeNumber] as GoogleChartWrapperChartType;
 
     return (
         <div className="categoriesEmployers">
             <div className="div-home">
-                <Button link={PATHS.register} text="Konto" />
                 <Button
                     text="Wyloguj się"
                     onClick={() => {
@@ -130,17 +181,85 @@ const General = () => {
                     }}
                 />
             </div>
+            {/* start */}
             <div className="div-title">
-                <h1>{titles[chartNumber]}</h1>
+                <div className="chartTitle">{titles[chartNumber]}</div>
+                <div className="spaceBetween"> </div>
+                <div className="figure1">
+                    <div className="parallelogram1"></div>
+                    <div className="rectangle1">
+                        <div className="rectangleTitle">
+                            {dataDescriptions[chartNumber].split('\n')[0]}
+                        </div>
+                        <div className="rectangleAdvantagesTitle">Zalety</div>
+                        <div className="rectangleAdvantages">
+                            {dataDescriptions[chartNumber]
+                                .split('\n')
+                                .slice(2, 5)}
+                        </div>
+                        <div className="rectangleDefectsTitle">Wady</div>
+                        <div className="rectangleDefects">
+                            {dataDescriptions[chartNumber]
+                                .split('\n')
+                                .slice(6, 9)}
+                        </div>
+                    </div>
+                    <div className="triangle-down1"></div>
+                </div>
+                <div className="figure2">
+                    <div className="parallelogram2"></div>
+                    <div className="rectangle2">
+                        <div className="rectangleTitle">
+                            {dataDescriptions[chartNumber].split('\n')[9]}
+                        </div>
+                        <div className="rectangleAdvantagesTitle">Zalety</div>
+                        <div className="rectangleAdvantages">
+                            {dataDescriptions[chartNumber]
+                                .split('\n')
+                                .slice(11, 14)}
+                        </div>
+                        <div className="rectangleDefectsTitle">Wady</div>
+                        <div className="rectangleDefects">
+                            {dataDescriptions[chartNumber]
+                                .split('\n')
+                                .slice(15, 18)}
+                        </div>
+                    </div>
+                    <div className="triangle-down2"></div>
+                </div>
+                <div className="figure3">
+                    <div className="parallelogram3"></div>
+                    <div className="rectangle3">
+                        <div className="rectangleTitle">
+                            {dataDescriptions[chartNumber].split('\n')[18]}
+                        </div>
+                        <div className="rectangleAdvantagesTitle">Zalety</div>
+                        <div className="rectangleAdvantages">
+                            {dataDescriptions[chartNumber]
+                                .split('\n')
+                                .slice(20, 23)}
+                        </div>
+                        <div className="rectangleDefectsTitle">Wady</div>
+                        <div className="rectangleDefects">
+                            {dataDescriptions[chartNumber]
+                                .split('\n')
+                                .slice(24, 27)}
+                        </div>
+                    </div>
+                    <div className="triangle-down3"></div>
+                </div>
             </div>
-
-            <div id="chart">
-                <Chart
-                    chartType={chartType}
-                    data={data[chartNumber]}
-                    options={options[chartNumber]}
-                />
+            <div id="div-charts">
+                <div id="chart">
+                    <Chart
+                        chartType={chartType}
+                        data={data[chartNumber]}
+                        options={options[chartNumber]}
+                    />
+                </div>
             </div>
+            <div id="panels"></div>
+            {/* end */}
             <div className="div-change-type">
                 <Button
                     text="Zmień typ wykresu"
