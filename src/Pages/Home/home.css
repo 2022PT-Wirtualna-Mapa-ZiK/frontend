@@ -47,7 +47,6 @@
     top: 15%;
 }
 
-
 #chart1 {
     position: absolute;
     float: left;
@@ -133,8 +132,8 @@ button:hover {
     background-size: cover;
 }
 
-.signIn{
-  position: absolute;
-  bottom: 5%;
-  right: 12%;
+.signIn {
+    position: absolute;
+    bottom: 5%;
+    right: 12%;
 }

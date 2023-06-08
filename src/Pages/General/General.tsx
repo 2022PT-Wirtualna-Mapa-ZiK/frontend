@@ -120,32 +120,32 @@ const General = () => {
         .then((r) => r.text())
         .then((text) => {
             setgradesDescription(text);
-            console.log('text decoded:', text);
+            //console.log('text decoded:', text);
         });
     //
     fetch(recruitmentTypesFile)
         .then((r) => r.text())
         .then((text) => {
             setrecruitmentTypesDescription(text);
-            console.log('text decoded:', text);
+            //console.log('text decoded:', text);
         });
     fetch(categoriesFile)
         .then((r) => r.text())
         .then((text) => {
             setcategoriesDescriptions(text);
-            console.log('text decoded:', text);
+            //console.log('text decoded:', text);
         });
     fetch(employersFile)
         .then((r) => r.text())
         .then((text) => {
             setemployersDescription(text);
-            console.log('text decoded:', text);
+            //console.log('text decoded:', text);
         });
     fetch(salaryRangesFile)
         .then((r) => r.text())
         .then((text) => {
             setsalaryRangesDescription(text);
-            console.log('text decoded:', text);
+            //console.log('text decoded:', text);
         });
     const dataDescriptions = [
         gradesDescription,
@@ -154,8 +154,8 @@ const General = () => {
         employersDescription,
         salaryRangesDescription,
     ];
-    console.log(dataDescriptions);
-    console.log(recruitmentTypesDescription);
+    //console.log(dataDescriptions);
+    //console.log(recruitmentTypesDescription);
     const chartType = chartTypes[typeNumber] as GoogleChartWrapperChartType;
 
     return (
