@@ -1,4 +1,4 @@
 export interface gradeData {
-    grade : string,
-    amountOfOffers : string
-  }
+    grade: string;
+    amountOfOffers: string;
+}

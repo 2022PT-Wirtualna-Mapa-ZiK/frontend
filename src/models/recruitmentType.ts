@@ -1,4 +1,4 @@
 export interface recruitmentTypeData {
-    recruitmentType : string,
-    count : string
-  }
+    recruitmentType: string;
+    count: string;
+}
