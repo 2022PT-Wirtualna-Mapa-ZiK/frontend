@@ -35,13 +35,12 @@ const SignIn = () => {
             case 'email':
                 errors.email = Regex.test(value)
                     ? ''
-                    : 'Email jest nieprawidłowy!';
+                    : 'Email jest nieprawidłowy';
                 break;
             case 'password':
-                errors.password =
-                    value.length < 8
-                        ? 'Hasło musi mieć długość minimum 8 znaków!'
-                        : '';
+                errors.password = Regex.test(value)
+                    ? 'Hasło jest nieprawidłowe'
+                    : '';
                 break;
             default:
                 break;
@@ -60,12 +59,11 @@ const SignIn = () => {
         if (validity) {
             const { email, password } = state;
             const response = await login({ email, password });
-            navigate(PATHS.general);
+
             if (response.errorMessage) {
                 errors.password = response.errorMessage;
                 setState({ ...state, errors });
-            }
-            window.location.reload();
+            } else navigate(PATHS.general);
         }
     };
 

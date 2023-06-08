@@ -25,8 +25,47 @@ export const SignUp = () => {
             confPassword: '',
         },
     };
+
     const { register } = useAuth();
     const [state, setState] = useState(initialState);
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handleClick = (event: any) => {
+        event.preventDefault();
+        const { name, value } = event.target;
+        const errors = { ...state.errors };
+
+        switch (name) {
+            case 'name':
+                value.length == 0
+                    ? (errors.name = 'To pole jest wymagane')
+                    : '';
+                break;
+            case 'surname':
+                value.length == 0
+                    ? (errors.surname = 'To pole jest wymagane')
+                    : '';
+                break;
+            case 'email':
+                value.length == 0
+                    ? (errors.email = 'To pole jest wymagane')
+                    : '';
+                break;
+            case 'password':
+                value.length == 0
+                    ? (errors.password = 'To pole jest wymagane')
+                    : '';
+                break;
+            case 'confPassword':
+                value.length == 0
+                    ? (errors.confPassword = 'To pole jest wymagane')
+                    : '';
+                break;
+            default:
+                break;
+        }
+        setState({ ...state, errors, [name]: value });
+    };
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleChange = (event: any) => {
@@ -58,9 +97,9 @@ export const SignUp = () => {
                 break;
             case 'confPassword':
                 errors.confPassword =
-                    value.length < 8
-                        ? 'Hasło musi mieć długość minimum 8 znaków!'
-                        : '';
+                    value.password == value.confPassword
+                        ? ''
+                        : 'Hasła muszą być identyczne';
                 break;
             default:
                 break;
@@ -73,7 +112,13 @@ export const SignUp = () => {
         event.preventDefault();
         let validity = true;
         Object.values(state.errors).forEach((val) =>
-            val.length > 0 ? (validity = false) : null
+            val.length > 0 &&
+            state.name.length < 3 &&
+            state.surname.length < 3 &&
+            state.password.length < 8 &&
+            state.confPassword.length < 8
+                ? (validity = false)
+                : null
         );
         if (validity) {
             const { name, surname, email, password, confPassword } = state;
@@ -117,8 +162,9 @@ export const SignUp = () => {
                                 type="text"
                                 name="name"
                                 onChange={handleChange}
+                                onClick={handleClick}
                             />
-                            {errors.name.length > 0 && (
+                            {state.name.length == 0 || (
                                 <span style={{ color: 'red' }}>
                                     {errors.name}
                                 </span>
@@ -130,8 +176,9 @@ export const SignUp = () => {
                                 type="text"
                                 name="surname"
                                 onChange={handleChange}
+                                onClick={handleClick}
                             />
-                            {errors.surname.length > 0 && (
+                            {state.surname.length == 0 || (
                                 <span style={{ color: 'red' }}>
                                     {errors.surname}
                                 </span>
@@ -143,8 +190,9 @@ export const SignUp = () => {
                                 type="email"
                                 name="email"
                                 onChange={handleChange}
+                                onClick={handleClick}
                             />
-                            {errors.email.length > 0 && (
+                            {state.email.length == 0 || (
                                 <span style={{ color: 'red' }}>
                                     {errors.email}
                                 </span>
@@ -156,23 +204,23 @@ export const SignUp = () => {
                                 type="password"
                                 name="password"
                                 onChange={handleChange}
+                                onClick={handleClick}
                             />
-                            {errors.password.length > 0 && (
+                            {state.password.length == 0 || (
                                 <span style={{ color: 'red' }}>
                                     {errors.password}
                                 </span>
                             )}
                         </div>
                         <div className="confpassword">
-                            <label htmlFor="confpassword">
-                                Podaj jeszcze raz hasło:
-                            </label>
+                            <label htmlFor="confpassword">Powtórz hasło</label>
                             <input
                                 type="password"
                                 name="confPassword"
                                 onChange={handleChange}
+                                onClick={handleClick}
                             />
-                            {errors.confPassword.length > 0 && (
+                            {state.confPassword.length == 0 || (
                                 <span style={{ color: 'red' }}>
                                     {errors.confPassword}
                                 </span>
@@ -183,6 +231,7 @@ export const SignUp = () => {
                             text="Zarejestruj się"
                             form={form}
                             className="signUp"
+                            onClick={handleClick}
                         />
                     </form>
 
