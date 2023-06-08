@@ -9,6 +9,7 @@ import { salaryRangeChart } from './charts';
 import { getPromisedData } from '../../utils/functions';
 import { gradesChart, recruitmentTypeChart, mostPopularEmployersChart, mostPopularJobsOfferChart } from './charts';
 import Chart from 'react-google-charts';
+import { API_URL } from '../../utils/consts'
 
 interface CategoriesEmployersProps {}
 
