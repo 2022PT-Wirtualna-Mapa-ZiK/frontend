@@ -2,6 +2,9 @@ const url =
     'https://wmzik-webapi.proudfield-39a6685d.westeurope.azurecontainerapps.io';
 export const API_URL = `${url}/api/v1`;
 
+// export const API_URL =
+//   url.port !== '' ? `${url.protocol}//${url.hostname}:8000/api/v1/` : `${url.origin}/api/v1`
+
 export const ENDPOINTS = {
     register: 'user/register',
     login: 'user/login',
