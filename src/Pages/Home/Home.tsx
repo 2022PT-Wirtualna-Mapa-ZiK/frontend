@@ -1,5 +1,4 @@
 import React from "react";
-import path from "path";
 import "./home.css";
 import { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
