@@ -57,7 +57,7 @@ const Home = () => {
     })
 
     getDaysAmount();
-  },[])  
+  },[AmountFromDate, getContractTypeData, getWorkModeData])  
 
   let workModes = [];
   workModes.push(["Element", "Density"]);    //give the headers for the chart data

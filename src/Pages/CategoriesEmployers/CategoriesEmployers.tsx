@@ -67,7 +67,7 @@ const CategoriesEmployers: FC<CategoriesEmployersProps> = () => {
     getRecruitmentTypes();
     getCategories();    
     getEmployers();
-  },[]) 
+  },[getCategoriesData, getEmployersData, getGradeData, getRecruitmentTypeData, getSalaryRangeData]) 
 
   let grades = [];
   grades.push(["Element", "Density"]);    //give the headers for the chart data
