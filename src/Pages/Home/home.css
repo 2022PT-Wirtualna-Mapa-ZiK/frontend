@@ -132,3 +132,9 @@ button:hover {
     background-image: url('../../assets/Home/tempsnip.png');
     background-size: cover;
 }
+
+.signIn{
+  position: absolute;
+  bottom: 5%;
+  right: 12%;
+}

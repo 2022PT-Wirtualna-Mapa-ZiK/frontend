@@ -32,10 +32,6 @@ root.render(
                 <Route path={PATHS.register} element={<SignUp />} />
                 <Route path={PATHS.welcome} element={<WelcomePage />} />
                 <Route path={PATHS.home} element={<Home />} />
-                {/* <Route
-                    path={PATHS.general}
-                    element={<general />}
-                /> */}
             </Routes>
         </Router>
     </React.StrictMode>
