@@ -103,7 +103,7 @@
     text-align: right;
 }
 
-Button{
+.join-button{
     position: fixed;
     bottom: 12vh;
     left: 5vw;
