@@ -1,8 +1,8 @@
-// const url =
-//     'https://wmzik-webapi.proudfield-39a6685d.westeurope.azurecontainerapps.io';
-// export const API_URL = `${url}/api/v1`;
+const url =
+    'https://wmzik-webapi.proudfield-39a6685d.westeurope.azurecontainerapps.io';
+export const API_URL = `${url}/api/v1`;
 
-export const API_URL = 'localhost:8000/api/v1/';
+// export const API_URL = 'localhost:8000/api/v1/';
 
 export const ENDPOINTS = {
     register: 'user/register',
