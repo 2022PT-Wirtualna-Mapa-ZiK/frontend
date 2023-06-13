@@ -30,7 +30,7 @@ const General = () => {
 
     const [dataGrade, setDataGrade] = useState<gradeData[]>();
     const [dataRecruitmentType, setDataRecruitmentType] =
-        useState<recruitmentTypeData[]>();
+        useState<recruitmentTypeData>();
     const [dataCategories, setDataCategories] = useState<categories[]>();
     const [dataEmployers, setDataEmployers] = useState<employers[]>();
     const [dataSalaryRange, setDataSalaryRange] = useState<salaryRangeData[]>();
@@ -54,7 +54,7 @@ const General = () => {
         const getRecruitmentTypes = async () => {
             const users = await getRecruitmentTypeData();
             const dataPre = JSON.stringify(users.data);
-            const dataReady: recruitmentTypeData[] = JSON.parse(dataPre);
+            const dataReady: recruitmentTypeData = JSON.parse(dataPre);
             setDataRecruitmentType(dataReady);
         };
         const getCategories = async () => {
@@ -86,9 +86,15 @@ const General = () => {
 
     const recruitmentTypes = [];
     recruitmentTypes.push(['Element', 'Ilość']); //give the headers for the chart data
-    dataRecruitmentType?.forEach((v) => {
-        recruitmentTypes.push([v.recruitmentType, v.count]);
-    });
+
+    for (const keyX in dataRecruitmentType) {
+        recruitmentTypes.push([
+            keyX == 'nie podano'
+                ? 'Rekrutacja stacjonarna'
+                : 'Rekrutacja zdalna',
+            dataRecruitmentType[keyX as keyof recruitmentTypeData],
+        ]);
+    } //this has to be added since type of data has been changed in api. Array was changed to object
 
     const categories = [];
     categories.push(['Element', 'Ilość']); //give the headers for the chart data
