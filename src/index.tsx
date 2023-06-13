@@ -2,7 +2,7 @@ import React from 'react';
 import App from './App';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { Route, HashRouter as Router, Routes } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import SignIn from './Pages/SignIn/SignIn';
 import Home from './Pages/Home/Home';
 import WelcomePage from './Pages/WelcomePage/WelcomePage';
@@ -15,8 +15,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <React.StrictMode>
-        <Router>
-            <App />
+        <App />
+        <Router basename={process.env.PUBLIC_URL}>
             <Routes>
                 <Route
                     path={PATHS.general}
