@@ -30,7 +30,7 @@ const useAuth = () => {
                     },
                 }
             );
-
+            console.log(data.email + data.password);
             localStorage.setItem(LOCAL_STORAGE.loggedIn, basicAuth);
             //navigate(PATHS.categoriesEmployers);
 
@@ -60,7 +60,7 @@ const useAuth = () => {
                     },
                 }
             );
-
+            console.log(data.email + data.password + data.confPassword);
             navigate(PATHS.login);
             localStorage.setItem(LOCAL_STORAGE.registered, 'registered');
 

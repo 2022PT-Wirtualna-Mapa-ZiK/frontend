@@ -97,7 +97,7 @@ export const SignUp = () => {
                 break;
             case 'confPassword':
                 errors.confPassword =
-                    value.password == value.confPassword
+                    value.password === value.confPassword
                         ? ''
                         : 'Hasła muszą być identyczne';
                 break;
