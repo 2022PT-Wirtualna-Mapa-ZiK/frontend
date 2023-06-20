@@ -1,31 +1,31 @@
-.categoriesEmployers {
-    background-image: url('../../assets/back1.png');
+.home {
+    background-image: url('../../assets/back2.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100vw;
     height: 91vh;
 }
+
 .div-home {
     position: absolute;
     right: 5vw;
     top: 4vh;
 }
 
-.div-list {
+.list {
     position: absolute;
     right: 12vw;
     top: 30vh;
-    font-size: 3vh;
+    font-size: 25px;
     text-align: left;
     font-weight: 400;
 }
 
 .div-title {
     position: absolute;
-    background-color: transparent;
-    left: 20vw;
-    top: 25vh;
+    right: 6vw;
+    top: 20vh;
 }
 
 .div-title > h1 {
@@ -47,26 +47,19 @@
     top: 15%;
 }
 
-.div-charts {
-    /* position:absolute;
-    display: inline-block; */
-    display: grid;
-    grid-template-columns: 400px 100px;
-    gap: 100px; /* Możesz dostosować odstępy między wykresami według potrzeb */
+#chart1 {
     position: absolute;
-    top: 50vh;
-    left: 10vw;
-}
-.div-change-type {
-    position: fixed;
-    bottom: 12vh;
-    right: 5vw;
+    float: left;
+    width: 25%;
+    top: 40vh;
 }
 
-#chart {
+#chart2 {
     position: absolute;
-    top: 8vw;
-    left: 10vw;
+    float: left;
+    width: 25%;
+    top: 40vh;
+    left: 65vh;
 }
 
 button {
@@ -102,6 +95,41 @@ button:hover {
     position: absolute;
     bottom: 13%;
     left: 23%;
+}
+
+.Home {
+    position: absolute;
+    bottom: 5%;
+    right: 12%;
+}
+
+.backpack {
+    width: 20%;
+    height: 30%;
+    background-image: url('../../assets/Home/backpack.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0.5%;
+    right: 1%;
+}
+
+.target {
+    width: 15%;
+    height: 30%;
+    background-image: url('../../assets/Home/target.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+}
+
+.center {
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/Home/tempsnip.png');
+    background-size: cover;
 }
 
 .signIn {

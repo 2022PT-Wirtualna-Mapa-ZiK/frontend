@@ -1,5 +1,7 @@
 import React from 'react';
 import './WelcomePage.css';
+import { PATHS } from '../../utils/consts';
+import Button from '../../Components/Button/button';
 
 const WelcomePage = () => {
     return (
@@ -57,7 +59,11 @@ const WelcomePage = () => {
                             <div></div>
                         </div>
                     </div>
-                    {/* <Button link={PATHS.home} text="Dołącz do nas!" /> */}
+                    <Button
+                        className="join-button"
+                        link={PATHS.home}
+                        text="Dołącz do nas!"
+                    />
                 </div>
             </div>
         </div>

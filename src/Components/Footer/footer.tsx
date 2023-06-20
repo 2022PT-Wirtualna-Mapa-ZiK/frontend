@@ -5,10 +5,6 @@ export class Footer extends React.Component {
     render() {
         return (
             <div className="footer">
-                {/* <ul>
-    <li><a href="/" className="border-left">Home</a></li>
-    <li><a href="/about" className="menu">About</a></li>
-    <li><a href="/contact" className="border-right">Contact</a></li> */}
                 <p className="footer-content-right">
                     <p>
                         Authors: Krystian Sandomierski, Przemysław Kuczyński,
