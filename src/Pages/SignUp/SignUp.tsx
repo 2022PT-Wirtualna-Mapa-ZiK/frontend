@@ -31,7 +31,6 @@ export const SignUp = () => {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleClick = (event: any) => {
-        event.preventDefault();
         const { name, value } = event.target;
         const errors = { ...state.errors };
 
@@ -69,7 +68,6 @@ export const SignUp = () => {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleChange = (event: any) => {
-        event.preventDefault();
         const { name, value } = event.target;
         const errors = { ...state.errors };
 
@@ -112,13 +110,7 @@ export const SignUp = () => {
         event.preventDefault();
         let validity = true;
         Object.values(state.errors).forEach((val) =>
-            val.length > 0 &&
-            state.name.length < 3 &&
-            state.surname.length < 3 &&
-            state.password.length < 8 &&
-            state.confPassword.length < 8
-                ? (validity = false)
-                : null
+            val.length > 0 ? (validity = false) : null
         );
         if (validity) {
             const { name, surname, email, password, confPassword } = state;

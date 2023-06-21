@@ -36,10 +36,16 @@ const useAuth = () => {
 
             return { succeed: true };
         } catch (error) {
-            return {
-                succeed: false,
-                errorMessage: 'Podany użytkownik nie istnieje',
-            };
+            if (data.email == '' || data.password == '')
+                return {
+                    succeed: false,
+                    errorMessage: 'Podano nieprawidłowe dane',
+                };
+            else
+                return {
+                    succeed: false,
+                    errorMessage: 'Podany użytkownik nie istnieje',
+                };
         }
     };
 
