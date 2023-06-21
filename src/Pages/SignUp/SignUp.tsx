@@ -53,13 +53,13 @@ export const SignUp = () => {
             case 'password':
                 errors.password =
                     value.length < 8
-                        ? 'Hasło musi mieć długość minimum 8 znaków!'
+                        ? 'Hasło musi mieć długość minimum 8 znaków oraz jedną dużą literę!'
                         : '';
                 break;
             case 'confPassword':
                 errors.confPassword =
                     value.length < 8
-                        ? 'Hasło musi mieć długość minimum 8 znaków!'
+                        ? 'Hasło musi mieć długość minimum 8 znaków oraz jedną dużą literę!'
                         : '';
                 break;
             default:
